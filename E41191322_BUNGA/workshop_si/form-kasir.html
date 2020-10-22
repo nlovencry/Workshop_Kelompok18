@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<link rel="stylesheet" type="text/css" href="form-kasir.css">
+</head>
+<body>
+	<center>
+	<fieldset>
+			<form action="target.html" method="POST">
+				<h2>FORM DATA</h2>
+				<table border="0">
+					<tr>
+						<td>ID</td>
+						<td>:</td>
+						<td><input type="text" name="id" placeholder="Masukkan ID anda" required=""></td>
+					</tr>
+					<tr>
+						<td>Nama Lengkap</td>
+						<td>:</td>
+						<td><input type="text" name="nama" placeholder="Masukkan Nama anda" required=""></td>
+					</tr>
+					<tr>
+						<td>Alamat</td>
+						<td>:</td> 
+						<td><select name="alamat" required="">
+							<option value="Jember">Jember</option>
+							<option value="Lumajang">Lumajang</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>No Telepon</td>
+						<td>:</td>
+						<td><input type="text" name="telepon" placeholder="Masukkan No Telepon" required=""></td>
+					</tr>
+					<tr>
+						<td>Jenis Kelamin</td>
+						<td>:</td>
+						<td>
+							<input type="radio" name="jeniskelamin" value="Laki-laki" required=""> Laki-laki
+							<input type="radio" name="jeniskelamin" value="Perempuan" required=""> Perempuan
+						</td>
+					</tr>
+					<tr>
+						<td>Username</td>
+						<td>:</td>
+						<td><input type="text" name="username" placeholder="Masukkan Username" required=""></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td>:</td>
+						<td><input type="password" name="password" placeholder="Masukkan Password" required=""></td>
+					</tr>
+					<tr>
+						<td colspan="3" align="right"><button type="submit" name="submit" value="Submit">Submit</button></td>
+					</tr>
+				</table>
+			</form>
+	</fieldset>
+	</center>
+</body>
+</html>

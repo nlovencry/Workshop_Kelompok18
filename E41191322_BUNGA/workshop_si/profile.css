@@ -1,0 +1,47 @@
+*{
+	padding: 5px; /*jarak antar elemen dari sisi dalam*/
+	margin: 5px auto; /*jarak antar elemen dari sisi luar*/
+	margin-top: 0px 
+}
+
+table{
+	padding: 10px;
+}
+
+h3{
+	text-decoration: underline;
+}
+
+nav {
+    margin:auto;
+    text-align: center;
+    width: 100%;
+} 
+
+nav ul {
+    background: #3399ff;
+    padding: 0px;
+    list-style: none; /*menghilangkan list*/
+    position: relative; /*mengatur posisi elemen, relative akan terletak pada posisi normal*/
+    display: inline-table;
+    width: 100%;
+}
+
+nav ul li{
+	/*mengatur letak elemen secara horizontal*/
+    float:left; 
+}
+
+nav ul li:hover{
+    background: #1a8cff; /*mengatur warna hover pada navbar*/
+}
+
+nav ul li:hover a{
+    color:#000; /*mengatur warna pada tulisan di tag a*/
+}
+nav ul li a{
+    display: block; /*lebar elemen sesuai dengan screen*/
+    padding: 5px;
+    color: #fff; 
+    text-decoration: none;
+}
