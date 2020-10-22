@@ -36,8 +36,8 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Form:</h6>
-      <a class="collapse-item" href="buttons.html">Registration</a>
-      <a class="collapse-item" href="cards.html">Contact Us</a>
+      <a class="collapse-item" href="registration.php">Registration</a>
+      <a class="collapse-item" href="contact.php">Contact Us</a>
     </div>
   </div>
 </li>

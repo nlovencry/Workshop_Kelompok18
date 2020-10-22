@@ -219,16 +219,15 @@
         <div class="container-fluid">
         <!-- page heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Contact Us</h1>
+        <h1 class="h3 mb-0 text-gray-800">Registration</h1>
         </div>
 <!-- content row -->
         <div class="row">
-<!-- area chart -->
         <div class="col-xl-12 col-lg-7">
         <div class="card shadow mb-4">
         <!-- chad header - dropdown-->
         <div class="card-header py-3 d-flex flex-ro align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bod text-primary">Contact</h6>
+        <h6 class="m-0 font-weight-bod text-primary">Registration</h6>
         <div class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
         area-expanded="false">
         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -241,25 +240,54 @@
         <div class="form-group">
         <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama Anda" required>
         </div>
-        <div class="form-group">
-        <input type="text" class="form-control form-control-user" id="subject" name="subject" placeholder="Subjek Pesan Anda" required>
+        <div class="form-group"> 
+        <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Usename Anda" required>
         </div>
         <div class="form-group">
         <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email Anda" required>
         </div>
+        <div class="form-group">
+        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password Anda" required>
+        </div>
+        <div class="form-group">
+        <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="laki-laki" required>Laki-laki
+        <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="perempuan" required>Perempuan
+        </div>
+
+        <div class="form-group"> 
+        <select name="agama" id="agama" class="form-control form-control-user">
+        <option value="islam">Islam</option>
+        <option value="Kristen">Kristen</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <textarea name="biografi" id="biografi" class="form-control form-control-user" placeholde="Biografi Anda"></textarea> 
+        </div>
         <button type="submit" class="btn btn-success" name="submit">Tambah</button>
         <?php
         $name = @$_GET['name'];
-        $subject = @$_GET['subject'];
+        $username = @$_GET['username'];
         $email = @$_GET['email'];
+        $jenis_kelamin= @$_GET['jenis_kelamin'];
+        $agama = @$_GET['agama'];
+        $biografi = @$_GET['biografi'];
         if ($name){
             echo "<br><br><srong>Nama:</strong> {$name} <br>";
         }
-        if ($subject){
-            echo "<srong>Subject:</strong> {$subject} <br>";
+        if ($username){
+            echo "<srong>username:</strong> {$username} <br>";
         }
         if ($email){
             echo "<srong>Email:</strong> {$email} <br>";
+        }
+        if ($jenis_kelamin){
+            echo "<srong>jenis_kelamin:</strong> {$jenis_kelamin} <br>";
+        }
+        if ($agama){
+            echo "<srong>agama:</strong> {$agama} <br>";
+        }
+        if ($biografi){
+            echo "<srong>biografi:</strong> {$biografi} <br>";
         }
         ?>
         </form>
