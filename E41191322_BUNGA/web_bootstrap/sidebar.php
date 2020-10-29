@@ -24,7 +24,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Belajar Web
+        Belajar Website
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
