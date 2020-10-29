@@ -4,7 +4,7 @@
 $jenis_kelamin='l';
 
 //tipe data srtring (teks)
-$nama_lengkap = "petani kode";
+$nama_lengkap = "Petani kode";
 
 //tipe data integer
 $umur = 20;
@@ -18,10 +18,10 @@ $tinggi = 182.2;
 //tipe data boolean
 $menikah = false;
 
-echo "nama:$nama_lengkap<br>";
-echo "jenis kelamin: $jenis_kelamin<br>";
-echo "umur: $umur<br>";
-echo "berat badan: $berat kg<br>";
-echo "tinggi badan: $tinggi cm<br>";
+echo "Nama:$nama_lengkap<br>";
+echo "Jenis Kelamin: $jenis_kelamin<br>";
+echo "Umur: $umur<br>";
+echo "Berat Badan: $berat Kg<br>";
+echo "Tinggi Badan: $tinggi Cm<br>";
 
 ?>

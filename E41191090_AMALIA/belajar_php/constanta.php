@@ -3,14 +3,14 @@
 // file: <belajar-konstanta class="php">
 
 //membuat konstanta
-define('version','1.0.0');
+define('Version','1.0.0');
 
-const site_name = "petanikode";
+const site_name = "Petanikode";
 const base_url = "https://www.petanikode.com";
 
 //cetak nilai konstanta
-echo "site name: " . site_name . "<br/>";
-echo "url: " . base_url . "<br/>";
-echo "version: " . version . "<br/>";
+echo "Site name: " . site_name . "<br/>";
+echo "Url: " . base_url . "<br/>";
+echo "Version: " . version . "<br/>";
 
 ?>

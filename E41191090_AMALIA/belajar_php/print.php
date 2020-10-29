@@ -1,7 +1,7 @@
 <?php
 
-    print "<h2>belajar php dari nol!</h2>";
-    print "hello word!<br>";
-    print "belajar mencetak teks di php";
+    print "<h2>Belajar PHP Dari Nol!</h2>";
+    print "Hello Amal!<br>";
+    print "Belajar Mencetak Teks Di PHP";
 
 ?>

@@ -1,8 +1,8 @@
 <?php
 
-    echo "<h2>belajar php itu mudah!</h2>";
-    echo "hello word! <br>";
-    echo "aku sedang belajar php";
-    echo "ini","text","yang","dibuat","terpisah.";
+    echo "<h2>Belajar PHP Itu Mudah!</h2>";
+    echo "Hello Amal! <br>";
+    echo "Aku Sedang Belajar PHP! <br>";
+    echo "Ini","Text","Yang","Dibuat","Terpisah.";
 
 ?>
