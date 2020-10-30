@@ -24,4 +24,11 @@ echo "Umur: $umur<br>";
 echo "Berat Badan: $berat Kg<br>";
 echo "Tinggi Badan: $tinggi Cm<br>";
 
+//mengecek tipe data pada php
+echo gettype ($nama_lengkap); echo "<br />";
+echo gettype ($jenis_kelamin); echo "<br />";
+echo gettype ($umur); echo "<br />";
+echo gettype ($berat); echo "<br />";
+echo gettype ($tinggi); echo "<br />";
+
 ?>
