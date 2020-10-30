@@ -7,4 +7,4 @@
 
     printf("Hello Amal3! <br/>");// penggunaan sintax printf
 
-//tag penutup ?> s
+//tag penutup ?> 
