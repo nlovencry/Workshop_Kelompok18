@@ -1,9 +1,9 @@
 <?php //tag pembuka atau tag singkat
 
     echo "Hello Amal1!"; // penggunaan sintax echo
+    echo 'Hello A\'mal1'; // penggunaan sintax echo tanda kutip yang benar
     
     print "Hello Amal2!"; // penggunaan sintax print
-    print "Hello Amal2","Hello Amal"; // penggunaan sintax print error
 
     printf("Hello Amal3!") // penggunaan sintax printf
 
