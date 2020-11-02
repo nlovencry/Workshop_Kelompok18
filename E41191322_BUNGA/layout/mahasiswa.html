@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		input[type="text"], input[type="date"], textarea{
+			width: 100%;
+			padding: 7px;
+			box-sizing: border-box;
+		}
+		button{
+			background-color: #3cb371;
+			border: none;
+			padding: 10px 25px;
+			font-size: 15px;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<form action="data.html" method="POST">
+			<p><h1>FORM MAHASISWA</h1></p>
+			<table border="0" width="70%">
+				<tr>
+					<td>NIM</td>
+					<td>:</td>
+					<td><input type="text" name="nim" placeholder="Masukkan NIM"></td>
+				</tr>
+				<tr>
+					<td>Nama</td>
+					<td>:</td>
+					<td><input type="text" name="nama" placeholder="Masukkan Nama"></td>
+				</tr>
+				<tr>
+					<td>Alamat</td>
+					<td>:</td>
+					<td><textarea placeholder="Masukkan Alamat"></textarea></td>
+				</tr>
+				<tr>
+					<td>Tanggal Lahir</td>
+					<td>:</td>
+					<td><input type="date" name="tl"></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="right"><button type="submit" name="submit" value="Submit">Submit</button></td>
+				</tr>
+			</table>
+		</form>
+	</center>
+</body>
+</html>
