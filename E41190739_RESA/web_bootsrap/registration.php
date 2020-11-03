@@ -275,7 +275,6 @@
                     <div class="form-group">
                       <textarea class="form-control" rows="3" name="textarea" id="textarea"></textarea>
                     </div>
-
                     <br><button type"submit" class="btn btn-success" name="submit">Tambah</button></br>
                     <?php
                     $name          = @$_GET['name'];
