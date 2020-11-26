@@ -262,7 +262,7 @@
                         <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Perempuan" required=""> Perempuan
                     </div>
                     <div class="form-group">
-                    <select name="agama" id="agama" class="form-control mb-3">
+                    <select name="agama" id="agama" class="form-control-use">
                       <option value="islam">Islam</option>
                       <option value="kristen">Kristen</option>
                       <option value="kristen">Protestan</option>
@@ -275,7 +275,6 @@
                     <div class="form-group">
                       <textarea class="form-control" rows="3" name="textarea" id="textarea"></textarea>
                     </div>
-
                     <br><button type"submit" class="btn btn-success" name="submit">Tambah</button></br>
                     <?php
                     $name          = @$_GET['name'];
