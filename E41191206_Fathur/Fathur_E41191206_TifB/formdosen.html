@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Fathur</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 15%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+  font-size: 15px;
+}
+
+input[type=text], select {
+  
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px:
+
+}
+
+input[type=submit], input[type=date], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<section>
+  
+  
+  <center>
+  	<h1>Form Dosen</h1>
+    <form action="datadosen.html">
+  <table border="0">
+    
+    <tr>
+      <td>NIDN</td>
+      <td>:</td>
+      <td><input type="text" name="nim" maxlength="10" minlength="10" placeholder="NIDM"></td>
+      
+    </tr>
+    
+  
+    <tr>
+      <td>Nama</td>
+      <td>:</td>
+      <td><input type="text" name="nama" placeholder="Nama" onkeypress='return harusHuruf(event)'></td>
+      <script>
+     
+                        function harusHuruf(evt){
+                                var charCode = (evt.which) ? evt.which : event.keyCode
+                                if ((charCode < 65 || charCode > 90)&&(charCode < 97 || charCode > 122)&&charCode>32)
+                                    return false;
+                                return true;
+                                                }  
+                    </script>
+      
+    </tr>
+    
+   
+    <tr>
+      <td>Alamat</td>
+      <td>:</td>
+      <td><textarea></textarea></td>
+    
+   </tr>
+   
+
+   <tr>
+    <td>TL</td>
+    <td>:</td>
+    <td><input type="date" name="tl"></td>
+  </tr>
+
+    
+    <tr>
+    
+    <td colspan="3"><input type="submit" value="Simpan"></td>         
+  </tr> 
+  
+   </table>
+   </form>
+</center>
+  
+</section>
+
+
+
+
+</body>
+</html>

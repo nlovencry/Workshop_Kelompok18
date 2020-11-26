@@ -1,0 +1,42 @@
+.wrap{
+	background: blue;
+	width: 900px;
+	margin: 10px auto;
+}
+ 
+/*bagian header*/
+.wrap .header{
+	background: green;
+	/*height: 50px;*/
+    padding: 2px 10px;
+    text-align: center;
+    size: 50;
+}
+ 
+/*akhir header*/
+ 
+ 
+ 
+.clear{
+	clear: both;
+}
+ 
+.badan{
+	height: 450px;
+}
+/*bagian sidebar*/
+.wrap .badan .sidebar{
+	background: orange;
+	float: left;	
+	width: 25%;
+	height: 100%;
+}
+ 
+/*akhir sidebar*/
+ 
+.wrap .badan .content{
+	background: white;
+	float: left;
+	height: 100%;
+    width: 75%;	
+}

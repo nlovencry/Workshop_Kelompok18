@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Form Mahasiswa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body{
+	font-family: sans-serif;
+	background: #6bbbc4;
+}
+
+
+    
+
+    section:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .text-center{
+      text-align: center;
+    }
+
+    .text-left{
+      text-align: left;
+    }
+
+    li {
+      padding: 0px 0px;
+    }
+
+    .tombol {
+	background: #097909;
+	color: white;
+	font-size: 11pt;
+	width: 200%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+  
+}
+
+.form{
+	/*membuat lebar form penuh*/
+	box-sizing : border-box;
+	width: 200%;
+	padding: 10px;
+	font-size: 11pt;
+	margin-bottom: 20px;
+}
+
+  </style>
+</head>
+<body>
+
+ 
+
+  <section class="text-center">
+    
+    <div class="body">
+      <h1> FORM MAHASISWA </h1>
+      <form method="get" action="datamahasiswa.html">
+        <table class="text-left" cellspacing="1" cellpadding="5" style="margin-right: auto;margin-left: auto;">
+          <tr>
+            <td>
+            <label>NIM</label>  
+            </td>
+            <td>:</td>
+            <td>
+             <input type="text" class="form" name="id" placeholder="Masukkan ID anda" maxlength="9">
+           </td>
+         </tr>
+         <tr>
+          <td>NAMA</td>
+          <td>:</td>
+          <td>
+            <input type="text" class="form" name="nama" placeholder="Masukkan Nama anda" pattern="[a-zA-Z]*" title="Tidak Boleh Menggunakan Angka" required onkeypress='return harusHuruf(event)'>
+
+            <script>
+ 
+                    function harusHuruf(evt){
+                            var charCode = (evt.which) ? evt.which : event.keyCode
+                            if ((charCode < 65 || charCode > 90)&&(charCode < 97 || charCode > 122)&&charCode>32)
+                                return false;
+                            return true;
+                                            }  
+                </script>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ALAMAT
+          </td>
+          <td>:</td>
+          <td>
+            <input type="text" class="form" name="alamat" placeholder="Masukkan Alamat anda" >
+          </td> 
+        </tr>
+        <tr>
+          <td>TL</td>
+          <td>:</td>
+          <td>
+           <input type="date" class="form" name="tanggal">
+         </td>
+       </tr>
+       <tr>
+         
+        <td colspan="2">
+        <input type="submit" name="submit" value="Save" class="tombol">
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+</section>
+
+
+</body>
+</html>
