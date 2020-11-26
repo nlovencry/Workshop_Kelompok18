@@ -3,33 +3,6 @@
 <head>
 	<title>Membuat CRUD dengan PHP dan MySQL - Menampilkan Data dari Database</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- <style type="text/css">
-		body{
-			font-family: roboto;
-		}
-		.judul{
-			padding: 30px;
-			text-align: center;
-		}
-		.tombol{
-			background-color: white;
-			border: 2px solid #008CBA;
-			border-radius: 4px;
-			padding: 15px 30px;
-			color: black;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			transition-duration: 0.4s;
-		}
-
-		.tombol:hover{
-			background-color: #008CBA;
-			color: white;
-		}
-	</style> -->
 </head>
 <body>
 	<div class="judul">
