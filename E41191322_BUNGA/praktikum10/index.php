@@ -26,7 +26,7 @@
 	<a href="input.php" class="tombol"> +Tambah Data</a>
 
 	<h3>Data User</h3>
-	<table>
+	<table border="1">
 		<tr>
 			<th>No</th>
 			<th>Nama</th>
@@ -37,7 +37,7 @@
 		<tr>
 			<?php
 			include 'koneksi.php';
-			$query = mysql_query($db, "SELECT * FROM tb_user");
+			$query = mysqli_query($db, "SELECT * FROM tb_user");
 			$nomor = 1;
 			while ($data = mysqli_fetch_array($query)) {
 			?>
