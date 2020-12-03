@@ -226,12 +226,12 @@
           </div>
 
           <?php
-          if (isset($_GET['pesan'])) {
+          if (isset($_GET['pesan'])){
             $pesan = $_GET['pesan'];
-            if ($pesan == "berhasil") {
+            if($pesan == "berhasil"){
               ?>
-              <div class="alert alert-success">
-                  <strong>Success!</strong> Anda Berhasil Login.
+              <div class="alert alert-succes">
+                <strong>Succes!</strong> Anda berhasil Login.
               </div>
               <?php
             }

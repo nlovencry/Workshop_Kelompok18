@@ -40,33 +40,29 @@
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
                   <?php
-                  if (isset($_GET['pesan'])) {
+                  if (isset($_GET['pesan'])){
                     $pesan = $_GET['pesan'];
-                    if ($pesan == "emailsalah") {
-                      ?>
-                      <div class="alert alert-danger">
-                        <strong>Danger!</strong> Anda Gagal Login, Email tidak ditemukan.
-                      </div>
-                      <?php
-                    }elseif ($pesan == "passwordsalah") {
-                      ?>
-                      <div class="alert alert-danger">
-                        <strong>Danger!</strong> Anda Gagal Login, Password Salah.
-                      </div>
-                      <?php
+                  
+                  if ($pesan = "gagal"){
+                  ?>
+                  
+                  <div class="alert alert-danger">
+                    <strong>Danger!</strong> 
+                    Anda Gagal Login. Coba Cek Email atau Password Anda
+                  </div>
+                  <?php
                     }
                   }
                   ?>
-                  <form class="user" method="post" action="login_process.php">
+                  <form class="user" method="POST" action="index.php">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email" required>
+                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required="">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password" required>
+                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required="">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>

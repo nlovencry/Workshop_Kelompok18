@@ -1,28 +1,15 @@
-<?php 
-// mengaktifkan session php
+<?
 session_start();
- 
-// menghubungkan dengan koneksi
 include 'koneksi.php';
- 
-// menangkap data yang dikirim dari form
-$username = $_POST['username'];
+
+$email = $_POST['email'];
 $password = $_POST['password'];
- 
-// menyeleksi data admin dengan username dan password yang sesuai
-$query = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE email = '$username'");
-$data = mysqli_fetch_array($query);
- 
-// menghitung jumlah data yang ditemukan
-$cek = mysqli_num_rows($data);
- 
-if ($username == $data['email']) {
-	if ($password == $data['password']) {
-		header("location:index.php?pesan=berhasil");
-	}else{
-		header("location:login.php?pesan=passwordsalah");
-	}
-}else{
-	header("location:login.php?pesan=emailsalah");
+$query = mysqli_query($db, "SELECT *FROM tb_user WHERE email = '$email'");
+$data = mysqli_fecth_array($query);
+if ($email == $data['email']){
+    header("location:indedx.php?pesan=berhasil");
+}
+else{
+    header("location:login.php?pesan=emailsalah");
 }
 ?>
