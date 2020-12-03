@@ -225,6 +225,18 @@
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
+          <?php
+          if (isset($_GET['pesan'])){
+            $pesan = $_GET['pesan'];
+            if($pesan == "berhasil"){
+              ?>
+              <div class="alert alert-succes">
+                <strong>Succes!</strong> Anda berhasil Login.
+              </div>
+              <?php
+            }
+          }
+          ?>
           <!-- Content Row -->
           <div class="row">
 
