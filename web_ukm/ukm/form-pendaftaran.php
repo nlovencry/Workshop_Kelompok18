@@ -237,7 +237,7 @@
           <div class="col-lg-2 col-md-6 footer-links">
           </div>
           <div class="col-lg-4 col-md-6 footer-links">
-            <img src="gambar/logo.png" width="200" height="200">
+            <img src="gambar/logo-gabungan.png" width="350" height="180">
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@
     <a href="#" class="brand-link">
       <img src="../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Halo Admin</span>
+      <span class="brand-text font-weight-light">halo admin-olahraga</span>
     </a>
 
     <!-- Sidebar -->
@@ -16,7 +16,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="dashboard-superadmin.php" class="nav-link">
+            <a href="dashboard-adminukm.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -34,26 +34,18 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="dt-ukm.php" class="nav-link">
+                <a href="profile-ukm.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data UKM</p>
+                  <p>Profile UKM</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="dt-user.php" class="nav-link">
+                <a href="dt-divisi.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data User</p>
+                  <p>Divisi</p>
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="dt-mahasiswa.php" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Data Mahasiswa
-              </p>
-            </a>
           </li>
           <li class="nav-item has-treeview">
             <a href="dt-pendaftar.php" class="nav-link">
