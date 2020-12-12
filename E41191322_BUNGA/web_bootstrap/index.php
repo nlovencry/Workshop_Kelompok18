@@ -25,7 +25,10 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <?php include "./sidebar.php"; ?>
+    <?php 
+    session_start();
+    include "./sidebar.php"; 
+    ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -226,6 +229,18 @@
           </div>
 
           <!-- Content Row -->
+          <?php
+          if (isset($_GET['pesan'])) {
+            $pesan = $_GET['pesan'];
+            if ($pesan == "berhasil") {
+              ?>
+              <div class="alert alert-success">
+                  <strong>Success!</strong> Anda Berhasil Login.
+              </div>
+              <?php
+            }
+          }
+          ?>
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
