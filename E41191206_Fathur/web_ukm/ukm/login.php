@@ -19,16 +19,16 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>Login</b>UKM</a>
+      <a href="#" class="h1"><b>Sign</b>In</a>
     </div>
     <div class="text-center">
       <br>
-       <img class="mb-0" src="../dist/img/logo.png" alt="" width="100" height="100">
+       <img class="mb-0" src="gambar/logo.png" alt="" width="100" height="100">
     </div>
     <div class="card-body">
       <p class="login-box-msg">Please Sign In</p>
 
-      <form action="superadmin/pecah/dashboard-superadmin.php" method="post">
+      <form action="#" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
@@ -64,11 +64,11 @@
 
       
       <!-- /.social-auth-links -->
-
-      
-      <p class="mb-3">
-        <a href="#" class="text-justify"> Belum Punya akun? <u> Daftar Disini </u></a>
-      </p>
+      <div>
+        <p class="mb-3">
+          Belum Punya akun? <a href="#" class="text-justify">Daftar Disini</a>
+        </p>
+      </div>
     </div>
     <!-- /.card-body -->
   </div>
