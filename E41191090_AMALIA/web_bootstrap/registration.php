@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>ADMIN- Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -250,14 +250,19 @@
         <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password Anda" required>
         </div>
         <div class="form-group">
-        <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="laki-laki" required>Laki-laki
-        <input type="radio" id="jenis_kelamin" name="jenis_kelamin" value="perempuan" required>Perempuan
+        <input type="radio" id="jenis kelamin" name="jenis kelamin" value="laki-laki" required>Laki-laki
+        <input type="radio" id="jenis kelamin" name="jenis kelamin" value="perempuan" required>Perempuan
         </div>
 
         <div class="form-group"> 
         <select name="agama" id="agama" class="form-control form-control-user">
         <option value="islam">Islam</option>
         <option value="Kristen">Kristen</option>
+        <option value="Kristen">Katolik</option>
+        <option value="Kristen">Budha</option>
+        <option value="Kristen">Hindu</option>
+        <option value="Kristen">Konghucu</option>
+
         </select>
         </div>
         <div class="form-group">
@@ -268,7 +273,7 @@
         $name = @$_GET['name'];
         $username = @$_GET['username'];
         $email = @$_GET['email'];
-        $jenis_kelamin= @$_GET['jenis_kelamin'];
+        $jenis_kelamin= @$_GET['jenis kelamin'];
         $agama = @$_GET['agama'];
         $biografi = @$_GET['biografi'];
         if ($name){
@@ -281,7 +286,7 @@
             echo "<srong>Email:</strong> {$email} <br>";
         }
         if ($jenis_kelamin){
-            echo "<srong>jenis_kelamin:</strong> {$jenis_kelamin} <br>";
+            echo "<srong>jenis kelamin:</strong> {$jenis_kelamin} <br>";
         }
         if ($agama){
             echo "<srong>agama:</strong> {$agama} <br>";
@@ -302,7 +307,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; Your Website 2021</span>
           </div>
         </div>
       </footer>

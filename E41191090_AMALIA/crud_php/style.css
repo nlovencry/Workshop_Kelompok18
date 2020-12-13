@@ -2,13 +2,14 @@ body{
     font-family: 'roboto';
     color: #000;
 }
-.judul {
-    background: #d3ad7c;
+
+.judul{
+    background: #870108;
     padding: 10px;
     text-align: center;
 }
 
-.judul h1, h2{
+.judul h1,h2{
     height: 15px;
 }
 

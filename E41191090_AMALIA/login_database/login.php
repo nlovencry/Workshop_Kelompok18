@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>Form Login</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,7 +39,8 @@
                   <div class="text-center">
 
                     
-                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  <h1 class="h4 text-gray-900 mb-4">Hello...</h1>
+                  
                   </div>
 
                   <?php
@@ -50,8 +51,8 @@
                   ?>
                   
                   <div class="alert alert-danger">
-                    <strong>Danger!</strong> 
-                    Anda Gagal Login. Coba Cek Email atau Password Anda
+                    <strong>Maaf!</strong> 
+                   Anda belum bisa Login. Silahkan cek, Email dan Password Anda.
                   </div>
                   <?php
                     }
@@ -62,33 +63,33 @@
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" 
                       aria-describedby="emailHelp" 
-                      placeholder="Enter Email Address..." name="email" required>
+                      placeholder="Email Anda" name="email" required>
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword" 
-                      placeholder="Password" name="password" required>
+                      placeholder="Password Anda" name="password" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                        <label class="custom-control-label" for="customCheck">Simpan akun</label>
                       </div>
                     </div>
                     <button type="submit" clss="btn btn-primary btn-user btn-block" name="submit">Login</button>
                     <hr>
                     <a href="index.html" class="btn btn-google btn-user btn-block">
-                      <i class="fab fa-google fa-fw"></i> Login with Google
+                      <i class="fab fa-google fa-fw"></i> Login dengan Google
                     </a>
                     <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                      <i class="fab fa-facebook-f fa-fw"></i> Login dengan Facebook
                     </a>
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                    <a class="small" href="forgot-password.html">Lupa password!</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                    <a class="small" href="register.html">Belum punya akun.</a>
                   </div>
                 </div>
               </div>

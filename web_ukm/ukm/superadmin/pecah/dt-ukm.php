@@ -36,57 +36,50 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
+              <?php
+                if(isset($_GET['pesan'])){
+                    $pesan=$_GET['pesan'];
+                    if($pesan=="input"){
+                        echo "Data berhasil diinput";
+                    } elseif ($pesan=="update") {
+                        echo "Data berhasil diupdate";
+                    } elseif ($pesan=="hapus") {
+                        echo "Data berhasil dihapus";
+                    }
+                }
+                ?>
                   <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
-                  <thead>
+                <thead>
                   <tr>
                     <th>No</th>
                     <th>Nama UKM</th>
-                    <th>Ketua UKM</th>
-                    <th>Aksi</th>
+                    <th>Nama Ketua UKM</th>
+                    <th>Opsi</th>
                   </tr>
                   </thead>
+                  <?php
+                  include "koneksi.php";
+                      $query_mysql = mysqli_query($koneksi,"select * from tb_ukm");
+                      $nomor = 1;
+                  while ($data = mysqli_fetch_array($query_mysql)){
+                  ?>
+
                   <tbody>
                   <tr>
-                    <td>1.</td>
-                    <td>Olahraga (UKM-O)</td>
-                    <td>Angga</td>
+                    <td><?php echo $nomor++; ?></td>
+                    <td><?php echo $data['NAMA_UKM']; ?></td>
+                    <td><?php echo $data['KETUA_UKM']; ?></td>
                     <td>
-                    <button type="button" class="btn btn-primary">Detail</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                        <a type="button" class="btn btn-primary" href="detail-user.php?id=<?php echo $data['id']; ?>" class="detail">Detail</a>
+                        <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>2.</td>
-                    <td>Robotika IR-64</td>
-                    <td>Ridho</td>
-                    <td>
-                    <button type="button" class="btn btn-primary">Detail</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3.</td>
-                    <td>English Club (E-CLUB)</td>
-                    <td>Angga</td>
-                    <td>
-                    <button type="button" class="btn btn-primary">Detail</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4.</td>
-                    <td>Pramuka Racana Arjuna-Srikandi (RASPOL)</td>
-                    <td>Milo</td>
-                    <td>
-                    <button type="button" class="btn btn-primary">Detail</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
-                    </td>
-                  </tr>
-                  </tfoot>
+                    </tr>
+                  </tbody>
+                  <?php } ?>
                 </table>
               </div>
               <!-- /.card-body -->
