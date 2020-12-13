@@ -167,6 +167,14 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label>Alamat:</label>
+                    <textarea class="form-control" name="alamat" rows="3" placeholder="Alamat"></textarea>
+                  </div>
+                </div>
+              </div>
 
               <!-- data ukm -->
               <div class="alert alert-primary">
@@ -178,12 +186,6 @@
                     <label>Unit Kegiatan Mahasiswa:</label>
                     <select class="form-control" name="ukm">
                       <option>Pilih</option>
-                      <option value="1">Unit Kegiatan Mahasiswa English Club (E-CLUB)</option>
-                      <option value="2">Unit Kegiatan Mahasiswa Olahraga (UKM-O)</option>
-                      <option value="3">Unit Kegiatan Mahasiswa Pramuka Racana Arjuna-Srikandi Gugusdepan Jember 02.155-02.156 Pangkalan Politeknik Negeri Jember (RASPOL)</option>
-                      <option value="4">Unit Kegiatan Mahasiswa Korps Suka Rela Palang Merah Indonesia Unit Politeknik Negeri Jember (KSR PMI UNIT POLIJE)</option>
-                      <option value="5">Unit Kegiatan Mahasiswa Resimen Mahasiswa 877 (MENWA)</option>
-                      <option value="6">Unit Kegiatan Mahasiswa Koperasi Mahasiswa BERDIKARI (KOPMA BERDIKARI)</option>
                     </select>
                   </div>
                 </div>
