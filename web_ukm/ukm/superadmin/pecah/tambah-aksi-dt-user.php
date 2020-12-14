@@ -1,8 +1,8 @@
 <?php
 include 'koneksi.php';
-$nama_ukm = $_POST['nama_ukm'];
-$ketua_ukm = $_POST['ketua_ukm'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
 mysqli_query($koneksi,"insert into user values('','$nama_ukm','$ketua_ukm')");
-header("location:dt-ukm.php?pesan=input");
+header("location:dt-user.php?pesan=input");
 ?>

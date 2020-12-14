@@ -38,14 +38,15 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">+<small>Tambah Data UKM</small></h3>
+                <h3 class="card-title">+ Tambah Data UKM</h3>
               </div>
               <!-- /.card-header -->
               <form id="quickForm">
                 <div class="card-body">
+
                   <div class="form-group">
                     <select name="Pilih Unit Kegiatan Mahasiswa" id="Pilih Unit Kegiatan Mahasiswa" 
-                    class="form-control form-control-user">
+                    class="form-control form-control-user"
                     <option value="ROBOTIKA">ROBOTIKA</option>
                     <option value="PSM">PSM</option>
                     <option value="E-CLUB">E-CLUB</option>
@@ -63,7 +64,6 @@
                     <option value="BARABAS">BARABAS</option>
                     <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
                     <option value="RASPOL">RASPOL</option>
-
                     </select>
                   </div>
                   <div class="form-group">
@@ -81,6 +81,7 @@
                     </select>  
                   </div>
                   <div>
+                  <td>
                     <button type="button" class="btn  btn-primary">Submit</button>
                     <button href="datauser.php" type="button" class="btn  btn-danger">Cancle</button>
                   </div> 

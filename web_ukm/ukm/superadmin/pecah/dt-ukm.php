@@ -75,7 +75,7 @@
                     <td><?php echo $data['ketua_ukm']; ?></td>
                     <td>
                         <a type="button" class="btn btn-primary" href="detail-user.php?id=<?php echo $data['id']; ?>" class="detail">Detail</a>
-                        <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
+                        <a type="button" class="btn btn-danger" href="hapus-dt-user.php?id=<?php echo $data['id']; ?>" class="edit">Hapus</a>
                     </td>
                     </tr>
                   </tbody>

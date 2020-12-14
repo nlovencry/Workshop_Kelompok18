@@ -21,7 +21,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Tambah Data User</li>
+              <li class="breadcrumb-item active">Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -72,8 +72,7 @@
                 <td><?php echo $data['username']; ?></td>
                 <td><?php echo $data['password']; ?></td>
                 <td>
-                    <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
-                    <a type="button" class="btn btn-primary" href="edit-user.php?id=<?php echo $data['id']; ?>" class="edit">Edit</a>
+                    <a type="button" class="btn btn-danger" href="hapus-dt-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
                 </td>
             </tr>
         <?php } ?>
