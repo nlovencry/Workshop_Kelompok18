@@ -20,7 +20,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
@@ -46,10 +46,24 @@
                   <div class="form-group">
                     <select name="Pilih Unit Kegiatan Mahasiswa" id="Pilih Unit Kegiatan Mahasiswa" 
                     class="form-control form-control-user">
-                    <option value="Olahraga">Olahraga</option>
-                    <option value="Robotika">Robotika</option>
-                    <option value="English Club">English Club</option>
-                    <option value="Pramuka">Pramuka</option>
+                    <option value="ROBOTIKA">ROBOTIKA</option>
+                    <option value="PSM">PSM</option>
+                    <option value="E-CLUB">E-CLUB</option>
+                    <option value="LUMUT">LUMUT</option>
+                    <option value="UKM-O (Olahraga)">UKM-O (Olahraga)</option>
+                    <option value="PRAMUKA">PRAMUKA</option>
+                    <option value="KSR (PMI)">KSR (PMI)</option>
+                    <option value="MENWA 877">MENWA 877</option>
+                    <option value="HIMAPALA">HIMAPALA</option>
+                    <option value="LABAIK (ISLAM)">LABAIK (ISLAM)</option>
+                    <option value="PMK (KRISTEN)">PMK (KRISTEN)</option>
+                    <option value="KOTAK">KOTAK</option>
+                    <option value="EXPLANT">EXPLANT</option>
+                    <option value="SKIM">SKIM</option>
+                    <option value="BARABAS">BARABAS</option>
+                    <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
+                    <option value="RASPOL">RASPOL</option>
+
                     </select>
                   </div>
                   <div class="form-group">
@@ -59,11 +73,16 @@
                     <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Password">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Pilih Level">
+                  <select name="Pilih Level" id="Pilih Level" 
+                    class="form-control form-control-user">
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Superadmin">Super Admin</option>
+                    </select>  
                   </div>
                   <div>
-                    <button type="button" class="btn  btn-primary btn-xs">Submit</button>
-                    <button type="button" class="btn  btn-danger btn-xs">Cancle</button>
+                    <button type="button" class="btn  btn-primary">Submit</button>
+                    <button href="datauser.php" type="button" class="btn  btn-danger">Cancle</button>
                   </div> 
                 </div>
                 <!-- /.card-body -->

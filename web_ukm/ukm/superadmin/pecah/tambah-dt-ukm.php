@@ -48,19 +48,25 @@
                     <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama UKM">
                   </div>
                   <div class="form-group">
+                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Deskripsi UKM">
+                  </div>
+                  <div class="form-group">
                     <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Ketua UKM">
                   </div>
                   <div class="form-group">
                     <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Wakil Ketua UKM">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Sekretaris UKM">
+                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Sekretaris 1 UKM">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Sekretaris 2 UKM">
                   </div>
                   <div class="form-group">
                     <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Bendahara 1 UKM">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Bendahara 2UKM">
+                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Bendahara 2 UKM">
                   </div>
                   <div class="form-group">
                     <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Visi UKM">
@@ -69,9 +75,9 @@
                     <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Misi UKM">
                   </div>
                   <td>
-                    <button type="button" class="btn btn-primary">Detail</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
-                    </td>
+                    <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
+                    <a <input type="submit" name="simpan" class="btn btn-primary" href="dt-user.php?id=<?php echo $data['id'];?>" >Submit</input></a>
+                </td>
                 </div>
                 <!-- /.card-body -->
               </form>

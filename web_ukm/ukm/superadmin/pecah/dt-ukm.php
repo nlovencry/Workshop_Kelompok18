@@ -48,7 +48,7 @@
                     }
                 }
                 ?>
-                  <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data</a>
+                  <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -71,8 +71,8 @@
                   <tbody>
                   <tr>
                     <td><?php echo $nomor++; ?></td>
-                    <td><?php echo $data['NAMA_UKM']; ?></td>
-                    <td><?php echo $data['KETUA_UKM']; ?></td>
+                    <td><?php echo $data['nama_ukm']; ?></td>
+                    <td><?php echo $data['ketua_ukm']; ?></td>
                     <td>
                         <a type="button" class="btn btn-primary" href="detail-user.php?id=<?php echo $data['id']; ?>" class="detail">Detail</a>
                         <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
