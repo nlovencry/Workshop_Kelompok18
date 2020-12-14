@@ -37,9 +37,8 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
-
               <div class="info-box-content">
-                <span class="info-box-text"><a href="data-ukm.php">Data UKM</a></span>
+                <span class="info-box-text">Data UKM</span>
                 <span class="info-box-number">
                   0
                 </span>
@@ -54,7 +53,7 @@
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text"><a href="data-user.php">Data User</a></span>
+                <span class="info-box-text">Data User</span>
                 <span class="info-box-number">0</span>
               </div>
               <!-- /.info-box-content -->

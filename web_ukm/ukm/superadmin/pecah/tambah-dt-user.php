@@ -21,7 +21,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Form Tambah Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -42,35 +42,36 @@
               </div>
               <!-- /.card-header -->
               <form id="quickForm">
+                <!-- /.card-body -->
                 <div class="card-body">
-
                   <div class="form-group">
                     <select name="Pilih Unit Kegiatan Mahasiswa" id="Pilih Unit Kegiatan Mahasiswa" 
                     class="form-control form-control-user"
-                    <option value="ROBOTIKA">ROBOTIKA</option>
+                    <option value="Robotika">Robotika</option>
                     <option value="PSM">PSM</option>
-                    <option value="E-CLUB">E-CLUB</option>
-                    <option value="LUMUT">LUMUT</option>
+                    <option value="E-club">E-Club</option>
+                    <option value="Lumut">LUMUT</option>
                     <option value="UKM-O (Olahraga)">UKM-O (Olahraga)</option>
-                    <option value="PRAMUKA">PRAMUKA</option>
+                    <option value="Pramuka">Pramuka</option>
                     <option value="KSR (PMI)">KSR (PMI)</option>
-                    <option value="MENWA 877">MENWA 877</option>
-                    <option value="HIMAPALA">HIMAPALA</option>
-                    <option value="LABAIK (ISLAM)">LABAIK (ISLAM)</option>
-                    <option value="PMK (KRISTEN)">PMK (KRISTEN)</option>
-                    <option value="KOTAK">KOTAK</option>
-                    <option value="EXPLANT">EXPLANT</option>
+                    <option value="Menwa 877">Menwa 877</option>
+                    <option value="Himapala">Himapala</option>
+                    <option value="Labaik(Islam)">Labaik(Islam)</option>
+                    <option value="PMK(Kristen)">PMK(Kristen)</option>
+                    <option value="Kotak">Kotak</option>
+                    <option value="Explant">Explant</option>
                     <option value="SKIM">SKIM</option>
-                    <option value="BARABAS">BARABAS</option>
-                    <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
-                    <option value="RASPOL">RASPOL</option>
+                    <option value="Barabas">Barabas</option>
+                    <option value="Kopma Berdikari">Kopma Berdikari</option>
+                    <option value="Raspol">Raspol</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+                    <input type="text" name="text" class="form-control form-control-use" 
+                    id="exampleInputEmail1" placeholder="Username" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Password">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Password" require>
                   </div>
                   <div class="form-group">
                   <select name="Pilih Level" id="Pilih Level" 
@@ -82,11 +83,10 @@
                   </div>
                   <div>
                   <td>
-                    <button type="button" class="btn  btn-primary">Submit</button>
-                    <button href="datauser.php" type="button" class="btn  btn-danger">Cancle</button>
+                    <button type="submit" href="dt-user.php?id=<?php echo $data['id']; ?>"class="btn btn-primary">Save</button>
+                    <a type="submit" href="dt-user.php" class="btn btn-danger">Cancle</a>
                   </div> 
                 </div>
-                <!-- /.card-body -->
               </form>
             </div>
             <!-- /.card -->

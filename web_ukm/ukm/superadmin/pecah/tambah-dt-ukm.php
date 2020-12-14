@@ -20,8 +20,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Tambah Data UKM</li>
+              <li class="breadcrumb-item"><a href="dashboad-superadmin.php">Home</a></li>
+              <li class="breadcrumb-item active">Form Tambah Data UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,38 +45,38 @@
               <form id="quickForm">
                 <div class="card-body">
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Deskripsi UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Deskripsi UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Ketua UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Ketua UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Wakil Ketua UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Wakil Ketua UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Sekretaris 1 UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Sekretaris 1 UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Sekretaris 2 UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Sekretaris 2 UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Bendahara 1 UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Bendahara 1 UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Bendahara 2 UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Bendahara 2 UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Visi UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Visi UKM" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control" id="exampleInputEmail1" placeholder="Misi UKM">
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Misi UKM" required>
                   </div>
                   <td>
-                    <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
-                    <a <input type="submit" name="simpan" class="btn btn-primary" href="dt-user.php?id=<?php echo $data['id'];?>" >Submit</input></a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Cancle</a>
                 </td>
                 </div>
                 <!-- /.card-body -->
@@ -85,7 +85,7 @@
             <!-- /.card -->
             </div>
           <!--/.col (left) -->
-          <!-- right column -->
+          <!-- right column --> 
           <div class="col-md-6">
 
           </div>

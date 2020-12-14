@@ -145,11 +145,14 @@
             <form>
               <div class="form-group">
                 <label for="exapmleInputEmail1">NIM</label>
-                <input type="text" class="form-control form-control-use" id="nim" name="nim" placeholder="NIM Anda" required maxlength="9" minlength="9">
+                <input type="text" class="form-control form-control-use" id="nim" 
+                    name="nim" placeholder="NIM Anda" required maxlength="9" minlength="9">
               </div>
               <div class="form-group">
                 <label for="exapmleInputEmail1">NAMA</label>
-                <input type="text" class="form-control form-control-use" id="nama" name="nama" placeholder="Name Anda" required pattern="[a-zA-Z]*" title="Tidak Boleh Menggunakan Angka" required onkeypress='return harusHuruf(event)'>
+                <input type="text" class="form-control form-control-use" id="nama" name="nama" placeholder="Name Anda" 
+                required pattern="[a-zA-Z]*" title="Tidak Boleh Menggunakan Angka" 
+                required onkeypress='return harusHuruf(event)'>
 
                 <script>
      
@@ -169,7 +172,7 @@
                 <label for="exapmleInputEmail1">TTL</label>
                 <input type="date" class="form-control form-control-use" name="password" required>
               </div>
-              <br><button type"submit" class="btn btn-primary">Save</button></br>                  
+              <br><button type="submit" class="btn btn-primary">Save</button></br>                  
               
             </form>
     </section><!-- End About Section -->
