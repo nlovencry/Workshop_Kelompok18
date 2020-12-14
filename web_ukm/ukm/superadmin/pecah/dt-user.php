@@ -62,17 +62,16 @@
             </tr>
             <?php
             include "koneksi.php";
-                $query_mysql = mysqli_query($koneksi,"select * from tb_user");
-                $nomor = 1;
-            while ($data = mysqli_fetch_array($query_mysql)){
-        ?>
-                  </tr>
-                  <tr>
+            $query_mysql = mysqli_query($koneksi,"select * from tb_user");
+            $nomor=1;
+            while ($data=mysqli_fetch_array($query_mysql)) {
+            ?>
+            <tr>
                 <td><?php echo $nomor++; ?></td>
                 <td><?php echo $data['username']; ?></td>
                 <td><?php echo $data['password']; ?></td>
                 <td>
-                    <a type="button" class="btn btn-danger" href="hapus-dt-user.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
+                    <a href="hapus-dt-user.php?id=<?php echo $data['id']; ?>" class="edit">Hapus</a>
                 </td>
             </tr>
         <?php } ?>
