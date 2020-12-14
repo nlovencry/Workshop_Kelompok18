@@ -76,7 +76,7 @@
                   </div>
                   <td>
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <a type="button" class="btn btn-danger" href="hapus-user.php?id=<?php echo $data['id']; ?>" class="hapus">Cancle</a>
+                    <button type="reset" class="btn btn-danger">Reset</button>
                 </td>
                 </div>
                 <!-- /.card-body -->

@@ -16,12 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data UKM</h1>
+            <h1 class="m-0 text-dark">Divisi</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Data UKM</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Divisi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,65 +32,59 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <?php
-                if(isset($_GET['pesan'])){
-                    $pesan=$_GET['pesan'];
-                    if($pesan=="input"){
-                        echo "Data berhasil diinput";
-                    } elseif ($pesan=="update") {
-                        echo "Data berhasil diupdate";
-                    } elseif ($pesan=="hapus") {
-                        echo "Data berhasil dihapus";
-                    }
-                  }
-                ?>
-                  <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
+                <a href="tambah-dt-divisi.php" class="btn btn-primary">+ Tambah Data</a>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama UKM</th>
-                    <th>Nama Ketua UKM</th>
-                    <th>Opsi</th>
-                  </tr>
-                  </thead>
-                  <?php
-                  include "../../koneksi.php";
-                      $query_mysql = mysqli_query($koneksi,"select * from tb_ukm");
-                      $nomor = 1;
-                  while ($data = mysqli_fetch_array($query_mysql)){
-                  ?>
-
-                  <tbody>
-                  <tr>
-                    <td><?php echo $nomor++; ?></td>
-                    <td><?php echo $data['nama_ukm']; ?></td>
-                    <td><?php echo $data['ketua_ukm']; ?></td>
-                    <td>
-                        <a type="button" class="btn btn-primary" href="detail-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="detail">Detail</a>
-                        <a type="button" class="btn btn-danger" href="hapus-dt-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="edit">Hapus</a>
-                    </td>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Divisi</th>
+                      <th>Aksi</th>
                     </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                      include '../../koneksi.php';
+                      $no = 1;
+                      $data = mysqli_query($db, "SELECT * FROM tb_divisi");
+                      while ($a = mysqli_fetch_array($data)) {
+                    ?>
+                    <tr>
+                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $a['nama_divisi']; ?></td>
+                      <td>
+                        <a href="edit-dt-divisi.php" class="btn btn-primary">Edit</a>
+                        <a href="hapus-dt-guru.php" class="btn btn-danger">Hapus</a>
+                      </td>
+                    </tr>
+                    <?php
+                      }
+                    ?>
                   </tbody>
-                  <?php } ?>
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
-            
+            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>

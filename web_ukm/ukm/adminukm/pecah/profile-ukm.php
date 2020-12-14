@@ -16,12 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data UKM</h1>
+            <h1 class="m-0 text-dark">Profile UKM</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Data UKM</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Profile UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,65 +32,69 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-              <?php
-                if(isset($_GET['pesan'])){
-                    $pesan=$_GET['pesan'];
-                    if($pesan=="input"){
-                        echo "Data berhasil diinput";
-                    } elseif ($pesan=="update") {
-                        echo "Data berhasil diupdate";
-                    } elseif ($pesan=="hapus") {
-                        echo "Data berhasil dihapus";
-                    }
-                  }
-                ?>
-                  <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
+          <div class="col-12 col-sm-6 col-md-6">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Divisi</span>
+                <span class="info-box-number">
+                  0
+                </span>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama UKM</th>
-                    <th>Nama Ketua UKM</th>
-                    <th>Opsi</th>
-                  </tr>
-                  </thead>
-                  <?php
-                  include "../../koneksi.php";
-                      $query_mysql = mysqli_query($koneksi,"select * from tb_ukm");
-                      $nomor = 1;
-                  while ($data = mysqli_fetch_array($query_mysql)){
-                  ?>
-
-                  <tbody>
-                  <tr>
-                    <td><?php echo $nomor++; ?></td>
-                    <td><?php echo $data['nama_ukm']; ?></td>
-                    <td><?php echo $data['ketua_ukm']; ?></td>
-                    <td>
-                        <a type="button" class="btn btn-primary" href="detail-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="detail">Detail</a>
-                        <a type="button" class="btn btn-danger" href="hapus-dt-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="edit">Hapus</a>
-                    </td>
-                    </tr>
-                  </tbody>
-                  <?php } ?>
-                </table>
-              </div>
-              <!-- /.card-body -->
+              <!-- /.info-box-content -->
             </div>
-            
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-6">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Data Pendaftar</span>
+                <span class="info-box-number">0</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
           </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Grafik Pendaftaran Seluruh UKM</h5>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-center">
+                      <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                    </p>
+
+                    <div class="chart">
+                      <!-- Sales Chart Canvas -->
+                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                    </div>
+                    <!-- /.chart-responsive -->
+                  </div>
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- ./card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>

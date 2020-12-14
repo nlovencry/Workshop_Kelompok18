@@ -46,7 +46,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <select name="Pilih Unit Kegiatan Mahasiswa" id="Pilih Unit Kegiatan Mahasiswa" 
-                    class="form-control form-control-user"
+                    class="form-control form-control-user">
                     <option value="Robotika">Robotika</option>
                     <option value="PSM">PSM</option>
                     <option value="E-club">E-Club</option>
@@ -84,7 +84,7 @@
                   <div>
                   <td>
                     <button type="submit" href="dt-user.php?id=<?php echo $data['id']; ?>"class="btn btn-primary">Save</button>
-                    <a type="submit" href="dt-user.php" class="btn btn-danger">Cancle</a>
+                    <a type="submit" href="dt-user.php" class="btn btn-danger">Cancel</a>
                   </div> 
                 </div>
               </form>
