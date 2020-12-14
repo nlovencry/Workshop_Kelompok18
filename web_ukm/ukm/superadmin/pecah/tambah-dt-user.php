@@ -20,8 +20,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
               <li class="breadcrumb-item active">Form Tambah Data User</li>
+              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -83,7 +83,7 @@
                   </div>
                   <div>
                   <td>
-                    <button type="submit" href="dt-user.php?id=<?php echo $data['id']; ?>"class="btn btn-primary">Save</button>
+                    <button type="submit" href="dt-user.php?id=<?php echo $data['id_user']; ?>"class="btn btn-primary">Simpan</button>
                     <a type="submit" href="dt-user.php" class="btn btn-danger">Cancel</a>
                   </div> 
                 </div>

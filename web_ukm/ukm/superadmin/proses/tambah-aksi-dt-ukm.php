@@ -1,8 +1,8 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 $nama_ukm = $_POST['nama_ukm'];
 $ketua_ukm = $_POST['ketua_ukm'];
 
-mysqli_query($koneksi,"insert into user values('','$nama_ukm','$ketua_ukm')");
-header("location:dt-ukm.php?pesan=input");
+mysqli_query($db,"insert into tb_ukm values('','$nama_ukm','$ketua_ukm')");
+header("location:../pecah/dt-ukm.php?pesan=input");
 ?>

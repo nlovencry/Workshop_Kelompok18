@@ -1,6 +1,6 @@
 <?php
-include 'koneksi.php';
-$id = $_GET['id'];
-mysqli_query($koneksi, "delete from user where id='$id'");
-header("location:dt-ukm.php?pesan=hapus");
+include '../../koneksi.php';
+$id_ukm = $_GET['id_ukm'];
+mysqli_query($koneksi, "delete from tb_ukm where id_ukm='$id_ukm'");
+header("location:../pecah/dt-ukm.php?pesan=hapus");
 ?>
