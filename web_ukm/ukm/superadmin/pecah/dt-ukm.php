@@ -4,6 +4,13 @@
 <?php include '../head.php'; ?>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <?php 
+  session_start();
+    // cek apakah yang mengakses halaman ini sudah login
+    if($_SESSION['level']==""){
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+    }
+  ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
 
