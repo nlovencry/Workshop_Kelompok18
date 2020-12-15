@@ -20,8 +20,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
               <li class="breadcrumb-item active">Data User</li>
+              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -52,7 +52,7 @@
                   <?php
                   include '../../koneksi.php';
                   $query_mysql = mysqli_query($db,"select * from tb_user");
-                  $nomor=1;
+                  $nomor = 1;
                   while ($data=mysqli_fetch_array($query_mysql)) {
                   ?>
                   <tbody>
