@@ -84,11 +84,11 @@
         </div>
         <?php
           include 'koneksi.php';
-          $data = mysqli_query($db, "SELECT * FROM tb_ukm");
+          $data = mysqli_query($db, "SELECT nama_ukm, deskripsi_ukm FROM tb_ukm");
           while ($a = mysqli_fetch_array($data)) {
         ?>
         <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4><a href="homepage-ukm.php"><?php echo $a['nama_ukm']; ?></a></h4>
