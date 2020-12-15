@@ -94,10 +94,8 @@
                     <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Misi UKM" required>
                   </div>
                   <td>
-                    <a href="../proses/"
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
-                    <a href="../proses/hapus-dt-user.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-danger">Hapus</a>
+                    <a href="../proses/dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-primary">Simpan</a>
+                    <a href="../proses/dt_ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Reset</a>
                   </td>
                 </td>
                 </div>

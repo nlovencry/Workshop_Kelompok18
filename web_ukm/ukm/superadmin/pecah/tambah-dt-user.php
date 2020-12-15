@@ -83,8 +83,8 @@
                   </div>
                   <div>
                   <td>
-                    <button type="submit" href="dt-user.php?id=<?php echo $data['id_user']; ?>"class="btn btn-primary">Simpan</button>
-                    <a type="submit" href="dt-user.php" class="btn btn-danger">Cancel</a>
+                    <a type="submit" href="../proses/dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-primary">Simpan</a>
+                    <a type="submit" href="dt-user.php" class="btn btn-danger">Kembali</a>
                   </div> 
                 </div>
               </form>
