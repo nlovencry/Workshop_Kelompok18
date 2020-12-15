@@ -42,62 +42,39 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm">
+              <form id="quickForm" action="../proses/tambah-aksi-dt-ukm.php" method="POST">
                 <div class="card-body">
-                <div class="form-group">
-                    <select name="Pilih Unit Kegiatan Mahasiswa" id="Pilih Unit Kegiatan Mahasiswa" 
-                    class="form-control form-control-user">
-                    <option value="Robotika">Robotika</option>
-                    <option value="PSM">PSM</option>
-                    <option value="E-club">E-Club</option>
-                    <option value="Lumut">LUMUT</option>
-                    <option value="UKM-O (Olahraga)">UKM-O (Olahraga)</option>
-                    <option value="Pramuka">Pramuka</option>
-                    <option value="KSR (PMI)">KSR (PMI)</option>
-                    <option value="Menwa 877">Menwa 877</option>
-                    <option value="Himapala">Himapala</option>
-                    <option value="Labaik(Islam)">Labaik(Islam)</option>
-                    <option value="PMK(Kristen)">PMK(Kristen)</option>
-                    <option value="Kotak">Kotak</option>
-                    <option value="Explant">Explant</option>
-                    <option value="SKIM">SKIM</option>
-                    <option value="Barabas">Barabas</option>
-                    <option value="Kopma Berdikari">Kopma Berdikari</option>
-                    <option value="Raspol">Raspol</option>
+                  <div class="form-group">
+                    <label>Nama Unit Kegiatan Mahasiswa</label>
+                    <select name="nama_ukm" class="form-control form-control-user">
+                      <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
+                      <option value="UKM-O">UKM-O</option>
+                      <option value="E-CLUB">E-CLUB</option>
+                      <option value="ROBOTIKA IR-64">ROBOTIKA IR-64</option>
+                      <option value="RASPOL">RASPOL</option>
+                      <option value="HIMAPALA BEKISAR">HIMAPALA BEKISAR</option>
+                      <option value="KSR PMI">KSR PMI</option>
+                      <option value="MENWA 877">MENWA 877</option>
+                      <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
+                      <option value="PSM">PSM</option>
+                      <option value="PMK(KRISTEN)">PMK(KRISTEN)</option>
+                      <option value="LABAIK">LABAIK</option>
+                      <option value="UKPM EXPLANT">UKPM EXPLANT</option>
+                      <option value="SKIM">SKIM</option>
+                      <option value="BARABAS DC">BARABAS DC</option>
+                      <option value="LUMUT">LUMUT</option>
+                      <option value="KOTAK">KOTAK</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Deskripsi UKM" required>
+                    <label>Deskripsi Unit Kegiatan Mahasiswa</label>
+                    <textarea name="deskripsi_ukm" class="form-control form-control-user" placeholder="ex : Unit Kegiatan Mahasiswa Olahraga" required=""></textarea>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Ketua UKM" required>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <a href="../pecah/dt-ukm.php" class="btn btn-secondary">Kembali</a>
                   </div>
-                  <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Wakil Ketua UKM" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Sekretaris 1 UKM" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Sekretaris 2 UKM" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Bendahara 1 UKM" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Nama Bendahara 2 UKM" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Visi UKM" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Misi UKM" required>
-                  </div>
-                  <td>
-                    <a href="../proses/dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-primary">Simpan</a>
-                    <a href="../proses/dt_ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Reset</a>
-                  </td>
-                </td>
                 </div>
                 <!-- /.card-body -->
               </form>
