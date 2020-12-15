@@ -26,8 +26,7 @@
 			$_SESSION['nama_ukm']	= $data['nama_ukm'];
 			$_SESSION['status']		= "Login";
 			$_SESSION['level']		= "2";
-			print_r($_SESSION);
-			// header("location:adminukm/pecah/dashboard-adminukm.php");
+			header("location:adminukm/pecah/dashboard-adminukm.php");
 		}else{
 			echo "<script>alert('Silahkan login terlebih dahulu!'); location='index.php';</script>";
 		}
