@@ -4,6 +4,13 @@
 <?php include '../head.php'; ?>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <?php 
+  session_start();
+    // cek apakah yang mengakses halaman ini sudah login
+    if($_SESSION['level']==""){
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+    }
+  ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
 
@@ -20,8 +27,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
               <li class="breadcrumb-item active">Data UKM</li>
+              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,19 +43,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <?php
-                if(isset($_GET['pesan'])){
-                    $pesan=$_GET['pesan'];
-                    if($pesan=="input"){
-                        echo "Data berhasil diinput";
-                    } elseif ($pesan=="update") {
-                        echo "Data berhasil diupdate";
-                    } elseif ($pesan=="hapus") {
-                        echo "Data berhasil dihapus";
-                    }
-                }
-                ?>
-                  <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
+                <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -62,8 +57,8 @@
                   </tr>
                   </thead>
                   <?php
-                  include "koneksi.php";
-                      $query_mysql = mysqli_query($koneksi,"select * from tb_ukm");
+                  include '../../koneksi.php';
+                      $query_mysql = mysqli_query($db,"select * from tb_ukm");
                       $nomor = 1;
                   while ($data = mysqli_fetch_array($query_mysql)){
                   ?>
@@ -74,12 +69,12 @@
                     <td><?php echo $data['nama_ukm']; ?></td>
                     <td><?php echo $data['ketua_ukm']; ?></td>
                     <td>
-                        <a type="button" class="btn btn-primary" href="detail-user.php?id=<?php echo $data['id']; ?>" class="detail">Detail</a>
-                        <a type="button" class="btn btn-danger" href="hapus-dt-user.php?id=<?php echo $data['id']; ?>" class="edit">Hapus</a>
+                        <a href="../proses/detail-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
+                        <a href="../proses/hapus-dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
                     </td>
                     </tr>
-                  </tbody>
                   <?php } ?>
+                  </tbody>
                 </table>
               </div>
               <!-- /.card-body -->

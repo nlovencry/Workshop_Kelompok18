@@ -4,6 +4,13 @@
 <?php include '../head.php'; ?>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <?php 
+  session_start();
+    // cek apakah yang mengakses halaman ini sudah login
+    if($_SESSION['level']==""){
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+    }
+  ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
 
@@ -20,8 +27,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
               <li class="breadcrumb-item active">Form Tambah Data User</li>
+              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,8 +52,8 @@
                 <!-- /.card-body -->
                 <div class="card-body">
                   <div class="form-group">
-                    <select name="Pilih Unit Kegiatan Mahasiswa" id="Pilih Unit Kegiatan Mahasiswa" 
-                    class="form-control form-control-user"
+                    <select name="Pilih UKM" id="Pilih UKM" 
+                    class="form-control form-control-tb_user">
                     <option value="Robotika">Robotika</option>
                     <option value="PSM">PSM</option>
                     <option value="E-club">E-Club</option>
@@ -75,7 +82,7 @@
                   </div>
                   <div class="form-group">
                   <select name="Pilih Level" id="Pilih Level" 
-                    class="form-control form-control-user">
+                    class="form-control form-control-tb_user">
                     <option value="User">User</option>
                     <option value="Admin">Admin</option>
                     <option value="Superadmin">Super Admin</option>
@@ -83,8 +90,8 @@
                   </div>
                   <div>
                   <td>
-                    <button type="submit" href="dt-user.php?id=<?php echo $data['id']; ?>"class="btn btn-primary">Save</button>
-                    <a type="submit" href="dt-user.php" class="btn btn-danger">Cancle</a>
+                    <a type="submit" href="../proses/dt-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-primary">Simpan</a>
+                    <a type="submit" href="dt-user.php" class="btn btn-danger">Kembali</a>
                   </div> 
                 </div>
               </form>
