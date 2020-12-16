@@ -52,7 +52,7 @@
                   <tr>
                     <th>No</th>
                     <th>Nama UKM</th>
-                    <th>Nama Ketua UKM</th>
+                    <th>Deskripsi UKM</th>
                     <th>Opsi</th>
                   </tr>
                   </thead>
@@ -67,7 +67,7 @@
                   <tr>
                     <td><?php echo $nomor++; ?></td>
                     <td><?php echo $data['nama_ukm']; ?></td>
-                    <td><?php echo $data['ketua_ukm']; ?></td>
+                    <td><?php echo $data['deskripsi_ukm']; ?></td>
                     <td>
                         <a href="../proses/detail-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
                         <a href="../proses/hapus-dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>

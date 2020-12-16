@@ -23,12 +23,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data User</h1>
+            <h1 class="m-0 text-dark">Divisi</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Data User</li>
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Divisi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,51 +39,52 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                  <a type="submit" href="tambah-dt-user.php" class="btn btn-primary">+ Tambah Data User</a>
+                <a href="tambah-dt-divisi.php" class="btn btn-primary">+ Tambah Data</a>
+                </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama UKM</th>
-                      <th>Username</th>
-                      <th>Opsi</th>
+                      <th>Nama Divisi</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
-                  <?php
-                  include '../../koneksi.php';
-                    $query_mysql = mysqli_query($db,"select * from tb_user");
-                    $nomor = 1;
-                  while ($data=mysqli_fetch_array($query_mysql)) {
-                  ?>
                   <tbody>
+                    <?php
+                      include '../../koneksi.php';
+                      $no = 1;
+                      $data = mysqli_query($db, "SELECT * FROM tb_divisi");
+                      while ($a = mysqli_fetch_array($data)) {
+                    ?>
                     <tr>
-                      <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $data['username']; ?></td>
-                      <td><?php echo $data['password']; ?></td>
+                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $a['nama_divisi']; ?></td>
                       <td>
-                        <a href="../proses/hapus-dt-user.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-danger">Hapus</a>
+                        <a href="edit-dt-divisi.php" class="btn btn-primary">Edit</a>
+                        <a href="hapus-dt-guru.php" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
-                  <?php } ?>
+                    <?php
+                      }
+                    ?>
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
-            
+            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>

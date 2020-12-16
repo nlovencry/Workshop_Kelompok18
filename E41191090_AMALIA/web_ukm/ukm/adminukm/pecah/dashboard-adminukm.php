@@ -4,6 +4,13 @@
 <?php include '../head.php'; ?>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <?php 
+  session_start();
+    // cek apakah yang mengakses halaman ini sudah login
+    if($_SESSION['level']==""){
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+    }
+  ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
 
@@ -16,7 +23,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark">Dashboard <?php echo $_SESSION['nama_ukm']; ?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

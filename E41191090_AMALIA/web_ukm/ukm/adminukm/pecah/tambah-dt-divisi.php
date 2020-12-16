@@ -23,12 +23,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data User</h1>
+            <h1 class="m-0 text-dark">Divisi</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Data User</li>
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Divisi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,51 +39,51 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
-          <div class="col-12">
-            <div class="card">
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
               <div class="card-header">
-                  <a type="submit" href="tambah-dt-user.php" class="btn btn-primary">+ Tambah Data User</a>
+                <h3 class="card-title">Tambah Data Divisi</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama UKM</th>
-                      <th>Username</th>
-                      <th>Opsi</th>
-                    </tr>
-                  </thead>
-                  <?php
-                  include '../../koneksi.php';
-                    $query_mysql = mysqli_query($db,"select * from tb_user");
-                    $nomor = 1;
-                  while ($data=mysqli_fetch_array($query_mysql)) {
-                  ?>
-                  <tbody>
-                    <tr>
-                      <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $data['username']; ?></td>
-                      <td><?php echo $data['password']; ?></td>
-                      <td>
-                        <a href="../proses/hapus-dt-user.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-danger">Hapus</a>
-                      </td>
-                    </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+              <!-- form start -->
+              <form role="form">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Divisi</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
-            
+            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>

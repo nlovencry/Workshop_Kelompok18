@@ -49,7 +49,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="../proses/tambah-aksi-dt-ukm.php" method="POST">
+              <form method="quickForm" action="../proses/tambah-aksi-dt-ukm.php" method="POST">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Nama Unit Kegiatan Mahasiswa</label>
@@ -79,7 +79,7 @@
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <a><button type="reset" class="btn btn-danger">Reset</button></a>
                     <a href="../pecah/dt-ukm.php" class="btn btn-secondary">Kembali</a>
                   </div>
                 </div>
