@@ -1,8 +1,13 @@
 <?php
-include '../../koneksi.php';
-$username = $_POST['username'];
-$password = $_POST['password'];
+    include '../../koneksi.php';
 
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    mysqli_query($db,"INSERT INTO tb_user VALUES('','$username','$password')");
+    header("location:../pecah/dt-user.php");
+
+<<<<<<< Updated upstream
 $sql = "SELECT * FROM tbl_user WHERE username='$username'";
 $query = mysql_query($sql) or die (mysql_error());
 
@@ -18,4 +23,7 @@ if(mysql_num_rows($query) > 0){
     header("location: form_registrasi.php?hasil=sukses");
 }
 
+=======
+>>>>>>> Stashed changes
 ?>
+ 

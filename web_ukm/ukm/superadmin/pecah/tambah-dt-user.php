@@ -27,8 +27,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Form Tambah Data User</li>
               <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
+              <li class="breadcrumb-item active">Form Tambah Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,32 +45,31 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">+ Tambah Data UKM</h3>
+                <h3 class="card-title">+<small>Tambah Data UKM<small></h3>
               </div>
               <!-- /.card-header -->
-              <form id="quickForm">
-                <!-- /.card-body -->
+                <!-- form start -->
+                <form id="quickForm" action="../proses/tambah-aksi-dt-user.php" method="POST">
                 <div class="card-body">
                   <div class="form-group">
-                    <select name="Pilih UKM" id="Pilih UKM" 
-                    class="form-control form-control-tb_user">
-                    <option value="Robotika">Robotika</option>
-                    <option value="PSM">PSM</option>
-                    <option value="E-club">E-Club</option>
-                    <option value="Lumut">LUMUT</option>
-                    <option value="UKM-O (Olahraga)">UKM-O (Olahraga)</option>
-                    <option value="Pramuka">Pramuka</option>
-                    <option value="KSR (PMI)">KSR (PMI)</option>
-                    <option value="Menwa 877">Menwa 877</option>
-                    <option value="Himapala">Himapala</option>
-                    <option value="Labaik(Islam)">Labaik(Islam)</option>
-                    <option value="PMK(Kristen)">PMK(Kristen)</option>
-                    <option value="Kotak">Kotak</option>
-                    <option value="Explant">Explant</option>
-                    <option value="SKIM">SKIM</option>
-                    <option value="Barabas">Barabas</option>
-                    <option value="Kopma Berdikari">Kopma Berdikari</option>
-                    <option value="Raspol">Raspol</option>
+                    <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
+                    <select name="nama_ukm" class="form-control form-control-user">
+                      <option value="UKM-O">UKM-O</option>
+                      <option value="E-CLUB">E-CLUB</option>
+                      <option value="ROBOTIKA IR-64">ROBOTIKA IR-64</option>
+                      <option value="RASPOL">RASPOL</option>
+                      <option value="HIMAPALA BEKISAR">HIMAPALA BEKISAR</option>
+                      <option value="KSR PMI">KSR PMI</option>
+                      <option value="MENWA 877">MENWA 877</option>
+                      <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
+                      <option value="PSM">PSM</option>
+                      <option value="PMK(KRISTEN)">PMK(KRISTEN)</option>
+                      <option value="LABAIK">LABAIK</option>
+                      <option value="UKPM EXPLANT">UKPM EXPLANT</option>
+                      <option value="SKIM">SKIM</option>
+                      <option value="BARABAS DC">BARABAS DC</option>
+                      <option value="LUMUT">LUMUT</option>
+                      <option value="KOTAK">KOTAK</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -86,18 +85,19 @@
                     <option value="User">User</option>
                     <option value="Admin">Admin</option>
                     <option value="Superadmin">Super Admin</option>
-                    </select>  
+                  </select>  
                   </div>
-                  <div>
-                  <td>
-                    <a type="submit" href="../proses/dt-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-primary">Simpan</a>
-                    <a type="submit" href="dt-user.php" class="btn btn-danger">Kembali</a>
+                  <div class="form-group">
+                    <button href="../proses/tambah-aksi-dt-user.php" type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <a href="../pecah/dt-user.php" class="btn btn-secondary">Kembali</a>
                   </div> 
                 </div>
-              </form>
+            <!-- /.card body-->
+            </form>
             </div>
-            <!-- /.card -->
-            </div>
+            <!-- /.card-->
+          </div>
           <!--/.col (left) -->
           <!-- right column -->
           <div class="col-md-6">
