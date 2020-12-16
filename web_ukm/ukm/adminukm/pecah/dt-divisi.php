@@ -45,15 +45,15 @@
             <div class="card">
               <div class="card-header">
                 <a href="tambah-dt-divisi.php" class="btn btn-primary">+ Tambah Data</a>
-                </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>No</th>
                       <th>Nama Divisi</th>
+                      <th>Nama Koordinator</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -61,12 +61,13 @@
                     <?php
                       include '../../koneksi.php';
                       $no = 1;
-                      $data = mysqli_query($db, "SELECT * FROM tb_divisi");
+                      $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$_SESSION[id_ukm]'");
                       while ($a = mysqli_fetch_array($data)) {
                     ?>
                     <tr>
                       <td><?php echo $no++; ?></td>
                       <td><?php echo $a['nama_divisi']; ?></td>
+                      <td><?php echo $a['nama_co']; ?></td>
                       <td>
                         <a href="edit-dt-divisi.php" class="btn btn-primary">Edit</a>
                         <a href="hapus-dt-guru.php" class="btn btn-danger">Hapus</a>
