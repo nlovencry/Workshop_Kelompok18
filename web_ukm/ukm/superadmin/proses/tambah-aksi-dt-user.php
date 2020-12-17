@@ -4,22 +4,17 @@ include '../../koneksi.php';
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM tbl_user WHERE username='$username' ";
-    $sql = "SELECT * FROM tbl_user WHERE username='$password' ";
-    $query = mysql_query($db) or die (mysql_error());
-if(mysql_num_rows($query) > 0){
+	mysqli_query($db, "INSERT INTO tb_ukm VALUES('','','$nama_user','$deskripsi_ukm','','','','','','','','','')");
+	header("location:../pecah/dt-user.php");
 
-    mysqli_query($db, "INSERT INTO tb_user VALUES('','$username','$password')");
-
-} else {
-    header("location:../pecah/dt-user.php");
-
-    $sql = "INSERT INTO tbl_user(username, password, status) VALUES('$username','$password','0')";
-    $query = mysql_query($db) or die (mysql_error());
-    
-    header("location:dt-user.php?hasil=sukses");
-}
-
+	$cekdata = mysqli_num_rows(mysqli_query($db, "SELECT nama_user FROM tb_user WHERE nama_user='$nama_user'"));
+	if ($cekdata > 0) {
+	print_r($_POST);
+		echo "<script>alert('Data Sudah Ada!'); location:'../pecah/dt-user.php';</script>";
+	}else{
+		mysqli_query($db, "INSERT INTO tb_ukm VALUES('','','$nama_user','$deskripsi_user','','','','','','','','','')");
+	}
+	print_r($_POST);
+	header("location:../pecah/dt-user.php");
 ?>
-
  

@@ -45,7 +45,7 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">+ Tambah Data UKM</h3>
+                <h3 class="card-title">+<small> Tambah Data UKM</small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -60,8 +60,8 @@
                     <textarea name="deskripsi_ukm" class="form-control form-control-user" placeholder="ex : Unit Kegiatan Mahasiswa Olahraga" required=""></textarea>
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button input type="submit" class="btn btn-primary">Simpan</button>
+                    <button input type="reset" class="btn btn-danger">Reset</button>
                     <a href="../pecah/dt-ukm.php" class="btn btn-secondary">Kembali</a>
                   </div>
                 </div>
