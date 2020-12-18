@@ -88,7 +88,7 @@
                   </select>  
                   </div>
                   <div class="form-group">
-                    <button href="../proses/tambah-aksi-dt-user.php" type="submit" class="btn btn-primary">Simpan</button>
+                    <button input type="submit" class="btn btn-primary">Simpan</button>
                     <button input type="reset" class="btn btn-danger">Reset</button>
                     <a href="../pecah/dt-user.php" class="btn btn-secondary">Kembali</a>
                   </div> 
