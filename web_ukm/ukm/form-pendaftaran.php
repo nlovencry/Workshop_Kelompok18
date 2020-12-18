@@ -91,10 +91,41 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>FORM PENDAFTARAN UNIT KEGIATAN MAHASISWA</h2>
-        </div>
+          <?php
+    include "koneksi.php";
+
+    function input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $nama=input($_POST["nama"]);
+        $nim=input($_POST["nim"]);
+        $jk=input($_POST["jk"]);
+        //Query input menginput data kedalam tabel pendaftaraan
+        $sql1="insert into tb_mahasiswa (nama,nim,jk) values
+    ('$nama','$nim','$jk')";
+        $sql2="insert into tb_pendaftaran (nama,nim,jk) values
+		('$nama','$nim','$jk')";
+
+        //Mengeksekusi/menjalankan query diatas
+        $hasil=mysqli_query($kon,$sql1,$sql2);
+
+        //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
+        if ($hasil) { 
+            echo "<div class='alert alert-success'> Selamat $nama anda telah berhasil mendaftar.</div>"; 
+        }
+        else {
+            echo "<div class='alert alert-danger'> Pendaftaraan Gagal.</div>";
+        }
+    }
+    ?>
         <div class="row content">
          <div class="container p-3 my-3">
-            <form id="form" method="post">
+            <form id="form" method="post" action="proses_pendaftaran.php">
               <!-- data diri -->
               <div class="alert alert-primary">
                 <strong>Data Diri</strong>
