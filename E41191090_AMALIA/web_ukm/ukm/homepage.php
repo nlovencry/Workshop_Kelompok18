@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sistem Informasi Pendaftaran UKM</title>
+  <title>Sistem Informasi Pendaftaran Unit Kegiatan Mahasiswa</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -82,24 +82,23 @@
           <h2>Unit Kegiatan Mahasiswa</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
+        <div class="row">
         <?php
           include 'koneksi.php';
           $data = mysqli_query($db, "SELECT nama_ukm, deskripsi_ukm FROM tb_ukm");
           while ($a = mysqli_fetch_array($data)) {
         ?>
-        <div class="row">
-          <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4><a href="homepage-ukm.php"><?php echo $a['nama_ukm']; ?></a></h4>
               <p><?php echo $a['deskripsi_ukm']; ?></p>
             </div>
           </div>
-        </div>
-        <br>
         <?php
         }
         ?>
+        </div>
           <!-- <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>

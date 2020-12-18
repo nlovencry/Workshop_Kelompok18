@@ -65,7 +65,7 @@
                   </div>
                   <div class="form-group">
                     <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
-                    <select type="hidden" name="nama_ukm" class="form-control form-control-user">
+                    <select name="nama_ukm" class="form-control form-control-user">
                       <option value="UKM-O">UKM-O</option>
                       <option value="E-CLUB">E-CLUB</option>
                       <option value="ROBOTIKA IR-64">ROBOTIKA IR-64</option>
