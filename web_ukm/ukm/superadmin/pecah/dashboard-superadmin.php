@@ -148,7 +148,7 @@
 
                     <div class="chart">
                       <!-- ukm Chart Canvas -->
-                      <canvas id="ukmChart" height="180" style="height: 180px;"></canvas>
+                     <!--  <canvas id="ukmChart" height="180" style="height: 180px;"></canvas>
                       <style type="text/css">
                       	table {
                       		margin: 0px auto;
@@ -181,45 +181,35 @@
 			?>
 		</tbody>
                   	</table>
+ -->
 
-                  	<script>
+             <?php
+
+$grafik = mysqli_query($db,"select * from tb_ukm");
+while($row = mysqli_fetch_array($grafik)){
+	$nama_grafik[] = $row['nama_ukm'];
+	
+	$query = mysqli_query($db,"select sum(id_ukm) as id_ukm from tb_pendaftaran where id_ukm='".$row['id_ukm']."'");
+	$row = $query->fetch_array();
+	$jumlah_pendaftar[] = $row['id_ukm'];
+}
+?>
+	<div style="width: 800px;height: 800px">
+		<canvas id="myChart"></canvas>
+	</div>
+ 
+ 
+	<script>
 		var ctx = document.getElementById("myChart").getContext('2d');
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: ["Teknik", "Fisip", "Ekonomi", "Pertanian"],
+				labels: <?php echo json_encode($nama_ukm); ?>,
 				datasets: [{
-					label: '',
-					data: [
-					<?php 
-					$jumlah_id1 = mysqli_query($db,"select * from tb_ukm where id_ukm ='1'");
-					echo mysqli_num_rows($jumlah_id1);
-					?>, 
-					<?php 
-					$jumlah_id2 = mysqli_query($db,"select * from tb_ukm where id_ukm ='2'");
-					echo mysqli_num_rows($jumlah_id2);
-					?>, 
-					<?php 
-					$jumlah_id3 = mysqli_query($db,"select * from tb_ukm where id_ukm ='3'");
-					echo mysqli_num_rows($jumlah_id3);
-					?>, 
-					<?php 
-					$jumlah_id4 = mysqli_query($db,"select * from tb_ukm where id_ukm ='4'");
-					echo mysqli_num_rows($jumlah_id4);
-					?>
-					],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)'
-					],
+					label: 'Grafik Penjualan',
+					data: <?php echo json_encode($jumlah_pendaftar); ?>,
+					backgroundColor: 'rgba(255, 99, 132, 0.2)',
+					borderColor: 'rgba(255,99,132,1)',
 					borderWidth: 1
 				}]
 			},
