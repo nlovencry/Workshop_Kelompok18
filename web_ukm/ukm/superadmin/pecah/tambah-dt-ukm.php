@@ -49,7 +49,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="quickForm" action="../proses/tambah-aksi-dt-ukm.php" method="POST">
+              <form action="../proses/tambah-aksi-dt-ukm.php" method="POST">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Nama Unit Kegiatan Mahasiswa</label>
