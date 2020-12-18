@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2020 at 09:14 AM
+-- Generation Time: Dec 18, 2020 at 02:49 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -120,7 +120,9 @@ CREATE TABLE `tb_mahasiswa` (
   `jk` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `angkatan` int(11) NOT NULL,
-  `alamat` text NOT NULL
+  `alamat` text NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -252,7 +254,8 @@ INSERT INTO `tb_ukm` (`id_ukm`, `id_user`, `nama_ukm`, `deskripsi_ukm`, `visi_uk
 (2, 3, 'E-CLUB', 'Unit Kegiatan Mahasiswa English Club', '', '', ''),
 (3, 0, 'ROBOTIKA IR-64', 'Unit Kegiatan Mahasiswa Robotika IR-64', '', '', ''),
 (4, 0, 'RASPOL', 'Unit Kegiatan Mahasiswa Pramuka Racana Arjuna-Srikandi Gugusdepan Jember 02.155-02.156 Pangkalan Politeknik Negeri Jember', '', '', ''),
-(5, 0, 'KSR PMI', 'Unit Kegiatan Mahasiswa Korps Suka Rela Palang Merah Indonesia Unit Politeknik Negeri Jember', '', '', '');
+(5, 0, 'KSR PMI', 'Unit Kegiatan Mahasiswa Korps Suka Rela Palang Merah Indonesia Unit Politeknik Negeri Jember', '', '', ''),
+(9, 0, 'LUMUT', 'sd', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -402,7 +405,7 @@ ALTER TABLE `tb_struktur`
 -- AUTO_INCREMENT for table `tb_ukm`
 --
 ALTER TABLE `tb_ukm`
-  MODIFY `id_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

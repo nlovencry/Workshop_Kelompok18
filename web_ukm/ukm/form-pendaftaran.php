@@ -27,7 +27,6 @@
   <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="homepage-ukm/style.css">
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -45,12 +44,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
-
       <h1 class="logo mr-auto"><img src="gambar/logo-gabung.png"></h1>
-     
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="homepage.php">Home</a></li>
@@ -60,13 +54,11 @@
           <li><a href="login.php">Login</a></li>
         </ul>
       </nav><!-- .nav-menu -->
-
     </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
-
     <div class="container">
       <div class="row">
         <div class="col-lg-10 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
@@ -81,7 +73,6 @@
         </div> -->
       </div>
     </div>
-
   </section><!-- End Hero -->
 
   <main id="main">
@@ -91,41 +82,9 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>FORM PENDAFTARAN UNIT KEGIATAN MAHASISWA</h2>
-          <?php
-    include "koneksi.php";
-
-    function input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        $nama=input($_POST["nama"]);
-        $nim=input($_POST["nim"]);
-        $jk=input($_POST["jk"]);
-        //Query input menginput data kedalam tabel pendaftaraan
-        $sql1="insert into tb_mahasiswa (nama,nim,jk) values
-    ('$nama','$nim','$jk')";
-        $sql2="insert into tb_pendaftaran (nama,nim,jk) values
-		('$nama','$nim','$jk')";
-
-        //Mengeksekusi/menjalankan query diatas
-        $hasil=mysqli_query($kon,$sql1,$sql2);
-
-        //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
-        if ($hasil) { 
-            echo "<div class='alert alert-success'> Selamat $nama anda telah berhasil mendaftar.</div>"; 
-        }
-        else {
-            echo "<div class='alert alert-danger'> Pendaftaraan Gagal.</div>";
-        }
-    }
-    ?>
         <div class="row content">
          <div class="container p-3 my-3">
-            <form id="form" method="post" action="proses_pendaftaran.php">
+            <form id="form" method="post" action="proses-pendaftaran.php">
               <!-- data diri -->
               <div class="alert alert-primary">
                 <strong>Data Diri</strong>
