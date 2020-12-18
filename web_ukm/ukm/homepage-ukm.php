@@ -91,7 +91,6 @@
         </div>
         <div class="row content">
           <?php 
-          include 'koneksi.php';
           $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
           while ($a = mysqli_fetch_array($data)) {
           ?>
@@ -195,7 +194,8 @@
         </div>
         <div class="row">
           <?php 
-          $data = mysqli_query($db, "SELECT tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_struktur.nama_mhs, tb_jabatan.id_jabatan, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_ukm ON tb_struktur.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi INNER JOIN  tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan; WHERE id_ukm='$id_ukm'");
+          $data = mysqli_query($db, "SELECT tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_struktur.nama_mhs, tb_jabatan.id_jabatan, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_ukm ON tb_struktur.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi INNER JOIN  tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan WHERE tb_ukm.id_ukm='$id_ukm'");
+          echo mysqli_error($db);
           while ($a = mysqli_fetch_array($data)) {
           ?>
           <div class="col-lg-6">
@@ -203,75 +203,10 @@
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4><?php echo $a['nama_mhs']; ?></h4>
-                <span><?php echo $a['nama_jabatan']; ?></span>
+                <span><?php echo $a['nama_jabatan']." ".$a['nama_ukm']; ?></span>
                 <p>
-                  Program Studi Teknik Informatika<br>
-                  2018
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><?php echo $a['wakil_ukm']; ?></h4>
-                <span>Wakil Ketua Umum UKM Olahraga</span>
-                <p>
-                  Program Studi Manajemen Argoindustri<br>
-                  2018
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><?php echo $a['sekretaris1_ukm']; ?></h4>
-                <span>Sekretaris 1 UKM Olahraga</span>
-                <p>
-                  Program Studi Manajemen Argoindustri<br>
-                  2019
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-           <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><?php echo $a['sekretaris2_ukm']; ?></h4>
-                <span>Sekretaris 2 UKM Olahraga</span>
-                <p>
-                  Program Studi Rekam Medik<br>
-                  2019
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><?php echo $a['bendahara1_ukm']; ?></h4>
-                <span>Sekretaris 1 UKM Olahraga</span>
-                <p>
-                  Program Studi Manajemen Argoindustri<br>
-                  2019
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-           <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><?php echo $a['bendahara2_ukm']; ?></h4>
-                <span>Sekretaris 2 UKM Olahraga</span>
-                <p>
-                  Program Studi Rekam Medik<br>
-                  2019
+                  <?php echo $a['nama_prodi']; ?><br>
+                  <?php echo $a['angkatan']; ?>
                 </p>
               </div>
             </div>

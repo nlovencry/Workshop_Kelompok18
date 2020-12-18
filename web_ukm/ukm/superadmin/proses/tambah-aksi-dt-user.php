@@ -4,17 +4,15 @@ include '../../koneksi.php';
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-	mysqli_query($db, "INSERT INTO tb_ukm VALUES('','','$nama_user','$deskripsi_ukm','','','','','','','','','')");
-	header("location:../pecah/dt-user.php");
+	$query = mysqli_query($db, "SELECT username FROM tb_user WHERE username='$nama_user'");
+	$cekdata = mysqli_num_rows($query);
 
-	$cekdata = mysqli_num_rows(mysqli_query($db, "SELECT nama_user FROM tb_user WHERE nama_user='$nama_user'"));
-	if ($cekdata > 0) {
-	print_r($_POST);
-		echo "<script>alert('Data Sudah Ada!'); location:'../pecah/dt-user.php';</script>";
+	if ($cekdata == 1) {
+		echo "<script>alert('Data Sudah Ada!'); location='../pecah/tambah-dt-user.php';</script>";
 	}else{
-		mysqli_query($db, "INSERT INTO tb_ukm VALUES('','','$nama_user','$deskripsi_user','','','','','','','','','')");
+		mysqli_query($db, "INSERT INTO tb_user VALUES('','0','$username','$password','','','')");
+		header("location:../pecah/dt-user.php");
 	}
-	print_r($_POST);
-	header("location:../pecah/dt-user.php");
+
 ?>
  
