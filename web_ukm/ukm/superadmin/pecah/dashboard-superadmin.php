@@ -16,6 +16,11 @@
 
   <?php include '../sidebar.php'; ?>
 
+  <?php include'../../koneksi.php'; ?>
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="Chart.js"></script>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -47,7 +52,15 @@
               <div class="info-box-content">
                 <span class="info-box-text">Data UKM</span>
                 <span class="info-box-number">
-                  0
+                  <!-- Menampilkan Jumlah UKM yang ada -->
+                  <?php 
+                  $data_ukm = mysqli_query($db, "SELECT * FROM tb_ukm");
+                  $jumlah_ukm = mysqli_num_rows($data_ukm);
+                   ?>
+                   <?php echo $jumlah_ukm; ?>
+
+
+
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -61,7 +74,13 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Data User</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number">
+                	 <?php 
+                  $data_user = mysqli_query($db, "SELECT * FROM tb_user");
+                  $jumlah_user = mysqli_num_rows($data_user);
+                   ?>
+                   <?php echo $jumlah_user; ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -78,7 +97,13 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Data Mahasiswa</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number">
+                	 <?php 
+                  $data_mahasiswa = mysqli_query($db, "SELECT * FROM tb_mahasiswa");
+                  $jumlah_mahasiswa = mysqli_num_rows($data_mahasiswa);
+                   ?>
+                   <?php echo $jumlah_mahasiswa; ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -90,8 +115,14 @@
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Data Pendaftar</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-text">Data Pendaftaran</span>
+                <span class="info-box-number">
+                	 <?php 
+                  $data_pendaftaran = mysqli_query($db, "SELECT * FROM tb_pendaftaran");
+                  $jumlah_pendaftaran = mysqli_num_rows($data_pendaftaran);
+                   ?>
+                   <?php echo $jumlah_pendaftaran; ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -112,12 +143,97 @@
                 <div class="row">
                   <div class="col-md-12">
                     <p class="text-center">
-                      <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                      <strong>Pendaftaran: 1 Jan, 2019 - 30 Jul, 2019</strong>
                     </p>
 
                     <div class="chart">
-                      <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                      <!-- ukm Chart Canvas -->
+                      <canvas id="ukmChart" height="180" style="height: 180px;"></canvas>
+                      <style type="text/css">
+                      	table {
+                      		margin: 0px auto;
+                      	}
+                      </style>
+                  	</div>
+                  	<table border="1">
+                  		<thead>
+                  			<tr>
+				<th>No</th>
+				<th>Nama UKM</th>
+				<th>Deskripsi UKM</th>
+				<th>Ketua UKM</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php 
+			$no = 1;
+			$data = mysqli_query($db,"select * from tb_ukm");
+			while($d=mysqli_fetch_array($data)){
+				?>
+				<tr>
+					<td><?php echo $no++; ?></td>
+					<td><?php echo $d['nama_ukm']; ?></td>
+					<td><?php echo $d['deskripsi_ukm']; ?></td>
+					<td><?php echo $d['ketua_ukm']; ?></td>
+				</tr>
+				<?php 
+			}
+			?>
+		</tbody>
+                  	</table>
+
+                  	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["Teknik", "Fisip", "Ekonomi", "Pertanian"],
+				datasets: [{
+					label: '',
+					data: [
+					<?php 
+					$jumlah_id1 = mysqli_query($db,"select * from tb_ukm where id_ukm ='1'");
+					echo mysqli_num_rows($jumlah_id1);
+					?>, 
+					<?php 
+					$jumlah_id2 = mysqli_query($db,"select * from tb_ukm where id_ukm ='2'");
+					echo mysqli_num_rows($jumlah_id2);
+					?>, 
+					<?php 
+					$jumlah_id3 = mysqli_query($db,"select * from tb_ukm where id_ukm ='3'");
+					echo mysqli_num_rows($jumlah_id3);
+					?>, 
+					<?php 
+					$jumlah_id4 = mysqli_query($db,"select * from tb_ukm where id_ukm ='4'");
+					echo mysqli_num_rows($jumlah_id4);
+					?>
+					],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
                     </div>
                     <!-- /.chart-responsive -->
                   </div>
@@ -170,6 +286,6 @@
 <script src="../../../plugins/chart.js/Chart.min.js"></script>
 
 <!-- PAGE SCRIPTS -->
-<script src="../../../dist/js/pages/dashboard2.js"></script>
+
 </body>
 </html>
