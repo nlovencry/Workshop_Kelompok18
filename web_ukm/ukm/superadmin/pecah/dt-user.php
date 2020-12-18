@@ -69,6 +69,7 @@
                       <td><?php echo $data['password']; ?></td>
                       <td>
                         <a href="../proses/hapus-dt-user.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-danger">Hapus</a>
+                        <a href="../proses/edit-dt-user.php?id=<?php echo $data['id_user']; ?>" class="btn btn-primary">Edit</a>
                       </td>
                     </tr>
                   <?php } ?>

@@ -23,7 +23,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard <?php echo $_SESSION['nama_ukm']; ?></h1>
+            <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -47,7 +47,13 @@
               <div class="info-box-content">
                 <span class="info-box-text">Divisi</span>
                 <span class="info-box-number">
-                  0
+                  <?php 
+                  include '../../koneksi.php';
+                  $id_ukm = $_SESSION['id_ukm'];
+                  $data = mysqli_query($db,"SELECT * FROM tb_divisi WHERE id_ukm = '$id_ukm';");
+                  $jumlah = mysqli_num_rows($data);
+                  echo $jumlah;
+                  ?>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -61,7 +67,15 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Data Pendaftar</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number">
+                  <?php 
+                  include '../../koneksi.php';
+                  $id_ukm = $_SESSION['id_ukm'];
+                  $data = mysqli_query($db,"SELECT * FROM tb_pendaftaran WHERE id_ukm = '$id_ukm';");
+                  $jumlah = mysqli_num_rows($data);
+                  echo $jumlah;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>

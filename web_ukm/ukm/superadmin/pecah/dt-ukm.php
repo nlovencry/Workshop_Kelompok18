@@ -56,19 +56,18 @@
                     <th>Opsi</th>
                   </tr>
                   </thead>
+                  <tbody>
                   <?php
                   include '../../koneksi.php';
-                      $query_mysql = mysqli_query($db,"select * from tb_ukm");
-                      $nomor = 1;
+                    $query_mysql = mysqli_query($db,"select * from tb_ukm");
+                    $nomor = 1;
                   while ($data = mysqli_fetch_array($query_mysql)){
                   ?>
-
-                  <tbody>
                   <tr>
                     <td><?php echo $nomor++; ?></td>
-                    <td><?php echo $data['nama_ukm']; ?></td>
+                    <td width="200"><?php echo $data['nama_ukm']; ?></td>
                     <td><?php echo $data['deskripsi_ukm']; ?></td>
-                    <td>
+                    <td width="200">
                         <a href="../proses/detail-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
                         <a href="../proses/hapus-dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
                     </td>

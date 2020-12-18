@@ -45,7 +45,7 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">+<small>Tambah Data UKM</small></h3>
+                <h3 class="card-title">+<small> Tambah Data UKM</small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -53,33 +53,15 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label>Nama Unit Kegiatan Mahasiswa</label>
-                    <select name="nama_ukm" class="form-control form-control-user">
-                      <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
-                      <option value="UKM-O">UKM-O</option>
-                      <option value="E-CLUB">E-CLUB</option>
-                      <option value="ROBOTIKA IR-64">ROBOTIKA IR-64</option>
-                      <option value="RASPOL">RASPOL</option>
-                      <option value="HIMAPALA BEKISAR">HIMAPALA BEKISAR</option>
-                      <option value="KSR PMI">KSR PMI</option>
-                      <option value="MENWA 877">MENWA 877</option>
-                      <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
-                      <option value="PSM">PSM</option>
-                      <option value="PMK(KRISTEN)">PMK(KRISTEN)</option>
-                      <option value="LABAIK">LABAIK</option>
-                      <option value="UKPM EXPLANT">UKPM EXPLANT</option>
-                      <option value="SKIM">SKIM</option>
-                      <option value="BARABAS DC">BARABAS DC</option>
-                      <option value="LUMUT">LUMUT</option>
-                      <option value="KOTAK">KOTAK</option>
-                    </select>
+                    <input type="text" name="nama_ukm" class="form-control form-control-user" placeholder="ex : UKM-O">
                   </div>
                   <div class="form-group">
                     <label>Deskripsi Unit Kegiatan Mahasiswa</label>
                     <textarea name="deskripsi_ukm" class="form-control form-control-user" placeholder="ex : Unit Kegiatan Mahasiswa Olahraga" required=""></textarea>
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a><button type="reset" class="btn btn-danger">Reset</button></a>
+                    <button input type="submit" class="btn btn-primary">Simpan</button>
+                    <button input type="reset" class="btn btn-danger">Reset</button>
                     <a href="../pecah/dt-ukm.php" class="btn btn-secondary">Kembali</a>
                   </div>
                 </div>
