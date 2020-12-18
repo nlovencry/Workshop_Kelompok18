@@ -53,11 +53,19 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
+  
   <section id="hero" class="d-flex align-items-center">
+    <?php 
+    include 'koneksi.php';
+    $id_ukm = $_GET['id_ukm'];
+    $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
+    while ($a = mysqli_fetch_array($data)) {
+    ?>
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Selamat Datang di UKM OLAHRAGA</h1>
+          <h1><?php echo $a['nama_ukm']?></h1>
+          <h2><?php echo $a['deskripsi_ukm']; ?></h2>
           <div class="d-lg-flex">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
             <a href="https://www.youtube.com/watch?v=7WVkGCBOhic" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
@@ -68,6 +76,9 @@
         </div>
       </div>
     </div>
+    <?php
+    }
+    ?>
   </section><!-- End Hero -->
 
   <main id="main">
@@ -79,9 +90,14 @@
           <h2>Visi & Misi</h2>
         </div>
         <div class="row content">
+          <?php 
+          include 'koneksi.php';
+          $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
+          while ($a = mysqli_fetch_array($data)) {
+          ?>
           <div class="col-lg-6">
             <p>
-              "Memiliki akad yang berkwalitas dalam berbagai bidang olahraga menjunjung sportifitas yang tinggi"
+              "<?php echo $a['visi_ukm']; ?>"
             </p>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
@@ -90,6 +106,9 @@
               2. Memiliki akad yang berkwalitas dalam berbagai bidang olahraga menjunjung sportifitas yang tinggi
             </p>
           </div>
+          <?php
+          }
+          ?>
         </div>
       </div>
     </section><!-- End About Us Section -->
@@ -102,24 +121,19 @@
             <div class="content">
               <h3><strong>Prestasi</strong></h3>
             </div>
-            <div class="accordion-list">
+            <div class="accordion-list">              
               <ul>
-                <li>
-                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span>01</span>Prestasi 1<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
-                    <p>
-                      skaskansa
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span>02</span>Prestasi 2<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
-                    <p>
-                      jsdbhjs
-                    </p>
-                  </div>
-                </li>
+                <?php 
+                  $no = 1;
+                  $data = mysqli_query($db, "SELECT * FROM tb_prestasi WHERE id_ukm='$id_ukm'");
+                  while ($a = mysqli_fetch_array($data)) {
+                  ?>
+                    <li>
+                      <a data-toggle="collapse" class="collapse" href="#"><span><?php echo $no++; ?></span><?php echo $a['nama_prestasi']; ?></a>
+                    </li>
+                 <?php
+                  }
+                ?>
               </ul>
             </div>
           </div>
@@ -128,17 +142,19 @@
               <h3><strong>Divisi</strong></h3>
             </div>
             <div class="accordion-list">
+              <?php 
+              $no = 1;
+              $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$id_ukm'");
+              while ($a = mysqli_fetch_array($data)) {
+              ?>
               <ul>
                 <li>
-                  <a data-toggle="collapse" class="collapse" href="#"><span>01</span>Basket<i class="bx bx-chevron-down icon-show"></i></a>
-                </li>
-                <li>
-                  <a data-toggle="collapse" href="#" class="collapse"><span>02</span>Voli<i class="bx bx-chevron-down icon-show"></i></a>
-                </li>
-                <li>
-                  <a data-toggle="collapse" href="#" class="collapse"><span>03</span>Bulu Tangkis<i class="bx bx-chevron-down icon-show"></i></a>
+                  <a data-toggle="collapse" class="collapse" href="#"><span><?php echo $no++; ?></span><?php echo $a['nama_divisi']; ?></a>
                 </li>
               </ul>
+              <?php
+              }
+              ?>
             </div>
           </div>
         </div>
@@ -178,12 +194,16 @@
           <h2>Susunan Organisasi</h2>
         </div>
         <div class="row">
+          <?php 
+          $data = mysqli_query($db, "SELECT tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_struktur.nama_mhs, tb_jabatan.id_jabatan, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_ukm ON tb_struktur.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi INNER JOIN  tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan; WHERE id_ukm='$id_ukm'");
+          while ($a = mysqli_fetch_array($data)) {
+          ?>
           <div class="col-lg-6">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Agung</h4>
-                <span>Ketua Umum UKM Olahraga</span>
+                <h4><?php echo $a['nama_mhs']; ?></h4>
+                <span><?php echo $a['nama_jabatan']; ?></span>
                 <p>
                   Program Studi Teknik Informatika<br>
                   2018
@@ -195,7 +215,7 @@
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Rina</h4>
+                <h4><?php echo $a['wakil_ukm']; ?></h4>
                 <span>Wakil Ketua Umum UKM Olahraga</span>
                 <p>
                   Program Studi Manajemen Argoindustri<br>
@@ -208,7 +228,7 @@
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Ajeng</h4>
+                <h4><?php echo $a['sekretaris1_ukm']; ?></h4>
                 <span>Sekretaris 1 UKM Olahraga</span>
                 <p>
                   Program Studi Manajemen Argoindustri<br>
@@ -221,7 +241,7 @@
            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Anton</h4>
+                <h4><?php echo $a['sekretaris2_ukm']; ?></h4>
                 <span>Sekretaris 2 UKM Olahraga</span>
                 <p>
                   Program Studi Rekam Medik<br>
@@ -230,6 +250,35 @@
               </div>
             </div>
           </div>
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4><?php echo $a['bendahara1_ukm']; ?></h4>
+                <span>Sekretaris 1 UKM Olahraga</span>
+                <p>
+                  Program Studi Manajemen Argoindustri<br>
+                  2019
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+           <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4><?php echo $a['bendahara2_ukm']; ?></h4>
+                <span>Sekretaris 2 UKM Olahraga</span>
+                <p>
+                  Program Studi Rekam Medik<br>
+                  2019
+                </p>
+              </div>
+            </div>
+          </div>
+          <?php
+          }
+          ?>
         </div>
       </div>
     </section><!-- End Team Section -->
