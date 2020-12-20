@@ -54,7 +54,7 @@
       <!-- /.social-auth-links -->
         <div class="row">
           <div class="col-12">
-            <center><p>Belum Punya akun? <a href="#" class="text-justify">Daftar Disini</a></p></center>
+            <center><p>Belum Punya akun? <a href="register.php" class="text-justify">Daftar Disini</a></p></center>
           </div>
         </div>
       </div>
