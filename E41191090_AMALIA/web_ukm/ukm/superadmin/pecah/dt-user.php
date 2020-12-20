@@ -11,7 +11,6 @@
       echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
     }
   ?>
-
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
 
@@ -46,18 +45,6 @@
               <div class="card-header">
                   <a type="submit" href="tambah-dt-user.php" class="btn btn-primary">+ Tambah Data User</a>
               </div>
-              <?php
-                if(isset($_GET['pesan'])){
-                    $pesan=$_GET['pesan'];
-                    if($pesan=="input"){
-                        echo "Data berhasil diinput";
-                    } elseif ($pesan=="update") {
-                        echo "Data berhasil diupdate";
-                    } elseif ($pesan=="hapus") {
-                        echo "Data berhasil dihapus";
-                    }
-                }
-                ?>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">

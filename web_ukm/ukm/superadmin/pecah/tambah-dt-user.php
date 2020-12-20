@@ -80,14 +80,6 @@
                     <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Password" require>
                   </div>
                   <div class="form-group">
-                  <select name="Pilih Level" id="Pilih Level" 
-                    class="form-control form-control-tb_user">
-                    <option value="User">User</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Superadmin">Super Admin</option>
-                  </select>  
-                  </div>
-                  <div class="form-group">
                     <button input type="submit" class="btn btn-primary">Simpan</button>
                     <button input type="reset" class="btn btn-danger">Reset</button>
                     <a href="../pecah/dt-user.php" class="btn btn-secondary">Kembali</a>

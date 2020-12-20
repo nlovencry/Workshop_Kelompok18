@@ -85,13 +85,14 @@
         <div class="row">
         <?php
           include 'koneksi.php';
-          $data = mysqli_query($db, "SELECT nama_ukm, deskripsi_ukm FROM tb_ukm");
+          $data = mysqli_query($db, "SELECT * FROM tb_ukm");
           while ($a = mysqli_fetch_array($data)) {
+            $id_ukm = $a['id_ukm'];
         ?>
           <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="homepage-ukm.php"><?php echo $a['nama_ukm']; ?></a></h4>
+              <h4><a href="homepage-ukm.php?id_ukm=<?php echo $id_ukm; ?>"><?php echo $a['nama_ukm']; ?></a></h4>
               <p><?php echo $a['deskripsi_ukm']; ?></p>
             </div>
           </div>

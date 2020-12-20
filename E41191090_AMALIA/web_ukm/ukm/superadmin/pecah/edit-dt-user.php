@@ -28,7 +28,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Form Tambah Data User</li>
+              <li class="breadcrumb-item active">Form Edit Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -52,19 +52,17 @@
                 <?php
                 include '../../koneksi.php';
                 $id=$_GET['id_user'];
-                $query_mysql=mysqli_query($koneksi,"select * from user where id = '$id_user'");
+                $query_mysql=mysqli_query($koneksi,"SELECT * FROM user WHERE id = '$id_user'");
                 $nomor=1;
                 while ($data=mysqli_fetch_array($query_mysql)) {
                     ?>
-                <form id="quickForm" action="../proses/update-dt-user.php" method="POST">
+                <form action="../proses/update-dt-user.php" method="POST">
                 <div class="card-body">
-
                   <div class="form-group">
                     <input type="hidden" name="id_user" class="form-control form-control-use" 
                     value="<?php echo $data['id_user']; ?>">
                   </div>
                   <div class="form-group">
-                  <input type="hidden" name="id_user" value="<?php echo $d['id_user']; ?>">
                     <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
                     <select name="nama_ukm" class="form-control form-control-user">
                       <option value="UKM-O">UKM-O</option>
@@ -86,24 +84,21 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="username" class="form-control form-control-use" 
-                    value="<?php echo $data['username']; ?>">
+                    <input type="text" name="username" value="<?php echo $data['username']; ?>">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="password" class="form-control form-control-use" 
-                    value="<?php echo $data['password']; ?>">
+                    <input type="text" name="password" value="<?php echo $data['password']; ?>">
                   </div>
                   <div class="form-group">
-                  <select name="Pilih Level" id="Pilih Level" 
-                    class="form-control form-control-tb_user" 
-                    value="<?php echo $data['Pilih Lavel']; ?>">
+                  <select name="Pilih Level" id="Pilih Level" value="<?php echo $data['Pilih Lavel']; ?>">
                     <option value="User">User</option>
                     <option value="Admin">Admin</option>
                     <option value="Superadmin">Super Admin</option>
                   </select>  
                   </div>
                   <div class="form-group">
-                    <td><input type="submit" href="../proses/tambah-aksi-dt-user.php" class="btn btn-primary">Simpan</td>
+                    <button input type="submit" class="btn btn-primary">Simpan</button>
+                    <button input type="reset" class="btn btn-danger">Reset</button>
                     <a href="../pecah/dt-user.php" class="btn btn-secondary">Kembali</a>
                   </div> 
                 </div>

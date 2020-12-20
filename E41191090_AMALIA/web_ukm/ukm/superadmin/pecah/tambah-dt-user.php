@@ -49,10 +49,10 @@
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm" action="../proses/tambah-aksi-dt-user.php" method="POST">
+                <form action="../proses/tambah-aksi-dt-user.php" method="POST">
                 <div class="card-body">
                   <div class="form-group">
-                    <option disabled=""></option>
+                    <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
                     <select name="nama_ukm" class="form-control form-control-user">
                       <option value="UKM-O">UKM-O</option>
                       <option value="E-CLUB">E-CLUB</option>
@@ -88,7 +88,7 @@
                   </select>  
                   </div>
                   <div class="form-group">
-                    <button href="../proses/tambah-aksi-dt-user.php" type="submit" class="btn btn-primary">Simpan</button>
+                    <button input type="submit" class="btn btn-primary">Simpan</button>
                     <button input type="reset" class="btn btn-danger">Reset</button>
                     <a href="../pecah/dt-user.php" class="btn btn-secondary">Kembali</a>
                   </div> 
