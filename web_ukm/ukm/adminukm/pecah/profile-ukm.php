@@ -68,7 +68,7 @@
                     <b>Misi</b>
                   </li>
                 </ul>
-                <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                <a href="edit-profile.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
               </div>
               <!-- /.card-body -->
             </div>
