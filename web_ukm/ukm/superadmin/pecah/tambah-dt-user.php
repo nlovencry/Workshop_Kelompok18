@@ -53,24 +53,8 @@
                 <div class="card-body">
                   <div class="form-group">
                     <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
-                    <select name="nama_ukm" class="form-control form-control-user">
-                      <option value="UKM-O">UKM-O</option>
-                      <option value="E-CLUB">E-CLUB</option>
-                      <option value="ROBOTIKA IR-64">ROBOTIKA IR-64</option>
-                      <option value="RASPOL">RASPOL</option>
-                      <option value="HIMAPALA BEKISAR">HIMAPALA BEKISAR</option>
-                      <option value="KSR PMI">KSR PMI</option>
-                      <option value="MENWA 877">MENWA 877</option>
-                      <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
-                      <option value="PSM">PSM</option>
-                      <option value="PMK(KRISTEN)">PMK(KRISTEN)</option>
-                      <option value="LABAIK">LABAIK</option>
-                      <option value="UKPM EXPLANT">UKPM EXPLANT</option>
-                      <option value="SKIM">SKIM</option>
-                      <option value="BARABAS DC">BARABAS DC</option>
-                      <option value="LUMUT">LUMUT</option>
-                      <option value="KOTAK">KOTAK</option>
-                    </select>
+                   
+                   
                   </div>
                   <div class="form-group">
                     <input type="text" name="text" class="form-control form-control-use" 
