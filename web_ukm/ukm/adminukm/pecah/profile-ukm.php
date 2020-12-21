@@ -114,8 +114,9 @@
               <div class="card-body">
                 <div class="tab-content">
                   <div class="active tab-pane" id="prestasi">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="../proses/tambah-prestasi.php" method="POST">
                       <div class="form-group">
+                        <input type="hidden" name="id_ukm" class="form-control" id="inputName" value="<?php echo $id_ukm; ?>">
                         <label for="inputName" class="col-form-label">Nama Prestasi</label>
                         <input type="text" name="nama_prestasi" class="form-control" id="inputName" placeholder="Masukkan Nama Prestasi">
                       </div>
@@ -145,7 +146,7 @@
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $a['nama_prestasi']; ?></td>
                             <td>
-                              <a href="#" class="btn btn-danger">Hapus</a>
+                              <a href="../proses/hapus-prestasi.php?id_prestasi=<?php echo $a['id_prestasi']; ?>" class="btn btn-danger">Hapus</a>
                             </td>
                           </tr>
                           <?php
@@ -157,23 +158,17 @@
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="kegiatan">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="../proses/tambah-kegiatan.php" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
+                        <input type="hidden" name="id_ukm" class="form-control" id="inputName" value="<?php echo $id_ukm; ?>">
                         <label for="inputName" class="col-form-label">Nama Kegiatan</label>
-                        <input type="email" name="nama_kegiatan" class="form-control" id="inputName" placeholder="Masukkan Nama Kegiatan">
+                        <input type="text" name="nama_kegiatan" class="form-control" id="inputName" placeholder="Masukkan Nama Kegiatan">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputFile">Foto Kegiatan</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" name="foto_kegiatan" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Max 1 Foto</label>
-                          </div>
-                          <div class="input-group-append">
-                            <span class="input-group-text" id="">Upload</span>
-                          </div>
-                        </div>
-                      </div>
+                        <label>Foto :</label>
+                        <input type="file" name="foto" required="required">
+                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+                      </div>  
                       <div class="form-group">
                         <label for="inputExperience" class="col-form-label">Keterangan</label>
                         <textarea class="form-control" name="keterangan" id="inputExperience" placeholder="Keterangan Foto"></textarea>
@@ -205,10 +200,10 @@
                           <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $a['nama_kegiatan']; ?></td>
-                            <td><?php echo $a['foto_kegiatan']; ?></td>
+                            <td><img src="../../gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" width="35" height="40"></td>
                             <td><?php echo $a['keterangan']; ?></td>
                             <td>
-                              <a href="#" class="btn btn-danger">Hapus</a>
+                              <a href="../proses/hapus-kegiatan.php?id_kegiatan=<?php echo $a['id_kegiatan']; ?>" class="btn btn-danger">Hapus</a>
                             </td>
                           </tr>
                           <?php
