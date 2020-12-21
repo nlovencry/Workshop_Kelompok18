@@ -93,7 +93,7 @@
                 <?php
                 }
                 ?>
-                <a href="#" class="btn btn-primary btn-block"><b>Edit Susunan Organisasi</b></a>
+                <a href="detail-struktur.php" class="btn btn-primary btn-block"><b>Detail Susunan Organisasi</b></a>
               </div>
               <!-- /.card-body -->
             </div>
