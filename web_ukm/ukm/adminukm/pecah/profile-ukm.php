@@ -40,12 +40,12 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
             <!-- Profile Image -->
             <?php 
             include '../../koneksi.php';
             $id_ukm = $_SESSION['id_ukm'];
-            $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
+            $data = mysqli_query($db, "SELECT tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_ukm.deskripsi_ukm, tb_ukm.visi_ukm, tb_ukm.misi_ukm, tb_ukm.logo_ukm, tb_divisi.nama_divisi, tb_divisi.nama_co, tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto, tb_kegiatan.nama_kegiatan, tb_kegiatan.foto_kegiatan, tb_kegiatan.keterangan, tb_prestasi.nama_prestasi FROM tb_ukm INNER JOIN tb_divisi ON tb_ukm.id_ukm = tb_divisi.id_ukm INNER JOIN tb_struktur ON tb_ukm.id_ukm = tb_struktur.id_ukm INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi INNER JOIN tb_kegiatan ON tb_ukm.id_ukm = tb_kegiatan.id_ukm INNER JOIN tb_prestasi ON tb_ukm.id_ukm = tb_prestasi.id_ukm WHERE tb_ukm.id_ukm='$id_ukm'");
             while ($a = mysqli_fetch_array($data)) {
             ?>
             <div class="card card-primary card-outline">
@@ -59,13 +59,13 @@
                 <p class="text-muted text-center"><?php echo $a['deskripsi_ukm']; ?></p>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
+                    <b>Visi</b>
+                      <p class="text-muted">
+                        <?php echo $a['visi_ukm']; ?>
+                      </p>
                   </li>
                   <li class="list-group-item">
                     <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
                   </li>
                 </ul>
 
@@ -78,39 +78,22 @@
             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">About Me</h3>
+                <h3 class="card-title">Susunan Organisasi</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
+                <?php
+                $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE tb_struktur.id_ukm = '$id_ukm'");
+                while ($a = mysqli_fetch_array($data)) {
+                ?>
+                <strong></i><?php echo $a['nama_jabatan']; ?></strong>
                 <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
+                  <?php echo $a['nama_mhs']; ?>
                 </p>
-
                 <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                <?php
+                }
+                ?>
               </div>
               <!-- /.card-body -->
             </div>
@@ -120,13 +103,13 @@
             ?>
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-8">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Divisi</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Prestasi</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Kegiatan</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
