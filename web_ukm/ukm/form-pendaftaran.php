@@ -27,6 +27,7 @@
   <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="homepage-ukm/style.css">
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -44,7 +45,12 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
+
       <h1 class="logo mr-auto"><img src="gambar/logo-gabung.png"></h1>
+     
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="homepage.php">Home</a></li>
@@ -54,11 +60,13 @@
           <li><a href="login.php">Login</a></li>
         </ul>
       </nav><!-- .nav-menu -->
+
     </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
+
     <div class="container">
       <div class="row">
         <div class="col-lg-10 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
@@ -73,30 +81,22 @@
         </div> -->
       </div>
     </div>
+
   </section><!-- End Hero -->
 
   <main id="main">
 
     <!-- ======= About Us Section ======= -->
     <section id="#" class="about section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>FORM PENDAFTARAN UNIT KEGIATAN MAHASISWA</h2>
-        <div class="row content">
-         <div class="container p-3 my-3">
-            <form id="form" method="post" action="proses-pendaftaran.php">
-              <!-- data diri -->
+    <div class="container p-3 my-3 border">
+    <h1 class="text-center">Form Pendaftaran Mahasiswa Baru</h1>
+            <form id="form" method="post" action="proses_pendaftaran.php">
+              <!-- data ukm -->
               <div class="alert alert-primary">
-                <strong>Data Diri</strong>
+                <strong>Data Unit Kegiatan Mahasiswa (UKM)</strong>
               </div>
               <div class="row">
-                <div class="col-sm-7">
-                  <div class="form-group">
-                    <label>Nama Lengkap:</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap">
-                  </div>
-                </div>
-                <div class="col-sm-5">
+                <div class="col-sm-12">
                   <div class="form-group">
                     <label>Nomor Induk Mahasiswa (NIM):</label>
                     <input type="text" name="nim" class="form-control" placeholder="Masukan NIM">
@@ -104,71 +104,12 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label>Jenis Kelamin:</label>
-                    <select class="form-control" name="jk">
-                      <option>Pilih</option>
-                        <option value="1">Laki-laki</option>
-                        <option value="2">Perempuan</option>
-                    </select>
-                  </div>
+              <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Tanggal Pendaftaran:</label>
+                        <input type="date" name="tanggal_lahir" class="form-control">
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                  <div class="form-group">
-                    <label>Nomor Whatsapp:</label>
-                    <input type="text" name="no_telp" class="form-control" placeholder="Masukan Nomor WA">
-                  </div>
-                </div>
-                <div class="col-sm-5">
-                  <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" name="email" class="form-control" placeholder="Masukan Email">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="form-group">
-                    <label>Jurusan:</label>
-                    <select class="form-control" name="jurusan">
-                      <option>Pilih</option>
-                      <option value="1">Teknologi Informasi</option>
-                      <option value="2">Teknik</option>
-                      <option value="3">Kesehatan</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-5">
-                  <div class="form-group">
-                    <label>Program Studi:</label>
-                    <select class="form-control" name="prodi">
-                      <option>Pilih</option>
-                      <option value="1">Teknik Informatika</option>
-                      <option value="2">Teknik Komputer</option>
-                      <option value="3">Manajemen Informatika</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="form-group">
-                    <label>Angkatan</label>
-                    <input type="number" name="angkatan" class="form-control" placeholder="Tahun Angkatan">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label>Alamat:</label>
-                    <textarea class="form-control" name="alamat" rows="3" placeholder="Alamat"></textarea>
-                  </div>
-                </div>
-              </div>
-
-              <!-- data ukm -->
-              <div class="alert alert-primary">
-                <strong>Data Unit Kegiatan Mahasiswa (UKM)</strong>
               </div>
               <div class="row">
                 <div class="col-sm-12">
@@ -183,19 +124,18 @@
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
-                    <label>Divisi:</label>
-                    <select class="form-control" name="kabupaten" id="kabupaten">
-                      <option>Pilih</option>
-                    </select>
+                    <label>Alasan Bergabung Dengan UKM:</label>
+                    <textarea class="form-control" name="alasan" rows="3" placeholder="Alasan"></textarea>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
-                  <div class="form-group">
-                    <label>Alasan Bergabung Dengan UKM:</label>
-                    <textarea class="form-control" name="alasan" rows="3" placeholder="Alasan"></textarea>
-                  </div>
+                <div class="form-group">
+				          <label>SIM Online :</label>
+			          	<input type="file" name="foto" required="required">
+			        	  <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+		            </div>
                 </div>
               </div>
               <div class="row">
