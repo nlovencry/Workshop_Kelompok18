@@ -100,10 +100,7 @@
             </p>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              1. Menuju akad yang berkwalitas dan mencapai prestasi di asia 2019 <br>
-              2. Memiliki akad yang berkwalitas dalam berbagai bidang olahraga menjunjung sportifitas yang tinggi
-            </p>
+            <?php echo $a['misi_ukm']; ?>
           </div>
           <?php
           }
@@ -166,23 +163,18 @@
         <div class="section-title">
           <h2>Foto Kegiatan</h2>
         </div>
+        <?php
+        $data = mysqli_query($db, "SELECT * FROM tb_kegiatan WHERE id_ukm='$id_ukm'");
+        while ($a = mysqli_fetch_array($data)) {
+        ?>
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="../assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="../assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""></div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="../assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt=""></div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt=""></div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="../assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" class="img-fluid" alt=""></div>
           </div>
         </div>
+        <?php
+        }
+        ?>
       </div>
     </section><!-- End Portfolio Section -->
 

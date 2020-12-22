@@ -20,7 +20,7 @@
 			mysqli_query($db, "INSERT INTO tb_kegiatan VALUES('','$id_ukm','$nama_kegiatan','$keterangan','$foto_kegiatan')");
 			header("location:../pecah/profile-ukm.php#kegiatan");
 		}else{
-			echo "<script>alert('Ukuran Foto Terlalu Besar!'); location:'../pecah/profile-ukm.php#kegiatan';</script>";
+			echo "<script>alert('Ukuran Foto Terlalu Besar!'); location:'../pecah/profile-ukm.php';</script>";
 		}
 	}
 

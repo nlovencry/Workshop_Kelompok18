@@ -50,7 +50,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/update-profile-ukm.php" method="POST">
+              <form action="../proses/update-profile-ukm.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <?php 
                     include '../../koneksi.php';
@@ -73,11 +73,11 @@
                   </div>
                   <div class="form-group">
                     <label>Misi</label>
-                    <textarea class="ckeditor" id="ckeditor" name="misi_ukm"></textarea>
+                    <textarea class="ckeditor" id="ckeditor" name="misi_ukm"><?php echo $a['misi_ukm']; ?></textarea>
                   </div>
                   <div class="form-group">
                     <label>Logo</label>
-                    <input type="file" name="logo" required="required">
+                    <input type="file" name="logo" required="required" value="<?php echo $a['logo_ukm']; ?>">
                     <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
                   </div>
                   <?php

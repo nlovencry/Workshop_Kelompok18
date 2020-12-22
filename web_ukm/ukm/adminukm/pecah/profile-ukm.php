@@ -52,7 +52,7 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../gambar/logo.png"
+                       src="../../gambar/logo/<?php echo $a['logo_ukm']; ?>"
                        alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center"><?php echo $a['nama_ukm']; ?></h3>
@@ -60,12 +60,13 @@
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Visi</b>
-                      <p class="text-muted">
-                        <?php echo $a['visi_ukm']; ?>
-                      </p>
+                    <p class="text-muted">
+                      <?php echo $a['visi_ukm']; ?>
+                    </p>
                   </li>
                   <li class="list-group-item">
                     <b>Misi</b>
+                    <?php echo $a['misi_ukm']; ?>
                   </li>
                 </ul>
                 <a href="edit-profile.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
