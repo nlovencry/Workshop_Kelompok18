@@ -44,9 +44,9 @@
         <div class="row">
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Detail Pengurus UKM</h3>
+                <a href="tambah-dt-struktur.php" class="btn btn-primary">+ Tambah Data</a>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -79,7 +79,7 @@
                       <td><?php echo $a['foto']; ?></td>
                       <td>
                         <a href="edit-struktur.php?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-primary">Edit</a>
-                        <a href="#" class="btn btn-danger">Hapus</a>
+                        <a href="hapus-struktur.php?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                     <?php

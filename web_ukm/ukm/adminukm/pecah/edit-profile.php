@@ -65,7 +65,7 @@
                   </div>
                   <div class="form-group">
                     <label>Deskripsi</label>
-                    <input type="text" class="form-control" name="deskripsi_ukm" value="<?php echo $a['deskripsi_ukm']; ?>">
+                    <textarea class="form-control" name="deskripsi_ukm"><?php echo $a['deskripsi_ukm']; ?></textarea>
                   </div>
                   <div class="form-group">
                     <label>Visi</label>
@@ -77,7 +77,7 @@
                   </div>
                   <div class="form-group">
                     <label>Logo</label>
-                    <input type="file" name="logo" required="required" value="<?php echo $a['logo_ukm']; ?>">
+                    <input type="file" name="logo" value="<?php echo $a['logo_ukm']; ?>">
                     <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
                   </div>
                   <?php
