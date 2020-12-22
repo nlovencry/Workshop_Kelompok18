@@ -50,7 +50,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/update-profile-ukm.php" method="POST" role="form">
+              <form action="../proses/update-profile-ukm.php" method="POST">
                 <div class="card-body">
                   <?php 
                     include '../../koneksi.php';

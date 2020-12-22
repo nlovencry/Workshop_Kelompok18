@@ -29,6 +29,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Divisi</li>
+              <li class="breadcrumb-item active">Edit Divisi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -41,45 +42,44 @@
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">
-          <div class="col-12">
-            <div class="card">
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
               <div class="card-header">
-                <a href="tambah-dt-divisi.php" class="btn btn-primary">+ Tambah Data</a>
+                <h3 class="card-title">Edit Data Divisi</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Divisi</th>
-                      <th>Nama Koordinator</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                      include '../../koneksi.php';
-                      $no = 1;
-                      $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$_SESSION[id_ukm]'");
-                      while ($a = mysqli_fetch_array($data)) {
-                    ?>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <td><?php echo $a['nama_divisi']; ?></td>
-                      <td><?php echo $a['nama_co']; ?></td>
-                      <td>
-                        <a href="edit-dt-divisi.php?id_divisi=<?php echo $a['id_divisi']; ?>" class="btn btn-primary">Edit</a>
-                        <a href="../proses/hapus-dt-divisi.php?id_divisi=<?php echo $a['id_divisi']; ?>" class="btn btn-danger">Hapus</a>
-                      </td>
-                    </tr>
-                    <?php
-                      }
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+              <!-- form start -->
+              <form action="../proses/update-dt-divisi.php" method="POST" role="form">
+                <div class="card-body">
+                  <?php 
+                    include '../../koneksi.php';
+                    $id_ukm = $_SESSION['id_ukm'];
+                    $id_divisi = $_GET['id_divisi'];
+                    $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$id_ukm' AND id_divisi='$id_divisi'");
+                    while ($a = mysqli_fetch_array($data)) {
+                  ?>
+                  <div class="form-group">
+                    <label>Nama Divisi</label>
+                    <input type="hidden" class="form-control" name="id_ukm" value="<?php echo $id_ukm; ?>">
+                    <input type="hidden" class="form-control" name="id_divisi" value="<?php echo $id_divisi; ?>">
+                    <input type="text" class="form-control" name="nama_divisi" value="<?php echo $a['nama_divisi']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label>Nama Koordinator</label>
+                    <input type="text" class="form-control" name="nama_co" value="<?php echo $a['nama_co']; ?>">
+                  </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <a href="dt-divisi.php" class="btn btn-secondary">Kembali</a>
+                </div>
+              </form>
             </div>
             <!-- /.card -->
           </div>
