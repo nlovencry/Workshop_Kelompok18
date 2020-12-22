@@ -41,26 +41,43 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <div class="card">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Data Anggota Baru UKM</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <button type="submit" class="btn btn-success" style="margin-bottom: 15px; ">Cetak Laporan</button>
                 <table id="example1" class="table table-bordered table-hover">
                   <thead>
                   <tr>
                     <th>No</th>
                     <th>NIM</th>
                     <th>Nama</th>
-                    <th>Divisi</th>
+                    <th>No WA</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    include '../../koneksi.php';
+                    $id_ukm = $_SESSION['id_ukm'];
+                    $no = 1;
+                    $data = mysqli_query($db, "SELECT tb_pendaftaran.tgl_pendaftaran, tb_pendaftaran.nim_mhs, tb_mahasiswa.nama_mhs, tb_mahasiswa.jk, tb_mahasiswa.no_wa, tb_mahasiswa.email, tb_prodi.nama_prodi, tb_mahasiswa.angkatan, tb_mahasiswa.alamat, tb_pendaftaran.alasan, tb_pendaftaran.sim_online FROM tb_pendaftaran INNER JOIN tb_mahasiswa ON tb_pendaftaran.nim_mhs = tb_mahasiswa.nim_mhs INNER JOIN tb_ukm ON tb_pendaftaran.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_mahasiswa.id_prodi = tb_prodi.id_prodi WHERE tb_pendaftaran.id_ukm = '$id_ukm'");
+                    while ($a = mysqli_fetch_array($data)) {
+                    ?>
                   <tr>
-                    
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $a['nim_mhs']; ?></td>
+                    <td><?php echo $a['nama_mhs']; ?></td>
+                    <td><?php echo $a['no_wa']; ?></td>
+                    <td>
+                      <a href="#" class="btn btn-info">Detail</a>
+                    </td>
                   </tr>
+                  <?php
+                  }
+                  ?>
                   </tbody>
                 </table>
               </div>

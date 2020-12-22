@@ -29,7 +29,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Profile UKM</li>
-              <li class="breadcrumb-item active">Edit Susunan Organisasi UKM</li>
+              <li class="breadcrumb-item active">Edit Pengurus UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -57,7 +57,7 @@
                     $id_ukm = $_SESSION['id_ukm'];
                     $id_struktur = $_GET['id_struktur'];
                     $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE id_ukm='$id_ukm' AND id_struktur='$id_struktur'");
-                    while ($a = mysqli_fetch_array($data)) {
+                    $a = mysqli_fetch_array($data);
                   ?>
                   <div class="form-group">
                     <label>Nama Mahasiswa</label>
@@ -68,10 +68,12 @@
                     <label>Jabatan</label>
                     <select name="nama_jabatan" class="form-control">
                       <?php
-                        foreach ($a['nama_jabatan'] as $jbt) {
-                          echo "<option value='$jbt'";
-                          echo $a['nama_jabatan']==$jbt?'selected="selected"':'';
-                          echo ">$jbt</option>";
+                      $jbt = mysqli_query($db, "SELECT nama_jabatan FROM tb_jabatan");
+                      $j = mysqli_fetch_array($jbt);
+                        foreach ($j as $key) {
+                          echo "<option value='$key'";
+                          echo $j['nama_jabatan']==$key?'selected="selected"':'';
+                          echo ">$key</option>";
                         }
                       ?>
                     </select>
@@ -97,9 +99,6 @@
                     <input type="file" name="logo" required="required">
                     <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
                   </div> -->
-                  <?php
-                  }
-                  ?>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

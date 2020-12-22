@@ -29,7 +29,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Profile UKM</li>
-              <li class="breadcrumb-item active">Detail Susunan Organisasi UKM</li>
+              <li class="breadcrumb-item active">Detail Pengurus UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -46,7 +46,7 @@
             <!-- general form elements -->
             <div class="card">
               <div class="card-header">
-                <a href="tambah-dt-struktur.php" class="btn btn-primary">+ Tambah Data</a>
+                <a href="tambah-struktur.php" class="btn btn-primary">+ Tambah Data</a>
               </div>
               <!-- /.card-header -->
               <!-- form start -->

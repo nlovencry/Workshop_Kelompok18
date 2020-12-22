@@ -29,7 +29,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Profile UKM</li>
-              <li class="breadcrumb-item active">Edit Susunan Organisasi UKM</li>
+              <li class="breadcrumb-item active">Tambah Pengurus UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -46,39 +46,34 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Pengurus UKM</h3>
+                <h3 class="card-title">Tambah Pengurus UKM</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form action="../proses/update-profile-ukm.php" method="POST" role="form">
                 <div class="card-body">
-                  <?php 
-                    include '../../koneksi.php';
-                    $id_ukm = $_SESSION['id_ukm'];
-                    $id_struktur = $_GET['id_struktur'];
-                    $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE id_ukm='$id_ukm' AND id_struktur='$id_struktur'");
-                    while ($a = mysqli_fetch_array($data)) {
-                  ?>
                   <div class="form-group">
                     <label>Nama Mahasiswa</label>
-                    <input type="hidden" class="form-control" name="id_struktur" value="<?php echo $a['id_struktur']; ?>">
-                    <input type="text" class="form-control" name="nama_mhs" value="<?php echo $a['nama_mhs']; ?>">
+                    <input type="text" class="form-control" name="nama_mhs" placeholder="Masukkan Nama Mahasiswa" required="">
                   </div>
                   <div class="form-group">
                     <label>Jabatan</label>
-                    <select name="nama_jabatan" class="form-control">
+                    <select name="nama_jabatan" class="form-control" required="">
                       <?php
-                        foreach ($a['nama_jabatan'] as $jbt) {
-                          echo "<option value='$jbt'";
-                          echo $a['nama_jabatan']==$jbt?'selected="selected"':'';
-                          echo ">$jbt</option>";
+                        include '../../koneksi.php';
+                        $data = mysqli_query($db, "SELECT nama_jabatan FROM tb_jabatan");
+                        $a = mysqli_fetch_array($data);
+                        foreach ($a as $key => $value) {
+                          echo "<option value='$key'>";
+                          echo "$a['nama_jabatan']";
+                          echo "</option>";
                         }
                       ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label>Program Studi</label>
-                    <select name="nama_prodi" class="form-control">
+                    <label>Program Studi</label >
+                    <select name="nama_prodi" class="form-control" required="">
                       <?php
                         foreach ($nama_prodi as $prodi) {
                           echo "<option value='$prodi'";
@@ -90,20 +85,18 @@
                   </div>
                   <div class="form-group">
                     <label>Angkatan</label>
-                    <input type="text" name="angkatan" class="form-control" value="<?php echo $a['angkatan']; ?>">
+                    <input type="number" name="angkatan" class="form-control" placeholder="Masukkan Angkatan" required="">
                   </div>
                   <!-- <div class="form-group">
                     <label>Logo</label>
                     <input type="file" name="logo" required="required">
                     <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
                   </div> -->
-                  <?php
-                  }
-                  ?>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="reset" class="btn btn-danger">Reset</button>
                   <a href="profile-ukm.php" class="btn btn-secondary">Kembali</a>
                 </div>
               </form>
