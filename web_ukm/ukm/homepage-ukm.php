@@ -63,7 +63,7 @@
     ?>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-8 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1><?php echo $a['nama_ukm']?></h1>
           <h2><?php echo $a['deskripsi_ukm']; ?></h2>
           <div class="d-lg-flex">
@@ -71,8 +71,8 @@
             <a href="https://www.youtube.com/watch?v=7WVkGCBOhic" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="../assets/img/ukmo.png" class="img-fluid animated" alt="">
+        <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="gambar/logo/<?php echo $a['logo_ukm']; ?>" class="img-fluid animated" alt="" width="300" height="300">
         </div>
       </div>
     </div>
@@ -189,9 +189,9 @@
           $data = mysqli_query($db, "SELECT tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_struktur.nama_mhs, tb_jabatan.id_jabatan, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_ukm ON tb_struktur.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi INNER JOIN  tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan WHERE tb_ukm.id_ukm='$id_ukm'");
           while ($a = mysqli_fetch_array($data)) {
           ?>
-          <div class="col-lg-6">
+          <div class="col-lg-6" style="margin-bottom: 25px;">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="gambar/struktur/<?php echo $a['foto']; ?>" class="profile-user-img img-fluid img-circle"></div>
               <div class="member-info">
                 <h4><?php echo $a['nama_mhs']; ?></h4>
                 <span><?php echo $a['nama_jabatan']." ".$a['nama_ukm']; ?></span>

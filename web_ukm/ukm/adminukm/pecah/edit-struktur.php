@@ -50,42 +50,39 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/update-profile-ukm.php" method="POST" role="form">
+              <form action="../proses/update-struktur.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <?php 
                     include '../../koneksi.php';
                     $id_ukm = $_SESSION['id_ukm'];
                     $id_struktur = $_GET['id_struktur'];
-                    $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE id_ukm='$id_ukm' AND id_struktur='$id_struktur'");
+                    $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_struktur.id_jabatan, tb_jabatan.nama_jabatan, tb_struktur.id_prodi, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE id_ukm='$id_ukm' AND id_struktur='$id_struktur'");
                     $a = mysqli_fetch_array($data);
                   ?>
                   <div class="form-group">
                     <label>Nama Mahasiswa</label>
                     <input type="hidden" class="form-control" name="id_struktur" value="<?php echo $a['id_struktur']; ?>">
+                    <input type="hidden" class="form-control" name="id_ukm" value="<?php echo $a['id_ukm']; ?>">
                     <input type="text" class="form-control" name="nama_mhs" value="<?php echo $a['nama_mhs']; ?>">
                   </div>
                   <div class="form-group">
                     <label>Jabatan</label>
-                    <select name="nama_jabatan" class="form-control">
+                    <select name="id_jabatan" class="form-control">
                       <?php
-                      $jbt = mysqli_query($db, "SELECT nama_jabatan FROM tb_jabatan");
-                      $j = mysqli_fetch_array($jbt);
-                        foreach ($j as $key) {
-                          echo "<option value='$key'";
-                          echo $j['nama_jabatan']==$key?'selected="selected"':'';
-                          echo ">$key</option>";
+                        $data2 = mysqli_query($db, "SELECT * FROM tb_jabatan");
+                        while($key=mysqli_fetch_assoc($data2)) { 
+                          echo"<option value='".$key['id_jabatan']."' ".($key['id_jabatan']==$a['id_jabatan'] ? 'selected' : ' ')." >".$key['nama_jabatan']."</option>";
                         }
                       ?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label>Program Studi</label>
-                    <select name="nama_prodi" class="form-control">
+                    <select name="id_prodi" class="form-control">
                       <?php
-                        foreach ($nama_prodi as $prodi) {
-                          echo "<option value='$prodi'";
-                          echo $a['nama_prodi']==$prodi?'selected="selected"':'';
-                          echo ">$prodi</option>";
+                        $data2 = mysqli_query($db, "SELECT * FROM tb_prodi");
+                        while($key=mysqli_fetch_assoc($data2)) { 
+                          echo"<option value='".$key['id_prodi']."' ".($key['id_prodi']==$a['id_prodi'] ? 'selected' : ' ')." >".$key['nama_prodi']."</option>";
                         }
                       ?>
                     </select>
@@ -94,11 +91,11 @@
                     <label>Angkatan</label>
                     <input type="text" name="angkatan" class="form-control" value="<?php echo $a['angkatan']; ?>">
                   </div>
-                  <!-- <div class="form-group">
-                    <label>Logo</label>
-                    <input type="file" name="logo" required="required">
-                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-                  </div> -->
+                  <div class="form-group">
+                    <label>Foto</label>
+                    <input type="file" name="foto" required="required" value="<?php echo $a['foto']; ?>">
+                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg</p>
+                  </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

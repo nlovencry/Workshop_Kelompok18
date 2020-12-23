@@ -50,35 +50,33 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/update-profile-ukm.php" method="POST" role="form">
+              <form action="../proses/tambah-aksi-struktur.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
+                    <input type="hidden" class="form-control" name="id_ukm" value="<?php echo $id_ukm = $_SESSION['id_ukm']; ?>">
                     <label>Nama Mahasiswa</label>
                     <input type="text" class="form-control" name="nama_mhs" placeholder="Masukkan Nama Mahasiswa" required="">
                   </div>
                   <div class="form-group">
                     <label>Jabatan</label>
-                    <select name="nama_jabatan" class="form-control" required="">
+                    <select name="id_jabatan" class="form-control" required="">
                       <?php
                         include '../../koneksi.php';
-                        $data = mysqli_query($db, "SELECT nama_jabatan FROM tb_jabatan");
-                        $a = mysqli_fetch_array($data);
-                        foreach ($a as $key => $value) {
-                          echo "<option value='$key'>";
-                          echo "$a['nama_jabatan']";
-                          echo "</option>";
+                        $data = mysqli_query($db, "SELECT * FROM tb_jabatan");
+                        while($key=mysqli_fetch_assoc($data)) { 
+                          echo"<option value='".$key['id_jabatan']."'>".$key['nama_jabatan']."</option>";
                         }
                       ?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label>Program Studi</label >
-                    <select name="nama_prodi" class="form-control" required="">
+                    <select name="id_prodi" class="form-control" required="">
                       <?php
-                        foreach ($nama_prodi as $prodi) {
-                          echo "<option value='$prodi'";
-                          echo $a['nama_prodi']==$prodi?'selected="selected"':'';
-                          echo ">$prodi</option>";
+                        include '../../koneksi.php';
+                        $data = mysqli_query($db, "SELECT * FROM tb_prodi");
+                        while($key=mysqli_fetch_assoc($data)) { 
+                          echo"<option value='".$key['id_prodi']."'>".$key['nama_prodi']."</option>";
                         }
                       ?>
                     </select>
@@ -87,11 +85,11 @@
                     <label>Angkatan</label>
                     <input type="number" name="angkatan" class="form-control" placeholder="Masukkan Angkatan" required="">
                   </div>
-                  <!-- <div class="form-group">
-                    <label>Logo</label>
-                    <input type="file" name="logo" required="required">
-                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-                  </div> -->
+                  <div class="form-group">
+                    <label>Foto</label>
+                    <input type="file" name="foto" required="required">
+                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg </p>
+                  </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

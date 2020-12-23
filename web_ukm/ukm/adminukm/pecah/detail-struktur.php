@@ -47,6 +47,7 @@
             <div class="card">
               <div class="card-header">
                 <a href="tambah-struktur.php" class="btn btn-primary">+ Tambah Data</a>
+                <a href="profile-ukm.php" class="btn btn-secondary">Kembali</a>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -76,7 +77,7 @@
                       <td><?php echo $a['nama_jabatan']; ?></td>
                       <td><?php echo $a['nama_prodi']; ?></td>
                       <td><?php echo $a['angkatan']; ?></td>
-                      <td><?php echo $a['foto']; ?></td>
+                      <td><img src="../../gambar/struktur/<?php echo $a['foto']; ?>" width="50" height="70"></td>
                       <td>
                         <a href="edit-struktur.php?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-primary">Edit</a>
                         <a href="hapus-struktur.php?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-danger">Hapus</a>

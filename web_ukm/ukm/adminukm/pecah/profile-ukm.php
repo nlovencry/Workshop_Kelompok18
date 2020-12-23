@@ -190,7 +190,7 @@
                       <div class="form-group">
                         <label>Foto :</label>
                         <input type="file" name="foto" required="required">
-                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg </p>
                       </div>  
                       <div class="form-group">
                         <label for="inputExperience" class="col-form-label">Keterangan</label>
@@ -223,7 +223,7 @@
                           <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $a['nama_kegiatan']; ?></td>
-                            <td><img src="../../gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" width="35" height="40"></td>
+                            <td><img src="../../gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" width="50" height="70"></td>
                             <td><?php echo $a['keterangan']; ?></td>
                             <td>
                               <a href="../proses/hapus-kegiatan.php?id_kegiatan=<?php echo $a['id_kegiatan']; ?>" class="btn btn-danger">Hapus</a>
