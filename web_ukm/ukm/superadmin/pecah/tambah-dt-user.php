@@ -27,8 +27,9 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Form Tambah Data User</li>
+              <li class="breadcrumb-item"><a href="#p">Home</a></li>
+              <li class="breadcrumb-item active">Data User</li>
+              <li class="breadcrumb-item active">Tambah Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,23 +46,30 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">+<small>Tambah Data UKM<small></h3>
+                <h3 class="card-title">Tambah Data User</h3>
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
                 <form action="../proses/tambah-aksi-dt-user.php" method="POST">
                 <div class="card-body">
                   <div class="form-group">
-                    <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
-                   
-                   
+                    <select name="id_ukm" class="form-control" required="">
+                      <?php
+                        include '../../koneksi.php';
+                        $data = mysqli_query($db, "SELECT * FROM tb_ukm");
+                        while($key=mysqli_fetch_assoc($data)) { 
+                          echo"<option value='".$key['id_ukm']."'>".$key['nama_ukm']."</option>";
+                        }
+                      ?>
+                    </select>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" 
-                    id="exampleInputEmail1" placeholder="Username" required>
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Password" require>
+                    <label>Password</label>
+                    <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="Password" require>
                   </div>
                   <div class="form-group">
                     <button input type="submit" class="btn btn-primary">Simpan</button>
