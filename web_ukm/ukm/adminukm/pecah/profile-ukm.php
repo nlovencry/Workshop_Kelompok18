@@ -76,19 +76,18 @@
             <!-- /.card -->
 
             <!-- About Me Box -->
-            <div class="card card-primary">
+            <!-- <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Susunan Organisasi</h3>
+                <h3 class="card-title">Sosial Media</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
-                <?php
-                $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE tb_struktur.id_ukm = '$id_ukm'");
+                <?php 
+                $data = mysqli_query($db, "SELECT * FROM tb_sosmed WHERE id_ukm='$id_ukm'");
                 while ($a = mysqli_fetch_array($data)) {
                 ?>
-                <strong></i><?php echo $a['nama_jabatan']; ?></strong>
+                <strong></i>Instagram</strong>
                 <p class="text-muted">
-                  <?php echo $a['nama_mhs']; ?>
+                  <?php echo $a['instagram']; ?>
                 </p>
                 <hr>
                 <?php
@@ -96,8 +95,7 @@
                 ?>
                 <a href="detail-struktur.php" class="btn btn-primary btn-block"><b>Detail Susunan Organisasi</b></a>
               </div>
-              <!-- /.card-body -->
-            </div>
+            </div> -->
             <!-- /.card -->
             <?php
             }
@@ -108,13 +106,37 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#prestasi" data-toggle="tab">Prestasi</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#pengurus" data-toggle="tab">Pengurus</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#prestasi" data-toggle="tab">Prestasi</a></li>
                   <li class="nav-item"><a class="nav-link" href="#kegiatan" data-toggle="tab">Kegiatan</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  <div class="active tab-pane" id="prestasi">
+                  <div class="active tab-pane" id="pengurus">
+                    <form class="form-horizontal" action="../proses/tambah-prestasi.php" method="POST">
+                      <?php
+                      $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE tb_struktur.id_ukm = '$id_ukm'");
+                      while ($a = mysqli_fetch_array($data)) {
+                      ?>
+                      <div class="form-group">
+                        <label for="inputName" class="col-form-label"><?php echo $a['nama_jabatan']; ?></label>
+                        <input type="text" name="nama_prestasi" class="form-control" id="inputName" value="<?php echo $a['nama_mhs']; ?>" disabled>
+                      </div>
+                      <?php
+                      }
+                      ?>
+                    </form>
+                    <div>
+                      <div class="form-group row">
+                        <div class="col-sm-12" align="right">
+                          <a href="detail-struktur.php" class="btn btn-primary btn-block"><b>Detail Pengurus</b></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="prestasi">
                     <form class="form-horizontal" action="../proses/tambah-prestasi.php" method="POST">
                       <div class="form-group">
                         <input type="hidden" name="id_ukm" class="form-control" id="inputName" value="<?php echo $id_ukm; ?>">
