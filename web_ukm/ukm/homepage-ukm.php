@@ -162,19 +162,23 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Foto Kegiatan</h2>
-        </div>
-        <?php
-        $data = mysqli_query($db, "SELECT * FROM tb_kegiatan WHERE id_ukm='$id_ukm'");
-        while ($a = mysqli_fetch_array($data)) {
-        ?>
+        </div>      
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          <?php
+          $data = mysqli_query($db, "SELECT * FROM tb_kegiatan WHERE id_ukm='$id_ukm'");
+          while ($a = mysqli_fetch_array($data)) {
+          ?>
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-img"><img src="gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4><?php echo $a['nama_kegiatan']; ?></h4>
+              <p><?php echo $a['keterangan']; ?></p>
+            </div>
           </div>
-        </div>
-        <?php
-        }
-        ?>
+          <?php
+          }
+          ?>
+        </div>       
       </div>
     </section><!-- End Portfolio Section -->
 
@@ -191,7 +195,7 @@
           ?>
           <div class="col-lg-6" style="margin-bottom: 25px;">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="gambar/struktur/<?php echo $a['foto']; ?>" class="profile-user-img img-fluid img-circle"></div>
+              <div class="pic rounded"><img align="center" width="150" height="200" src="gambar/struktur/<?php echo $a['foto']; ?>" class="profile-user-img img-fluid img-circle"></div>
               <div class="member-info">
                 <h4><?php echo $a['nama_mhs']; ?></h4>
                 <span><?php echo $a['nama_jabatan']." ".$a['nama_ukm']; ?></span>

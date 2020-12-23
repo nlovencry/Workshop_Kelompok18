@@ -91,7 +91,7 @@
         ?>
           <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
             <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <div class="icon"><img src="gambar/logo/<?php echo $a['logo_ukm']; ?>" width="50" height="50"></i></div>
               <h4><a href="homepage-ukm.php?id_ukm=<?php echo $id_ukm; ?>"><?php echo $a['nama_ukm']; ?></a></h4>
               <p><?php echo $a['deskripsi_ukm']; ?></p>
             </div>
