@@ -67,7 +67,7 @@
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
+        <!-- <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Jurusan">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -98,6 +98,14 @@
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+        </div> -->
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
         </div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password">
@@ -107,14 +115,14 @@
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
+       <!--  <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Retype password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
