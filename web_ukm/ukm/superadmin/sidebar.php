@@ -48,14 +48,6 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="dt-mahasiswa.php" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Data Mahasiswa
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
             <a href="dt-pendaftar.php" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>

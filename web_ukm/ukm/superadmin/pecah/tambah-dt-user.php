@@ -56,7 +56,7 @@
                     <select name="id_ukm" class="form-control" required="">
                       <?php
                         include '../../koneksi.php';
-                        $data = mysqli_query($db, "SELECT * FROM tb_ukm");
+                        $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_user='0'");
                         while($key=mysqli_fetch_assoc($data)) { 
                           echo"<option value='".$key['id_ukm']."'>".$key['nama_ukm']."</option>";
                         }
