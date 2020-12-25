@@ -14,7 +14,6 @@ include '../../koneksi.php';
 	}else{
 		mysqli_query($db, "UPDATE tb_ukm SET('','$username','$password','2')");
 		header("location:../pecah/dt-ukm.php");
-
 ?>
 
 

@@ -53,7 +53,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label>Nama Unit Kegiatan Mahasiswa</label>
-                    <input type="text" name="nama_ukm" class="form-control form-control-user" placeholder="ex : UKM-O" required="">
+                    <input type="text" name="nama_ukm"  class="form-control form-control-user" placeholder="ex : UKM-O" required="">
                   </div>
                   <div class="form-group">
                     <label>Deskripsi Unit Kegiatan Mahasiswa</label>
