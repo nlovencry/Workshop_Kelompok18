@@ -13,22 +13,4 @@ include '../../koneksi.php';
     }
     header("<script>alert('Data Gagal Ditambahkan'); location:'../pecah/tambah-dt-user.php';</script>")
 
-<<<<<<< HEAD
-	if ($cekdata != 0) {
-		echo "<script>alert('Data Sudah Ada'); location:'../pecah/tambah-dt-user.php';</script>"
-	}else{
-		mysqli_query($db, "UPDATE tb_ukm SET('','$username','$password','2')");
-		header("location:../pecah/dt-ukm.php");
-?>
-=======
- 	// $query = mysqli_query($db, "SELECT id_user FROM tb_ukm WHERE id_ukm='$id_ukm'");
-	// $cekdata = mysqli_num_rows($query);
-
-	// if ($cekdata != 0) {
-	// 	echo "<script>alert('Data Sudah Ada'); location:'../pecah/tambah-dt-user.php';</script>"
-	// }else{
-	// 	mysqli_query($db, "UPDATE tb_ukm SET('','$username','$password','2')");
-	// 	header("location:../pecah/dt-ukm.php");
->>>>>>> 829c499bb7511894f2be2d2575f8ad619dc9362f
-
 ?>
