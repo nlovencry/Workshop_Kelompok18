@@ -22,7 +22,7 @@ if(isset($_POST['tombol_tambah'])){
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Tambah Data Siswa</h3>
+                <h3>Tambah Data Mahasiswa</h3>
             </div>
             <div class="card-body">
             <form method="post" action="">

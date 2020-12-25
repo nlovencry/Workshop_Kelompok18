@@ -31,7 +31,7 @@ if(isset($_POST['tombol_update'])){
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Update Data Siswa</h3>
+                <h3>Update Data Mahasiswa</h3>
             </div>
             <div class="card-body">
             <form method="post" action="">
