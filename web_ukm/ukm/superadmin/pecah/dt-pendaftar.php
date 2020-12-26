@@ -23,12 +23,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data UKM</h1>
+            <h1 class="m-0 text-dark">Data Pendaftar</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboad-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Form Tambah Data UKM</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Data Pendaftar</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -40,45 +40,55 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- left column -->
           <div class="col-md-12">
-            <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">+<small> Tambah Data UKM</small></h3>
+                <h3 class="card-title">Data Anggota Baru UKM</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form action="../proses/tambah-aksi-dt-ukm.php" method="POST">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>Nama Unit Kegiatan Mahasiswa</label>
-                    <input type="text" name="nama_ukm"  class="form-control form-control-user" placeholder="ex : UKM-O" required="">
-                  </div>
-                  <div class="form-group">
-                    <label>Deskripsi Unit Kegiatan Mahasiswa</label>
-                    <textarea name="deskripsi_ukm" class="form-control form-control-user" placeholder="ex : Unit Kegiatan Mahasiswa Olahraga" required=""></textarea>
-                  </div>
-                  <div class="form-group">
-                    <button input type="submit" class="btn btn-primary">Simpan</button>
-                    <button input type="reset" class="btn btn-danger">Reset</button>
-                    <a href="../pecah/dt-ukm.php" class="btn btn-secondary">Kembali</a>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
+              <div class="card-body">
+                <button type="submit" class="btn btn-success" style="margin-bottom: 15px; ">Cetak Laporan</button>
+                <table id="example1" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>No WA</th>
+                    <th>Aksi</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    include '../../koneksi.php';
+                    $id_ukm = $_SESSION['id_ukm'];
+                    $no = 1;
+                    $data = mysqli_query($db, "SELECT tb_pendaftaran.tgl_pendaftaran, tb_pendaftaran.nim_mhs, tb_mahasiswa.nama_mhs, tb_mahasiswa.jk, tb_mahasiswa.no_wa, tb_mahasiswa.email, tb_prodi.nama_prodi, tb_mahasiswa.angkatan, tb_mahasiswa.alamat, tb_pendaftaran.alasan, tb_pendaftaran.sim_online FROM tb_pendaftaran INNER JOIN tb_mahasiswa ON tb_pendaftaran.nim_mhs = tb_mahasiswa.nim_mhs INNER JOIN tb_ukm ON tb_pendaftaran.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_mahasiswa.id_prodi = tb_prodi.id_prodi WHERE tb_pendaftaran.id_ukm = '$id_ukm'");
+                    while ($a = mysqli_fetch_array($data)) {
+                    ?>
+                  <tr>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $a['nim_mhs']; ?></td>
+                    <td><?php echo $a['nama_mhs']; ?></td>
+                    <td><?php echo $a['no_wa']; ?></td>
+                    <td>
+                      <a href="#" class="btn btn-info">Detail</a>
+                    </td>
+                  </tr>
+                  <?php
+                  }
+                  ?>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
-            </div>
-          <!--/.col (left) -->
-          <!-- right column --> 
-          <div class="col-md-6">
-
           </div>
-          <!--/.col (right) -->
+          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
