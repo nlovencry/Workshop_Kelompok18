@@ -13,7 +13,7 @@
   ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
-  
+
   <?php include '../sidebar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -23,12 +23,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data UKM</h1>
+            <h1 class="m-0 text-dark">Profile UKM</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Data UKM</li>
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Profile UKM</li>
+              <li class="breadcrumb-item active">Edit Profile UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,52 +40,62 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
-          <div class="col-12">
-            <div class="card">
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
               <div class="card-header">
-                <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
+                <h3 class="card-title">Edit Profile UKM</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama UKM</th>
-                    <th>Deskripsi UKM</th>
-                    <th>Opsi</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <?php
-                  include '../../koneksi.php';
-                    $query_mysql = mysqli_query($db,"select * from tb_ukm");
-                    $nomor = 1;
-                  while ($data = mysqli_fetch_array($query_mysql)){
+              <!-- form start -->
+              <form action="../proses/update-profile-ukm.php" method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+                  <?php 
+                    include '../../koneksi.php';
+                    $id_ukm = $_SESSION['id_ukm'];
+                    $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
+                    while ($a = mysqli_fetch_array($data)) {
                   ?>
-                  <tr>
-                    <td><?php echo $nomor++; ?></td>
-                    <td width="200"><?php echo $data['nama_ukm']; ?></td>
-                    <td><?php echo $data['deskripsi_ukm']; ?></td>
-                    <td width="200">
-                        <a href="../pecah/detail-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
-                        <a href="../proses/hapus-dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
-                    </td>
-                    </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+                  <div class="form-group">
+                    <label>Nama</label>
+                    <input type="hidden" class="form-control" name="id_ukm" value="<?php echo $a['id_ukm']; ?>">
+                    <input type="text" class="form-control" name="nama_ukm" value="<?php echo $a['nama_ukm']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label>Deskripsi</label>
+                    <textarea class="form-control" name="deskripsi_ukm"><?php echo $a['deskripsi_ukm']; ?></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Visi</label>
+                    <input type="text" class="form-control" name="visi_ukm" value="<?php echo $a['visi_ukm']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label>Misi</label>
+                    <textarea class="ckeditor" id="ckeditor" name="misi_ukm"><?php echo $a['misi_ukm']; ?></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Logo</label>
+                    <input type="file" name="logo" value="<?php echo $a['logo_ukm']; ?>">
+                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+                  </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <a href="detail-user.php" class="btn btn-secondary">Kembali</a>
+                </div>
+              </form>
             </div>
-            
+            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>

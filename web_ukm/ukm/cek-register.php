@@ -2,7 +2,7 @@
 	
 	include 'koneksi.php';
 
-	if (@$_POST['simpan']) {
+	if (isset($_POST['register']) ) {
 
 	$nama_lengkap = $_POST['nama_mhs'];
 	$nim = $_POST['nim_mhs'];
@@ -15,7 +15,7 @@
 	$username = $_POST['username'];
 	$password = md5($_POST['password']);
 
-	mysqli_query($db, "INSERT INTO tb_mahasiswa(nama_mhs,nim_mhs,jk,no_wa,email,username,password) VALUES ('$$nama_lengkap','$nim','$jk','$no_wa','$email','$username','$password')");
+	mysqli_query($db, "INSERT INTO tb_mahasiswa VALUES ('$nim', '', '$nama_mhs', '$jk', '$email', '', '', '$username', '$password', '$no_wa')");
 	?>
 	<script type="text/javascript">
 		alert("Simpan Berhasil");

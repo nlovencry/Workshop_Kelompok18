@@ -44,7 +44,7 @@
             <!-- Profile Image -->
             <?php 
             include '../../koneksi.php';
-            $id_ukm = $_SESSION['id_ukm'];
+            $id_ukm = $_GET['id_ukm'];
             $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
             while ($a = mysqli_fetch_array($data)) {
             ?>
@@ -230,7 +230,7 @@
                     <?php
                       include '../../koneksi.php';
                       $no = 1;
-                      $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$_SESSION[id_ukm]'");
+                      $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$_GET[id_ukm]'");
                       while ($a = mysqli_fetch_array($data)) {
                     ?>
                     <tr>
