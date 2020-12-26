@@ -44,7 +44,7 @@
             <!-- Profile Image -->
             <?php 
             include '../../koneksi.php';
-            $id_ukm = $_SESSION['id_ukm'];
+            $id_ukm = $_GET['id_ukm'];
             $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
             while ($a = mysqli_fetch_array($data)) {
             ?>
@@ -137,18 +137,6 @@
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="prestasi">
-                    <form class="form-horizontal" action="../proses/tambah-prestasi.php" method="POST">
-                      <div class="form-group">
-                        <input type="hidden" name="id_ukm" class="form-control" id="inputName" value="<?php echo $id_ukm; ?>">
-                        <label for="inputName" class="col-form-label">Nama Prestasi</label>
-                        <input type="text" name="nama_prestasi" class="form-control" id="inputName" placeholder="Masukkan Nama Prestasi">
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-sm-12" align="right">
-                          <button type="submit" class="btn btn-primary">Tambah</button>
-                        </div>
-                      </div>
-                    </form>
                     <div>
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
