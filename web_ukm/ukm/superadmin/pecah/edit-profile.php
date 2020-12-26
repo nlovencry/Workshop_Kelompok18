@@ -87,7 +87,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
-                  <a href="profile-ukm.php" class="btn btn-secondary">Kembali</a>
+                  <a href="detail-user.php" class="btn btn-secondary">Kembali</a>
                 </div>
               </form>
             </div>
