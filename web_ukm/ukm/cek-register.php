@@ -2,27 +2,27 @@
 	
 	include 'koneksi.php';
 
-	if (isset($_POST['register']) ) {
-
-	$nama_lengkap = $_POST['nama_mhs'];
-	$nim = $_POST['nim_mhs'];
-	$jk = $_POST['jk'];
-	$no_wa = $_POST['no_wa'];
+	$nim = $_POST["nim_mhs"];
+	$prodi = $_POST["id_prodi"];
+	$nama_lengkap = $_POST["nama_mhs"];
+	$jk = $_POST["jk"];
+	$no_wa = $_POST["no_wa"];
 	$email = $_POST['email'];
-	/*$prodi = $_POST['id_prodi'];
-	$angkatan = $_POST['angkatan'];
-	$alamat = $_POST['alamat'];*/
-	$username = $_POST['username'];
-	$password = md5($_POST['password']);
+	$angkatan = $_POST["angkatan"];
+	$alamat = $_POST["alamat"];
+	$username = $_POST["username"];
+	$password = md5($_POST["password"]);
 
-	mysqli_query($db, "INSERT INTO tb_mahasiswa VALUES ('$nim', '', '$nama_mhs', '$jk', '$email', '', '', '$username', '$password', '$no_wa')");
-	?>
-	<script type="text/javascript">
-		alert("Simpan Berhasil");
-		window.location.href="login.php"
-	</script>
+	$cekdata = mysqli_query($db, "SELECT * FROM tb_mahasiswa WHERE nim_mhs='$nim' AND username='$username'");
+	$cek = mysqli_num_rows($cekdata);
 
-	<?php }
+	if ($cek == 0) {
+		mysqli_query($db, "INSERT INTO tb_mahasiswa VALUES ('$nim', '$prodi', '$nama_lengkap', '$jk', '$no_wa', '$email', '$angkatan', '$alamat', '$username', '$password')");
+		echo "<script>alert('Berhasil Membuat Akun! Silahkan Login'); location='login.php';</script>";
+	}
+	else {
+		echo "<script>alert('NIM atau Username Sudah Terdaftar!'); location='register.php';</script>";
+	}
 
 	
 ?>
