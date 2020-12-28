@@ -116,7 +116,7 @@
                   <div class="form-group">
                     <label>Unit Kegiatan Mahasiswa:</label>
                     <select class="form-control" name="ukm">
-                      <option>Pilih</option>
+                      <option disabled selected> Pilih </option>
                     </select>
                   </div>
                 </div>
