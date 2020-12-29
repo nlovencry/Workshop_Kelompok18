@@ -72,7 +72,7 @@
                     <td><?php echo $a['nama_mhs']; ?></td>
                     <td><?php echo $a['no_wa']; ?></td>
                     <td>
-                      <a href="#" class="btn btn-info">Detail</a>
+                      <button type="button" class="btn btn-info" onclick="show(this)" data-tgl="<?=$a['tgl_pendaftaran']?>" data-nim="<?=$a['nim_mhs']?>" data-nama="<?=$a['nama_mhs']?>" data-jk="<?=$a['jk']?>" data-no="<?=$a['no_wa']?>" data-email="<?=$a['email']?>" data-prodi="<?=$a['nama_prodi']?>" data-angkatan="<?=$a['angkatan']?>" data-alamat="<?=$a['alamat']?>" data-alasan="<?=$a['alasan']?>">Detail</button>
                     </td>
                   </tr>
                   <?php
@@ -80,6 +80,81 @@
                   ?>
                   </tbody>
                 </table>
+
+                <div class="modal fade" id="detail">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Detail Mahasiswa</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label>Tanggal Pendaftaran</label>
+                          <input type="date" id="tgl_pendaftaran" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Nomor Induk Mahasiswa</label>
+                          <input type="text" id="nim_mhs" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Nama Mahasiswa</label>
+                          <input type="text" id="nama_mhs" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Jenis Kelamin</label>
+                          <input type="text" id="jk" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Nomor Whatsapp</label>
+                          <input type="text" id="no_wa" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label>
+                          <input type="text" id="email" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Program Studi</label>
+                          <input type="text" id="nama_prodi" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Angkatan</label>
+                          <input type="text" id="angkatan" class="form-control" disabled="">
+                        </div>
+                        <div class="form-group">
+                          <label>Alamat</label>
+                          <textarea id="alamat" class="form-control" disabled=""></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label>Alasan</label>
+                          <textarea id="alasan" class="form-control" disabled=""></textarea>
+                        </div>
+                      </div>
+                      <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+                </div>
+
+                <script type="text/javascript">
+                  function show(e){
+                    $('#detail').modal();
+                    $('#nim_mhs').val($(e).data('nim'));
+                    $('#nama_mhs').val($(e).data('nama'));
+                    $('#jk').val($(e).data('jk'));
+                    $('#no_wa').val($(e).data('no'));
+                    $('#email').val($(e).data('email'));
+                    $('#nama_prodi').val($(e).data('prodi'));
+                    $('#angkatan').val($(e).data('angkatan'));
+                    $('#alamat').val($(e).data('alamat'));
+                    $('#alasan').val($(e).data('alasan'));
+                  }
+                </script>
               </div>
               <!-- /.card-body -->
             </div>

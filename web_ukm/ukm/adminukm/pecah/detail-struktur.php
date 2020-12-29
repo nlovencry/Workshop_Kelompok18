@@ -51,6 +51,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -88,6 +89,7 @@
                     ?>
                   </tbody>
                 </table>
+              </div>
             </div>
             <!-- /.card -->
           </div>

@@ -29,10 +29,10 @@
 
 			header("location:adminukm/pecah/dashboard-adminukm.php");
 		}else{
-			echo "<script>alert('Silahkan login terlebih dahulu!'); location='index.php';</script>";
+			echo "<script>alert('Silahkan login terlebih dahulu!'); location='login.php';</script>";
 		}
 	}else{
-		echo "<script>alert('Username atau Password salah!'); location='index.php';</script>";
+		echo "<script>alert('Username atau Password salah!'); location='login.php';</script>";
 	}
 
 ?>

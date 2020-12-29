@@ -13,7 +13,7 @@
   ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
-  
+
   <?php include '../sidebar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -23,12 +23,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data UKM</h1>
+            <h1 class="m-0 text-dark">Profile UKM</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Data UKM</li>
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Profile UKM</li>
+              <li class="breadcrumb-item active">Detail Pengurus UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,52 +40,59 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
-          <div class="col-12">
+          <div class="col-md-12">
+            <!-- general form elements -->
             <div class="card">
               <div class="card-header">
-                <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
+                <?php
+                include '../../koneksi.php';
+                $id_ukm = $_GET['id_ukm'];
+                ?>
+                <a href="detail-ukm.php?id_ukm=<?php echo $id_ukm; ?>" class="btn btn-secondary">Kembali</a>
               </div>
               <!-- /.card-header -->
+              <!-- form start -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama UKM</th>
-                    <th>Deskripsi UKM</th>
-                    <th>Opsi</th>
-                  </tr>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Mahasiswa</th>
+                      <th>Jabatan</th>
+                      <th>Program Studi</th>
+                      <th>Angkatan</th>
+                      <th>Foto</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  <?php
-                  include '../../koneksi.php';
-                    $query_mysql = mysqli_query($db,"select * from tb_ukm");
-                    $nomor = 1;
-                  while ($data = mysqli_fetch_array($query_mysql)){
-                  ?>
-                  <tr>
-                    <td><?php echo $nomor++; ?></td>
-                    <td width="200"><?php echo $data['nama_ukm']; ?></td>
-                    <td><?php echo $data['deskripsi_ukm']; ?></td>
-                    <td width="200">
-                        <a href="../pecah/detail-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
-                        <a href="../proses/hapus-dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
-                    </td>
+                    <?php
+                      include '../../koneksi.php';
+                      $no = 1;
+                      $data = mysqli_query($db, "SELECT tb_struktur.id_struktur, tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE id_ukm='$id_ukm'");
+                      while ($a = mysqli_fetch_array($data)) {
+                    ?>
+                    <tr>
+                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $a['nama_mhs']; ?></td>
+                      <td><?php echo $a['nama_jabatan']; ?></td>
+                      <td><?php echo $a['nama_prodi']; ?></td>
+                      <td><?php echo $a['angkatan']; ?></td>
+                      <td><img src="../../gambar/struktur/<?php echo $a['foto']; ?>" width="50" height="70"></td>
                     </tr>
-                  <?php } ?>
+                    <?php
+                      }
+                    ?>
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
-            
+            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
