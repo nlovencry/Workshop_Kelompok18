@@ -3,7 +3,7 @@ include '../../koneksi.php';
 	
 	$id_ukm	  = $_POST['id_ukm'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST["password"]);
 
     $query = mysqli_query($db, "INSERT INTO tb_user VALUES ('','$username','$password','2')");
     if ($query == true) {

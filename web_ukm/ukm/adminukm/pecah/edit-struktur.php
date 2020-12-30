@@ -93,7 +93,7 @@
                   </div>
                   <div class="form-group">
                     <label>Foto</label>
-                    <input type="file" name="foto" required="required" value="<?php echo $a['foto']; ?>">
+                    <input type="file" name="foto" required="required"><img width="60" height="80" src="../../gambar/struktur/<?php echo $a['foto']; ?>">
                     <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg</p>
                   </div>
                 </div>

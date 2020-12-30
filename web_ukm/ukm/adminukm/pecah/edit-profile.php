@@ -77,8 +77,8 @@
                   </div>
                   <div class="form-group">
                     <label>Logo</label>
-                    <input type="file" name="logo" value="<?php echo $a['logo_ukm']; ?>">
-                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+                    <input type="file" name="logo"><img width="60" height="60" src="../../gambar/logo/<?php echo $a['logo_ukm']; ?>">
+                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg</p>
                   </div>
                   <?php
                   }

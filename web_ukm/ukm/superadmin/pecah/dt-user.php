@@ -58,18 +58,18 @@
                   </thead>
                   <?php
                   include '../../koneksi.php';
-                    $query_mysql = mysqli_query($db,"select * from tb_user");
+                    $query_mysql = mysqli_query($db,"SELECT tb_user.id_user, tb_ukm.nama_ukm, tb_user.username FROM tb_ukm INNER JOIN tb_user ON tb_ukm.id_user = tb_user.id_user WHERE tb_user.level='2'");
                     $nomor = 1;
-                  while ($data=mysqli_fetch_array($query_mysql)) {
+                  while ($a=mysqli_fetch_array($query_mysql)) {
                   ?>
                   <tbody>
                     <tr>
                       <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $data['username']; ?></td>
-                      <td><?php echo $data['password']; ?></td>
+                      <td><?php echo $a['nama_ukm']; ?></td>
+                      <td><?php echo $a['username']; ?></td>
                       <td>
-                        <a href="../pecah/edit-dt-user.php?id=<?php echo $data['id_user']; ?>" class="btn btn-primary">Edit</a>
-                        <a href="../proses/hapus-dt-user.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-danger">Hapus</a>
+                        <a href="../pecah/edit-dt-user.php?id_user=<?php echo $a['id_user']; ?>" class="btn btn-primary">Edit</a>
+                        <a href="../proses/hapus-dt-user.php?id_user=<?php echo $a['id_user']; ?>" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                   <?php } ?>

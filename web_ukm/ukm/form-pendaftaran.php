@@ -53,11 +53,25 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="homepage.php">Home</a></li>
-          <li><a href="homepage.php #ukm">UKM</a></li>
-          <li class="active"><a href="form-pendaftaran.php">Pendaftaran</a></li>
+          <li class="active"><a href="homepage.php">Home</a></li>
+          <li><a href="homepage.php#ukm">UKM</a></li>
+          <li><a href="form-pendaftaran.php">Pendaftaran</a></li>
           <li><a href="#">Tentang Kami</a></li>
+          <?php
+          session_start();
+          if (isset($_SESSION['status'])){
+            if ($_SESSION['status'] == 'Login') {
+            ?>
+            <li><a href="#">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="logout.php">Logout</a></li>
+            <?php
+            }
+          }else{
+          ?>
           <li><a href="login.php">Login</a></li>
+          <?php
+          }
+          ?>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -90,65 +104,71 @@
     <section id="#" class="about section-bg">
     <div class="container p-3 my-3 border">
     <h1 class="text-center">Form Pendaftaran Mahasiswa Baru</h1>
-            <form id="form" method="post" action="proses_pendaftaran.php">
-              <!-- data ukm -->
-              <div class="alert alert-primary">
-                <strong>Data Unit Kegiatan Mahasiswa (UKM)</strong>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label>Nomor Induk Mahasiswa (NIM):</label>
-                    <input type="text" name="nim" class="form-control" placeholder="Masukan NIM">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
+        <form id="form" method="post" action="proses-pendaftaran.php" enctype="multipart/form-data">
+          <!-- data ukm -->
+            <div class="alert alert-primary">
+              <strong>Data Unit Kegiatan Mahasiswa (UKM)</strong>
+            </div>
+            <div class="row">
               <div class="col-sm-12">
-                    <div class="form-group">
-                        <label>Tanggal Pendaftaran:</label>
-                        <input type="date" name="tanggal_lahir" class="form-control">
-                    </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label>Unit Kegiatan Mahasiswa:</label>
-                    <select class="form-control" name="ukm">
-                      <option disabled selected> Pilih </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label>Alasan Bergabung Dengan UKM:</label>
-                    <textarea class="form-control" name="alasan" rows="3" placeholder="Alasan"></textarea>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
                 <div class="form-group">
-				          <label>SIM Online :</label>
-			          	<input type="file" name="foto" required="required">
-			        	  <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-		            </div>
+                  <label>Tanggal Pendaftaran:</label>
+                  <input type="text" name="tgl_pendaftaran" class="form-control" value="<?php echo date("Y-m-d"); ?>" readonly>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-4">
-                  <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Daftar</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Nomor Induk Mahasiswa (NIM):</label>
+                  <input type="text" name="nim_mhs" class="form-control" value="<?php echo $_SESSION['nim_mhs']; ?>" readonly>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Unit Kegiatan Mahasiswa:</label>
+                  <select class="form-control" name="id_ukm">
+                    <?php
+                      include 'koneksi.php';
+                      $data = mysqli_query($db, "SELECT * FROM tb_ukm");
+                      while($key=mysqli_fetch_assoc($data)) { 
+                        echo"<option value='".$key['id_ukm']."'>".$key['nama_ukm']."</option>";
+                      }
+                    ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Alasan Bergabung Dengan UKM:</label>
+                  <textarea class="form-control" name="alasan" rows="3" placeholder="Alasan"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>SIM Online :</label>
+                  <input type="file" name="sim" required="required">
+                  <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary">Daftar</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </div>
+          </form>  
         </div>
       </div>
-    </section><!-- End About Us Section -->
+    </div>
+  </section><!-- End About Us Section -->
 
   </main><!-- End #main -->
 
