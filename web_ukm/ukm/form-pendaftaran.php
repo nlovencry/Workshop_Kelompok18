@@ -117,11 +117,24 @@
                 </div>
               </div>
             </div>
+            
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
                   <label>Nomor Induk Mahasiswa (NIM):</label>
-                  <input type="text" name="nim_mhs" class="form-control" value="<?php echo $_SESSION['nim_mhs']; ?>" readonly>
+                  <?php
+                    if (isset($_SESSION['status'])){
+                      if ($_SESSION['status'] == 'Login') {
+                      ?>
+                      <input type="text" name="nim_mhs" class="form-control" value="<?php echo $_SESSION['nim_mhs']; ?>" readonly>
+                      <?php
+                      }
+                    }else{
+                    ?>
+                    <input type="text" name="nim_mhs" class="form-control" placeholder="Nomor Induk Mahasiswa" readonly>
+                    <?php
+                    }
+                  ?>
                 </div>
               </div>
             </div>
