@@ -28,7 +28,7 @@
 				mysqli_query($db, "INSERT INTO tb_struktur VALUES('','$id_ukm','$nama_mhs','$id_jabatan','$id_prodi','$angkatan','$foto')");
 				header("location:../pecah/detail-struktur.php");
 			}else{
-				echo "<script>alert('Ukuran Foto Terlalu Besar!'); location:'../pecah/tambah-struktur.php';</script>";
+				echo "<script>alert('Ukuran Foto Tidak Boleh Lebih dari 1MB!'); location:'../pecah/tambah-struktur.php';</script>";
 			}
 		}
 	}

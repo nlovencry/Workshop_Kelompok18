@@ -17,12 +17,17 @@
 	$cek = mysqli_num_rows($cekdata);
 
 	if ($cek == 0) {
-		mysqli_query($db, "INSERT INTO tb_mahasiswa VALUES ('$nim', '$prodi', '$nama_lengkap', '$jk', '$no_wa', '$email', '$angkatan', '$alamat', '$username', '$password')");
-		echo "<script>alert('Berhasil Membuat Akun! Silahkan Login'); location='login.php';</script>";
+		$insert = "INSERT INTO tb_user VALUES('','$username','$password',3)";
+		$query = $db->query($insert);
+		if ($query == true) {
+			$get_last_id = mysqli_fetch_array($db->query('SELECT max(id_user) as last_id FROM tb_user'))['last_id'];
+			mysqli_query($db, "INSERT INTO tb_mahasiswa VALUES ('$nim', '$prodi', '$nama_lengkap', '$jk', '$no_wa', '$email', '$angkatan', '$alamat', '$get_last_id')");
+			echo "<script>alert('Berhasil Membuat Akun! Silahkan Login'); location='login.php';</script>";
+		}else{
+			echo("Username Sudah Terdaftar");
+		}
+	}else {
+		echo "<script>alert('NIM Sudah Terdaftar!'); location='register.php';</script>";
 	}
-	else {
-		echo "<script>alert('NIM atau Username Sudah Terdaftar!'); location='register.php';</script>";
-	}
-
 	
 ?>

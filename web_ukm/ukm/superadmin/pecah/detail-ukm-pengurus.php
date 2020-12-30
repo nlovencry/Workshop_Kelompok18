@@ -23,12 +23,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data User</h1>
+            <h1 class="m-0 text-dark">Profile UKM</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data User</li>
+              <li class="breadcrumb-item active">Profile UKM</li>
+              <li class="breadcrumb-item active">Detail Pengurus UKM</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,52 +40,59 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
-          <div class="col-12">
+          <div class="col-md-12">
+            <!-- general form elements -->
             <div class="card">
               <div class="card-header">
-                  <a type="submit" href="tambah-dt-user.php" class="btn btn-primary">+ Tambah Data User</a>
+                <?php
+                include '../../koneksi.php';
+                $id_ukm = $_GET['id_ukm'];
+                ?>
+                <a href="detail-ukm.php?id_ukm=<?php echo $id_ukm; ?>" class="btn btn-secondary">Kembali</a>
               </div>
               <!-- /.card-header -->
+              <!-- form start -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama UKM</th>
-                      <th>Username</th>
-                      <th>Opsi</th>
+                      <th>Nama Mahasiswa</th>
+                      <th>Jabatan</th>
+                      <th>Program Studi</th>
+                      <th>Angkatan</th>
+                      <th>Foto</th>
                     </tr>
                   </thead>
-                  <?php
-                  include '../../koneksi.php';
-                    $query_mysql = mysqli_query($db,"SELECT tb_user.id_user, tb_ukm.nama_ukm, tb_user.username FROM tb_ukm INNER JOIN tb_user ON tb_ukm.id_user = tb_user.id_user WHERE tb_user.level='2'");
-                    $nomor = 1;
-                  while ($a=mysqli_fetch_array($query_mysql)) {
-                  ?>
                   <tbody>
+                    <?php
+                      include '../../koneksi.php';
+                      $no = 1;
+                      $data = mysqli_query($db, "SELECT tb_struktur.id_struktur, tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE id_ukm='$id_ukm'");
+                      while ($a = mysqli_fetch_array($data)) {
+                    ?>
                     <tr>
-                      <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $a['nama_ukm']; ?></td>
-                      <td><?php echo $a['username']; ?></td>
-                      <td>
-                        <a href="../pecah/edit-dt-user.php?id_user=<?php echo $a['id_user']; ?>" class="btn btn-primary">Edit</a>
-                        <a href="../proses/hapus-dt-user.php?id_user=<?php echo $a['id_user']; ?>" class="btn btn-danger">Hapus</a>
-                      </td>
+                      <td><?php echo $no++; ?></td>
+                      <td><?php echo $a['nama_mhs']; ?></td>
+                      <td><?php echo $a['nama_jabatan']; ?></td>
+                      <td><?php echo $a['nama_prodi']; ?></td>
+                      <td><?php echo $a['angkatan']; ?></td>
+                      <td><img src="../../gambar/struktur/<?php echo $a['foto']; ?>" width="50" height="70"></td>
                     </tr>
-                  <?php } ?>
+                    <?php
+                      }
+                    ?>
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
-            
+            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>

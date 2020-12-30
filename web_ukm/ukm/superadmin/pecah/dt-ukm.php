@@ -68,7 +68,7 @@
                     <td width="200"><?php echo $data['nama_ukm']; ?></td>
                     <td><?php echo $data['deskripsi_ukm']; ?></td>
                     <td width="200">
-                        <a href="../pecah/detail-user.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
+                        <a href="../pecah/detail-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
                         <a href="../proses/hapus-dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
                     </td>
                     </tr>

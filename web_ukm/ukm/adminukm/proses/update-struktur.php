@@ -23,7 +23,7 @@
 			mysqli_query($db, "UPDATE tb_struktur SET('','$id_ukm','$nama_mhs','$id_jabatan','$id_prodi','$angkatan','$foto' WHERE id_struktur='$id_struktur')");
 			header("location:../pecah/detail-struktur.php");
 		}else{
-			echo "<script>alert('Ukuran Foto Terlalu Besar!'); location:'../pecah/tambah-struktur.php';</script>";
+			echo "<script>alert('Ukuran Foto Tidak Boleh Lebih dari 1MB!'); location:'../pecah/tambah-struktur.php';</script>";
 		}
 	}
 ?>

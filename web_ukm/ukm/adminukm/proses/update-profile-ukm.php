@@ -8,7 +8,7 @@
 	$misi_ukm		= $_POST['misi_ukm'];
 
 	$rand = rand();
-	$ekstensi =  array('png','jpg','jpeg','gif');
+	$ekstensi =  array('png','jpg','jpeg');
 	$filename = $_FILES['logo']['name'];
 	$ukuran = $_FILES['logo']['size'];
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -22,7 +22,7 @@
 			mysqli_query($db, "UPDATE tb_ukm SET nama_ukm='$nama_ukm', deskripsi_ukm='$deskripsi_ukm', visi_ukm='$visi_ukm', misi_ukm='$misi_ukm', logo_ukm='$logo_ukm' WHERE id_ukm='$id_ukm'");
 			header("location:../pecah/profile-ukm.php");
 		}else{
-			echo "<script>alert('Ukuran Foto Terlalu Besar!'); location:'../pecah/profile-ukm.php';</script>";
+			echo "<script>alert('Ukuran Foto Tidak Boleh Lebih dari 1MB!'); location:'../pecah/profile-ukm.php';</script>";
 		}
 	}
 

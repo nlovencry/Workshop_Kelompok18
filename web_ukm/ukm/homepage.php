@@ -49,7 +49,21 @@
           <li><a href="#ukm">UKM</a></li>
           <li><a href="form-pendaftaran.php">Pendaftaran</a></li>
           <li><a href="#">Tentang Kami</a></li>
+          <?php
+          session_start();
+          if (isset($_SESSION['status'])){
+            if ($_SESSION['status'] == 'Login') {
+            ?>
+            <li><a href="#">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="logout.php">Logout</a></li>
+            <?php
+            }
+          }else{
+          ?>
           <li><a href="login.php">Login</a></li>
+          <?php
+          }
+          ?>
         </ul>
       </nav><!-- .nav-menu -->
 

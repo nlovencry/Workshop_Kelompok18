@@ -27,8 +27,9 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Form Edit Data User</li>
+              <li class="breadcrumb-item"><a href="#p">Home</a></li>
+              <li class="breadcrumb-item active">Data User</li>
+              <li class="breadcrumb-item active">Edit Data User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,64 +46,47 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">+<small>Tambah Data UKM<small></h3>
+                <h3 class="card-title">Edit Data User</h3>
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <?php
-                include '../../koneksi.php';
-                $id=$_GET['id_user'];
-                $query_mysql=mysqli_query($koneksi,"SELECT * FROM user WHERE id = '$id_user'");
-                $nomor=1;
-                while ($data=mysqli_fetch_array($query_mysql)) {
-                    ?>
                 <form action="../proses/update-dt-user.php" method="POST">
                 <div class="card-body">
+                  <?php
+                    include '../../koneksi.php';
+                      $id_user = $_GET['id_user'];
+                      $query_mysql = mysqli_query($db,"SELECT tb_user.id_user, tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_user.username FROM tb_ukm INNER JOIN tb_user ON tb_ukm.id_user = tb_user.id_user WHERE tb_user.id_user='$id_user'");
+                      $nomor = 1;
+                    while ($a = mysqli_fetch_array($query_mysql)) {
+                  ?>
                   <div class="form-group">
-                    <input type="hidden" name="id_user" class="form-control form-control-use" 
-                    value="<?php echo $data['id_user']; ?>">
-                  </div>
-                  <div class="form-group">
-                    <option disabled="">Pilih Nama Unit Kegiatan Mahasiswa</option>
-                    <select name="nama_ukm" class="form-control form-control-user">
-                      <option value="UKM-O">UKM-O</option>
-                      <option value="E-CLUB">E-CLUB</option>
-                      <option value="ROBOTIKA IR-64">ROBOTIKA IR-64</option>
-                      <option value="RASPOL">RASPOL</option>
-                      <option value="HIMAPALA BEKISAR">HIMAPALA BEKISAR</option>
-                      <option value="KSR PMI">KSR PMI</option>
-                      <option value="MENWA 877">MENWA 877</option>
-                      <option value="KOPMA BERDIKARI">KOPMA BERDIKARI</option>
-                      <option value="PSM">PSM</option>
-                      <option value="PMK(KRISTEN)">PMK(KRISTEN)</option>
-                      <option value="LABAIK">LABAIK</option>
-                      <option value="UKPM EXPLANT">UKPM EXPLANT</option>
-                      <option value="SKIM">SKIM</option>
-                      <option value="BARABAS DC">BARABAS DC</option>
-                      <option value="LUMUT">LUMUT</option>
-                      <option value="KOTAK">KOTAK</option>
+                    <input type="hidden" name="id_user" value="<?php echo $a['id_user']; ?>">
+                    <select name="id_ukm" class="form-control" disabled="">
+                      <?php
+                        $data2 = mysqli_query($db, "SELECT * FROM tb_ukm");
+                        while($key=mysqli_fetch_assoc($data2)) { 
+                          echo"<option value='".$key['id_ukm']."' ".($key['id_ukm']==$a['id_ukm'] ? 'selected' : ' ')." >".$key['nama_ukm']."</option>";
+                        }
+                      ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="username" value="<?php echo $data['username']; ?>">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" value="<?php echo $a['username']; ?>" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="password" value="<?php echo $data['password']; ?>">
-                  </div>
-                  <div class="form-group">
-                  <select name="Pilih Level" id="Pilih Level" value="<?php echo $data['Pilih Lavel']; ?>">
-                    <option value="User">User</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Superadmin">Super Admin</option>
-                  </select>  
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputEmail1" value="<?php echo $a['password']; ?>" require>
                   </div>
                   <div class="form-group">
                     <button input type="submit" class="btn btn-primary">Simpan</button>
                     <button input type="reset" class="btn btn-danger">Reset</button>
                     <a href="../pecah/dt-user.php" class="btn btn-secondary">Kembali</a>
                   </div> 
+                  <?php
+                  }
+                  ?>
                 </div>
-                <?php } ?>
             <!-- /.card body-->
             </form>
             </div>

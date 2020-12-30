@@ -4,7 +4,7 @@
 	include 'koneksi.php';
 
 	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$password = md5($_POST["password"]);
 
 	$login = mysqli_query($db, "SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
 
@@ -26,13 +26,21 @@
 			$_SESSION['nama_ukm']	= $data['nama_ukm'];
 			$_SESSION['status']		= "Login";
 			$_SESSION['level']		= "2";
-
 			header("location:adminukm/pecah/dashboard-adminukm.php");
+		}elseif ($user['level'] == "3") {
+			$mhs 		= mysqli_query($db, "SELECT tb_user.id_user, tb_user.username, tb_user.password, tb_mahasiswa.nim_mhs, tb_mahasiswa.nama_mhs FROM tb_mahasiswa INNER JOIN tb_user ON tb_mahasiswa.id_user = tb_user.id_user WHERE tb_mahasiswa.id_user=$user[id_user];");
+			$data 		= mysqli_fetch_array($mhs);
+			$_SESSION['username']	= $username;
+			$_SESSION['nim_mhs'] 	= $data['nim_mhs'];
+			$_SESSION['nama_mhs'] 	= $data['nama_mhs'];
+			$_SESSION['status']		= "Login";
+			$_SESSION['level']		= "3";
+			header("location:homepage.php");
 		}else{
-			echo "<script>alert('Silahkan login terlebih dahulu!'); location='index.php';</script>";
+			echo "<script>alert('Silahkan login terlebih dahulu!'); location='login.php';</script>";
 		}
 	}else{
-		echo "<script>alert('Username atau Password salah!'); location='index.php';</script>";
+		echo "<script>alert('Username atau Password salah!'); location='login.php';</script>";
 	}
 
 ?>

@@ -52,7 +52,7 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../gambar/ukmo.png"
+                       src="../../gambar/logo/<?php echo $a['logo_ukm']; ?>"
                        alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center"><?php echo $a['nama_ukm']; ?></h3>
@@ -60,34 +60,33 @@
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Visi</b>
-                      <p class="text-muted">
-                        <?php echo $a['visi_ukm']; ?>
-                      </p>
+                    <p class="text-muted">
+                      <?php echo $a['visi_ukm']; ?>
+                    </p>
                   </li>
                   <li class="list-group-item">
                     <b>Misi</b>
+                    <?php echo $a['misi_ukm']; ?>
                   </li>
                 </ul>
-                <a href="edit-profile.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
 
             <!-- About Me Box -->
-            <div class="card card-primary">
+            <!-- <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Susunan Organisasi</h3>
+                <h3 class="card-title">Sosial Media</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
-                <?php
-                $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE tb_struktur.id_ukm = '$id_ukm'");
+                <?php 
+                $data = mysqli_query($db, "SELECT * FROM tb_sosmed WHERE id_ukm='$id_ukm'");
                 while ($a = mysqli_fetch_array($data)) {
                 ?>
-                <strong></i><?php echo $a['nama_jabatan']; ?></strong>
+                <strong></i>Instagram</strong>
                 <p class="text-muted">
-                  <?php echo $a['nama_mhs']; ?>
+                  <?php echo $a['instagram']; ?>
                 </p>
                 <hr>
                 <?php
@@ -95,8 +94,7 @@
                 ?>
                 <a href="detail-struktur.php" class="btn btn-primary btn-block"><b>Detail Susunan Organisasi</b></a>
               </div>
-              <!-- /.card-body -->
-            </div>
+            </div> -->
             <!-- /.card -->
             <?php
             }
@@ -107,22 +105,43 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#prestasi" data-toggle="tab">Prestasi</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#pengurus" data-toggle="tab">Pengurus</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#prestasi" data-toggle="tab">Prestasi</a></li>
                   <li class="nav-item"><a class="nav-link" href="#kegiatan" data-toggle="tab">Kegiatan</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#divisi" data-toggle="tab">Divisi</a></li>
                 </ul>
-              </div><!-- /.card-header -->  
-              <!-- /.card-header -->
+              </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  <div class="active tab-pane" id="prestasi">
+                  <div class="active tab-pane" id="pengurus">
+                    <form class="form-horizontal" action="../proses/tambah-prestasi.php" method="POST">
+                      <?php
+                      $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE tb_struktur.id_ukm = '$id_ukm'");
+                      while ($a = mysqli_fetch_array($data)) {
+                      ?>
+                      <div class="form-group">
+                        <label for="inputName" class="col-form-label"><?php echo $a['nama_jabatan']; ?></label>
+                        <input type="text" name="nama_prestasi" class="form-control" id="inputName" value="<?php echo $a['nama_mhs']; ?>" disabled>
+                      </div>
+                      <?php
+                      }
+                      ?>
+                    </form>
+                    <div>
+                      <div class="form-group row">
+                        <div class="col-sm-12" align="right">
+                          <a href="detail-ukm-pengurus.php?id_ukm=<?php echo $id_ukm; ?>" class="btn btn-primary btn-block"><b>Detail Pengurus</b></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="prestasi">
                     <div>
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
                           <tr>
                             <th>No</th>
                             <th>Nama Prestasi</th>
-                            <th>Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -135,9 +154,6 @@
                           <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $a['nama_prestasi']; ?></td>
-                            <td>
-                              <a href="../proses/hapus-prestasi.php?id_prestasi=<?php echo $a['id_prestasi']; ?>" class="btn btn-danger">Hapus</a>
-                            </td>
                           </tr>
                           <?php
                             }
@@ -148,27 +164,6 @@
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="kegiatan">
-                    <form class="form-horizontal" action="../proses/tambah-kegiatan.php" method="POST" enctype="multipart/form-data">
-                      <div class="form-group">
-                        <input type="hidden" name="id_ukm" class="form-control" id="inputName" value="<?php echo $id_ukm; ?>">
-                        <label for="inputName" class="col-form-label">Nama Kegiatan</label>
-                        <input type="text" name="nama_kegiatan" class="form-control" id="inputName" placeholder="Masukkan Nama Kegiatan">
-                      </div>
-                      <div class="form-group">
-                        <label>Foto :</label>
-                        <input type="file" name="foto" required="required">
-                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-                      </div>  
-                      <div class="form-group">
-                        <label for="inputExperience" class="col-form-label">Keterangan</label>
-                        <textarea class="form-control" name="keterangan" id="inputExperience" placeholder="Keterangan Foto"></textarea>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-sm-12" align="right">
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                      </div>
-                    </form>
                     <div>
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
@@ -177,7 +172,6 @@
                             <th>Nama Kegiatan</th>
                             <th>Foto Kegiatan</th>
                             <th>Keterangan</th>
-                            <th>Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -190,11 +184,8 @@
                           <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $a['nama_kegiatan']; ?></td>
-                            <td><img src="../../gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" width="35" height="40"></td>
+                            <td><img src="../../gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" width="50" height="70"></td>
                             <td><?php echo $a['keterangan']; ?></td>
-                            <td>
-                              <a href="../proses/hapus-kegiatan.php?id_kegiatan=<?php echo $a['id_kegiatan']; ?>" class="btn btn-danger">Hapus</a>
-                            </td>
                           </tr>
                           <?php
                             }
@@ -204,39 +195,6 @@
                     </div>
                   </div>
                   <!-- /.tab-pane -->
-                  <div class="tab-pane" id="divisi">
-                    <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Divisi</th>
-                      <th>Nama Koordinator</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                      include '../../koneksi.php';
-                      $no = 1;
-                      $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$_GET[id_ukm]'");
-                      while ($a = mysqli_fetch_array($data)) {
-                    ?>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <td><?php echo $a['nama_divisi']; ?></td>
-                      <td><?php echo $a['nama_co']; ?></td>
-                      <td>
-                        <a href="edit-dt-divisi.php" class="btn btn-primary">Edit</a>
-                        <a href="hapus-dt-guru.php" class="btn btn-danger">Hapus</a>
-                      </td>
-                    </tr>
-                    <?php
-                      }
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-                  <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
@@ -244,6 +202,7 @@
             <!-- /.nav-tabs-custom -->
           </div>
           <!-- /.col -->
+        </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>

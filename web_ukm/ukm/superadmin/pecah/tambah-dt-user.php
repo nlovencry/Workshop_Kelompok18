@@ -69,7 +69,7 @@
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="Password" require>
+                    <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="Password" require>
                   </div>
                   <div class="form-group">
                     <button input type="submit" class="btn btn-primary">Simpan</button>
