@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
+        <div class="form-group mb-3">
           <input type="radio" name="jk" value="Laki-laki" required=""> Laki-laki
           <input type="radio" name="jk" value="Perempuan" required=""> Perempuan
         </div>
