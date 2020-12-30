@@ -102,8 +102,10 @@
 
     <!-- ======= About Us Section ======= -->
     <section id="#" class="about section-bg">
-    <div class="container p-3 my-3 border">
-    <h1 class="text-center">Form Pendaftaran Mahasiswa Baru</h1>
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Form Pendaftaran Anggota Baru</h2>
+      </div>
         <form id="form" method="post" action="proses-pendaftaran.php" enctype="multipart/form-data">
           <!-- data ukm -->
             <div class="alert alert-primary">
@@ -142,7 +144,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label>Unit Kegiatan Mahasiswa:</label>
-                  <select class="form-control" name="id_ukm">
+                  <select class="form-control" name="id_ukm" required="">
                     <?php
                       include 'koneksi.php';
                       $data = mysqli_query($db, "SELECT * FROM tb_ukm");
@@ -158,7 +160,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label>Alasan Bergabung Dengan UKM:</label>
-                  <textarea class="form-control" name="alasan" rows="3" placeholder="Alasan"></textarea>
+                  <textarea class="form-control" name="alasan" rows="3" placeholder="Alasan" required=""></textarea>
                 </div>
               </div>
             </div>
