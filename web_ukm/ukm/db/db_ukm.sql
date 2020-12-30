@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2020 at 02:15 PM
+-- Generation Time: Dec 30, 2020 at 12:39 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -133,16 +133,15 @@ CREATE TABLE `tb_mahasiswa` (
   `email` varchar(50) NOT NULL,
   `angkatan` int(11) NOT NULL,
   `alamat` text NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_mahasiswa`
 --
 
-INSERT INTO `tb_mahasiswa` (`nim_mhs`, `id_prodi`, `nama_mhs`, `jk`, `no_wa`, `email`, `angkatan`, `alamat`, `username`, `password`) VALUES
-('E41191322', 1, 'Bunga ', 'Perempuan', '083111693588', 'bunga@gmail.com', 2019, 'Jember', 'bunga', 'bunga');
+INSERT INTO `tb_mahasiswa` (`nim_mhs`, `id_prodi`, `nama_mhs`, `jk`, `no_wa`, `email`, `angkatan`, `alamat`, `id_user`) VALUES
+('E41191322', 1, 'Bunga', 'Perempuan', '083111693588', 'bunga@gmail.com', 2019, 'Jember', 41);
 
 -- --------------------------------------------------------
 
@@ -158,13 +157,6 @@ CREATE TABLE `tb_pendaftaran` (
   `alasan` text NOT NULL,
   `sim_online` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_pendaftaran`
---
-
-INSERT INTO `tb_pendaftaran` (`id_pendaftaran`, `tgl_pendaftaran`, `nim_mhs`, `id_ukm`, `alasan`, `sim_online`) VALUES
-(1, '2020-12-22', 'E41191322', 11, 'Ingin mengabdi pada negara', '');
 
 -- --------------------------------------------------------
 
@@ -303,13 +295,13 @@ CREATE TABLE `tb_ukm` (
 --
 
 INSERT INTO `tb_ukm` (`id_ukm`, `id_user`, `nama_ukm`, `deskripsi_ukm`, `visi_ukm`, `misi_ukm`, `logo_ukm`) VALUES
-(1, 26, 'UKM-O', 'Unit Kegiatan Mahasiswa Olahraga', 'Memiliki ashaha', '<p>1. jadbajdb</p>\r\n\r\n<p>2. jsdgbua</p>\r\n\r\n<p>3. jhasdaik</p>\r\n', '8272_LOGO POLITEKNIK NEGERI  JEMBER.png'),
+(1, 32, 'UKM-O', 'Unit Kegiatan Mahasiswa Olahraga', 'Memiliki ashaha', '<p>1. jadbajdb</p>\r\n\r\n<p>2. jsdgbua</p>\r\n\r\n<p>3. jhasdaik</p>\r\n', '8272_LOGO POLITEKNIK NEGERI  JEMBER.png'),
 (2, 0, 'E-CLUB', 'Unit Kegiatan Mahasiswa English Club', 'memiliki jsanska', '', ''),
 (3, 0, 'ROBOTIKA IR-64', 'Unit Kegiatan Mahasiswa Robotika IR-64', '', '', ''),
 (4, 0, 'RASPOL', 'Unit Kegiatan Mahasiswa Pramuka Racana Arjuna-Srikandi Gugusdepan Jember 02.155-02.156 Pangkalan Politeknik Negeri Jember', '', '', ''),
 (5, 0, 'KSR PMI', 'Unit Kegiatan Mahasiswa Korps Suka Rela Palang Merah Indonesia Unit Politeknik Negeri Jember', '', '', ''),
 (10, 0, 'LUMUT', 'Unit Kegiatan Mahasiswa Lukis Musik Tari', 'memiliki dajhdauauadadasdsd', '<p>1. qwertyuiop</p>\r\n\r\n<p>2. asdjkl</p>\r\n\r\n<p>3. zxcnm</p>\r\n', '24332_LOGO POLITEKNIK NEGERI  JEMBER.png'),
-(11, 27, 'MENWA 877', 'Unit Kegiatan Mahasiswa Resimen Mahasiswa 877', 'Sebagai wadah penyalur potensi mahasiswa dalam rangka mewujudkan hak dan kewajiban Warga Negara dan bela negara.', '<p>1. Merencanakan, mempersiapkan dan menyusun potensi mahasiswa pada setiap provinsi daerah tingkat 1, untuk menetapkan ketahanan nasional, dengan melaksanakan usaha dan kegiatan rutin.</p>\r\n\r\n<p>2.&nbsp;Sebagai wadah sarana pengembangan diri Mahasiswa ke arah perluasan wawasan dan peningkatan keikutsertaan dalam upaya bela negara yang disusun, dikoorganisasikan dan dibentuk secara kewilayahan pada setiap provinsi daerah tingkat 1, dan suatu resimen mahasiswa (SATMENWA).</p>\r\n', '5450_3. menwa.png');
+(11, 33, 'MENWA 877', 'Unit Kegiatan Mahasiswa Resimen Mahasiswa 877', 'Sebagai wadah penyalur potensi mahasiswa dalam rangka mewujudkan hak dan kewajiban Warga Negara dan bela negara.', '<p>1. Merencanakan, mempersiapkan dan menyusun potensi mahasiswa pada setiap provinsi daerah tingkat 1, untuk menetapkan ketahanan nasional, dengan melaksanakan usaha dan kegiatan rutin.</p>\r\n\r\n<p>2.&nbsp;Sebagai wadah sarana pengembangan diri Mahasiswa ke arah perluasan wawasan dan peningkatan keikutsertaan dalam upaya bela negara yang disusun, dikoorganisasikan dan dibentuk secara kewilayahan pada setiap provinsi daerah tingkat 1, dan suatu resimen mahasiswa (SATMENWA).</p>\r\n', '1762_3. menwa.png');
 
 -- --------------------------------------------------------
 
@@ -329,9 +321,10 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `password`, `level`) VALUES
-(1, 'admin', 'admin', 1),
-(26, 'admin-olahraga', 'admin-olahraga', 2),
-(27, 'admin-menwa', 'admin-menwa', 2);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
+(32, 'admin-olahraga', 'b5c68d3407e971f95e0ccadac8e7a063', 2),
+(33, 'admin-menwa', '3e3d18edd0f0d924ea192d2b87badacc', 2),
+(41, 'bunga', '385f719f8dc7c85efbae03eb38bff95a', 3);
 
 --
 -- Indexes for dumped tables
@@ -441,7 +434,7 @@ ALTER TABLE `tb_kegiatan`
 -- AUTO_INCREMENT for table `tb_pendaftaran`
 --
 ALTER TABLE `tb_pendaftaran`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_prestasi`
@@ -477,7 +470,7 @@ ALTER TABLE `tb_ukm`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
