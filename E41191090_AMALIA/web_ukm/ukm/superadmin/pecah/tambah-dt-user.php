@@ -77,7 +77,7 @@
                     id="exampleInputEmail1" placeholder="Username" required>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Password" require>
+                    <input type="text" name="text" class="form-control form-control-use" id="exampleInputEmail1" placeholder="Password" required>
                   </div>
                   <div class="form-group">
                   <select name="Pilih Level" id="Pilih Level" 
