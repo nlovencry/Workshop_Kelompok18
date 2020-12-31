@@ -106,9 +106,9 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#pengurus" data-toggle="tab">Pengurus</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#divisi" data-toggle="tab">Divisi</a></li>
                   <li class="nav-item"><a class="nav-link" href="#prestasi" data-toggle="tab">Prestasi</a></li>
                   <li class="nav-item"><a class="nav-link" href="#kegiatan" data-toggle="tab">Kegiatan</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#divisi" data-toggle="tab">Divisi</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -164,6 +164,36 @@
                     </div>
                   </div>
                   <!-- /.tab-pane -->
+                  <div class="tab-pane" id="divisi">
+                    <div>
+                      <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Divisi</th>
+                            <th>Nama Koordinator</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                            include '../../koneksi.php';
+                            $no = 1;
+                            $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$id_ukm'");
+                            while ($a = mysqli_fetch_array($data)) {
+                          ?>
+                          <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $a['nama_divisi']; ?></td>
+                            <td><?php echo $a['nama_co']; ?></td>
+                          </tr>
+                          <?php
+                            }
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- /.tab-pane -->
                   <div class="tab-pane" id="kegiatan">
                     <div>
                       <table id="example2" class="table table-bordered table-hover">
@@ -195,36 +225,6 @@
                       </table>
                     </div>
                   </div>
-                  <!-- /.tab-pane -->
-                  <div class="tab-pane" id="divisi">
-                    <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Divisi</th>
-                      <th>Nama Koordinator</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                      include '../../koneksi.php';
-                      $no = 1;
-                      $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$id_ukm'");
-                      while ($a = mysqli_fetch_array($data)) {
-                    ?>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <td><?php echo $a['nama_divisi']; ?></td>
-                      <td><?php echo $a['nama_co']; ?></td>
-                    </tr>
-                    <?php
-                      }
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-                </div>
                   <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->
