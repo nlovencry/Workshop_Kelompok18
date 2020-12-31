@@ -62,7 +62,7 @@
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li><a href="#">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
             <li><a href="logout.php">Logout</a></li>
             <?php
             }
@@ -102,12 +102,20 @@
 
     <!-- ======= About Us Section ======= -->
     <section id="#" class="about section-bg">
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <h2>Form Pendaftaran Anggota Baru</h2>
-      </div>
-        <form id="form" method="post" action="proses-pendaftaran.php" enctype="multipart/form-data">
-          <!-- data ukm -->
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Form Pendaftaran Anggota Baru</h2>
+        </div>
+          <form id="form" method="post" action="proses-pendaftaran.php" enctype="multipart/form-data">
+            <!-- data ukm -->
+            <?php
+              if (isset($_SESSION['status'])){
+                if ($_SESSION['status'] == 'Login') {
+            ?>
+            <div class="form-group">
+              <a href="mahasiswa/profile-mhs.php" class="btn btn-info">Lihat Profile</a>
+            </div>
+            <?php } } ?>
             <div class="alert alert-primary">
               <strong>Data Unit Kegiatan Mahasiswa (UKM)</strong>
             </div>
@@ -119,24 +127,23 @@
                 </div>
               </div>
             </div>
-            
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
                   <label>Nomor Induk Mahasiswa (NIM):</label>
-                  <?php
-                    if (isset($_SESSION['status'])){
-                      if ($_SESSION['status'] == 'Login') {
+                    <?php
+                      if (isset($_SESSION['status'])){
+                        if ($_SESSION['status'] == 'Login') {
+                        ?>
+                        <input type="text" name="nim_mhs" class="form-control" value="<?php echo $_SESSION['nim_mhs']; ?>" readonly>
+                        <?php
+                        }
+                      }else{
                       ?>
-                      <input type="text" name="nim_mhs" class="form-control" value="<?php echo $_SESSION['nim_mhs']; ?>" readonly>
+                      <input type="text" name="nim_mhs" class="form-control" placeholder="Nomor Induk Mahasiswa" readonly>
                       <?php
                       }
-                    }else{
                     ?>
-                    <input type="text" name="nim_mhs" class="form-control" placeholder="Nomor Induk Mahasiswa" readonly>
-                    <?php
-                    }
-                  ?>
                 </div>
               </div>
             </div>
@@ -148,11 +155,11 @@
                     <?php
                       include 'koneksi.php';
                       $data = mysqli_query($db, "SELECT * FROM tb_ukm");
-                      while($key=mysqli_fetch_assoc($data)) { 
+                        while($key=mysqli_fetch_assoc($data)) { 
                         echo"<option value='".$key['id_ukm']."'>".$key['nama_ukm']."</option>";
                       }
                     ?>
-                  </select>
+                 </select>
                 </div>
               </div>
             </div>
@@ -180,10 +187,8 @@
               </div>
             </div>
           </form>  
-        </div>
       </div>
-    </div>
-  </section><!-- End About Us Section -->
+    </section><!-- End About Us Section -->
 
   </main><!-- End #main -->
 

@@ -32,8 +32,6 @@
 				}else{
 					echo "<script>alert('Silahkan Login Terlebih Dahulu!'); location='login.php';</script>";
 				}
-			}else{
-				echo "<script>alert('Silahkan Login Terlebih Dahulu!'); location='login.php';</script>";
 			}
 		}else{
 			echo "<script>alert('Ukuran Foto Tidak Boleh Lebih dari 1MB!'); location='form-pendaftaran.php';</script>";
