@@ -98,6 +98,7 @@
           <div class="row" style="margin-bottom: 15px;">
             <div class="col-sm-5">
               <a href="edit-profile.php?nim_mhs=<?php echo $_SESSION['nim_mhs']; ?>" class="btn btn-primary">Edit Profile</a>
+              <a href="profile-mhs.php?nim_mhs=<?php echo $_SESSION['nim_mhs']; ?>" class="btn btn-secondary">Kembali</a>
             </div>
           </div>
           <div class="alert alert-primary">

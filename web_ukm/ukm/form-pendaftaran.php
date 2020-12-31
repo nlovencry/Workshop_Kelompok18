@@ -62,7 +62,7 @@
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li><a href="profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="mahasiswa/profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
             <li><a href="logout.php">Logout</a></li>
             <?php
             }
@@ -130,7 +130,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  <label>Nomor Induk Mahasiswa (NIM):</label>
+                  <label>Nomor Induk Mahasiswa (NIM)</label>
                     <?php
                       if (isset($_SESSION['status'])){
                         if ($_SESSION['status'] == 'Login') {
@@ -150,7 +150,27 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  <label>Unit Kegiatan Mahasiswa:</label>
+                  <label>Nama Lengkap</label>
+                    <?php
+                      if (isset($_SESSION['status'])){
+                        if ($_SESSION['status'] == 'Login') {
+                        ?>
+                        <input type="text" name="nama_mhs" class="form-control" value="<?php echo $_SESSION['nama_mhs']; ?>" readonly>
+                        <?php
+                        }
+                      }else{
+                      ?>
+                      <input type="text" name="nama_mhs" class="form-control" placeholder="Nama Lengkap" readonly>
+                      <?php
+                      }
+                    ?>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Unit Kegiatan Mahasiswa</label>
                   <select class="form-control" name="id_ukm" required="">
                     <?php
                       include 'koneksi.php';
@@ -166,7 +186,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  <label>Alasan Bergabung Dengan UKM:</label>
+                  <label>Alasan Bergabung Dengan UKM</label>
                   <textarea class="form-control" name="alasan" rows="3" placeholder="Alasan" required=""></textarea>
                 </div>
               </div>
