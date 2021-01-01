@@ -53,9 +53,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="homepage.php">Home</a></li>
+          <li><a href="homepage.php">Home</a></li>
           <li><a href="homepage.php#ukm">UKM</a></li>
-          <li><a href="form-pendaftaran.php">Pendaftaran</a></li>
+          <li class="active"><a href="form-pendaftaran.php">Pendaftaran</a></li>
           <li><a href="#">Tentang Kami</a></li>
           <?php
           session_start();

@@ -53,7 +53,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="../homepage.php">Home</a></li>
+          <li><a href="../homepage.php">Home</a></li>
           <li><a href="../homepage.php#ukm">UKM</a></li>
           <li><a href="../form-pendaftaran.php">Pendaftaran</a></li>
           <li><a href="#">Tentang Kami</a></li>
@@ -62,7 +62,7 @@
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li><a href="../profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li class="active"><a href="../profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
             <li><a href="../logout.php">Logout</a></li>
             <?php
             }
