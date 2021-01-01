@@ -48,7 +48,7 @@
           <li class="active"><a href="homepage.php">Home</a></li>
           <li><a href="#ukm">UKM</a></li>
           <li><a href="form-pendaftaran.php">Pendaftaran</a></li>
-          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="tentang-kami.php">Tentang Kami</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
@@ -93,19 +93,13 @@
     <section id="ukm" class="services section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Unit Kegiatan Mahasiswa</h2>
+          <h2>Tentang Kami</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
         <div class="row">
-        <?php
-          include 'koneksi.php';
-          $data = mysqli_query($db, "SELECT * FROM tb_ukm");
-          while ($a = mysqli_fetch_array($data)) {
-            $id_ukm = $a['id_ukm'];
-        ?>
           <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
             <div class="icon-box">
-              <div class="icon"><img src="gambar/logo/<?php echo $a['logo_ukm']; ?>" width="50" height="50"></i></div>
+              <div class="icon"><img src="gambar/logo/" width="50" height="50"></i></div>
               <h4><a href="homepage-ukm.php?id_ukm=<?php echo $id_ukm; ?>"><?php echo $a['nama_ukm']; ?></a></h4>
               <p><?php echo $a['deskripsi_ukm']; ?></p>
             </div>

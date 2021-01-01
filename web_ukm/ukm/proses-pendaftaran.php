@@ -1,5 +1,6 @@
 <?php
 
+	session_start();
 	include 'koneksi.php';
 
 	$tgl_pendaftaran = $_POST['tgl_pendaftaran'];
@@ -25,20 +26,16 @@
 				echo "<script>alert('Anda Tidak Boleh Mendaftar Lebih Dari 2 UKM!'); location='form-pendaftaran.php';</script>";
 			}elseif($cekdata < 2){
 				if (isset($_SESSION['status'])){
-                    if ($_SESSION['status'] == 'Login'){
 					move_uploaded_file($_FILES['sim']['tmp_name'], 'gambar/sim/'.$rand.'_'.$filename);
 					mysqli_query($db, "INSERT INTO tb_pendaftaran VALUES('','$tgl_pendaftaran','$nim_mhs','$id_ukm','$alasan','$sim')");
 					echo "<script>alert('Pendaftaran Berhasil!'); location='form-pendaftaran.php';</script>";
 				}else{
 					echo "<script>alert('Silahkan Login Terlebih Dahulu!'); location='login.php';</script>";
 				}
-			}else{
-				echo "<script>alert('Silahkan Login Terlebih Dahulu!'); location='login.php';</script>";
 			}
 		}else{
 			echo "<script>alert('Ukuran Foto Tidak Boleh Lebih dari 1MB!'); location='form-pendaftaran.php';</script>";
 		}
-	}
 	}
 
 ?>
