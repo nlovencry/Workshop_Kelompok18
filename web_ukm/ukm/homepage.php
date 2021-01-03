@@ -93,7 +93,7 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Unit Kegiatan Mahasiswa</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Unit Kegiatan Mahasiswa (disingkat UKM) adalah wadah aktivitas kemahasiswaan luar kelas untuk mengembangkan minat, bakat dan keahlian tertentu. Lembaga ini merupakan partner organisasi kemahasiswaan intra kampus lainnya seperti senat mahasiswa dan badan eksekutif mahasiswa, baik yang berada di tingkat program studi, jurusan, maupun universitas. Lembaga ini bersifat otonom, dan bukan sebagai cabang dari badan eksekutif maupun senat mahasiswa.</p>
         </div>
         <div class="row">
         <?php
