@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 11:06 AM
+-- Generation Time: Jan 05, 2021 at 09:57 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -96,7 +96,15 @@ INSERT INTO `tb_divisi` (`id_divisi`, `id_ukm`, `nama_divisi`, `nama_co`) VALUES
 (55, 20, 'Media', ''),
 (56, 20, 'Dana Usaha', ''),
 (57, 20, 'Jaringan Kerja', ''),
-(58, 20, 'Latihan dan Pengembangan', '');
+(58, 20, 'Latihan dan Pengembangan', ''),
+(59, 19, 'Kabid. Litbang', 'Muhammad Khadafi'),
+(60, 19, 'Sie Inventaris', 'Maulana Agung K'),
+(61, 19, 'Sie Kesekretariatan', 'Natansya Kamila'),
+(62, 19, 'Kabid. Organisasi', 'M. Agung Wicaksono'),
+(63, 19, 'Sie Pementasan', 'Syarifatul Hasanah'),
+(64, 19, 'Sie Latihan', 'Mushliha'),
+(65, 19, 'Kabid. Seni', 'Forman Rizki P'),
+(66, 19, 'Sie Humas', 'ST Nur Asita Al. M');
 
 -- --------------------------------------------------------
 
@@ -165,7 +173,18 @@ CREATE TABLE `tb_kegiatan` (
 --
 
 INSERT INTO `tb_kegiatan` (`id_kegiatan`, `id_ukm`, `nama_kegiatan`, `keterangan`, `foto_kegiatan`) VALUES
-(1, 42, 'Kegiatan 1', 'Kegiatan UKM E-CLUB ', '');
+(1, 12, 'Rutination Class', 'Weekly Program - Golden Class - Silver Class', ''),
+(2, 12, 'PEC (Polije English Competition-2019)', 'Elevate The Future With Industry 4.0', ''),
+(3, 12, 'NEMOE 2019', 'Diklat UKM English Club', ''),
+(4, 12, 'OREO 2019', '-', ''),
+(5, 13, 'APLIKASI 23', 'UKM LUMUT Mempersembahkan Aplikasi 23', ''),
+(6, 13, 'LUMUT Goes To - Taman Mini Indonesia Indah Jakarta', 'Performance by - CS LARAS JIWA UKM LUMUT', ''),
+(7, 14, 'Direktur Cup VIII - 15 - 22 Januari 2020', '-', ''),
+(8, 14, 'Porseni Internal 2019', '-', ''),
+(9, 17, 'Kajian Online ', '\"Tidak Perlu Takut dan Paranoid Hadapi Corona\"', ''),
+(10, 17, 'Berjihad Melawan COVID 19', '-', ''),
+(11, 17, 'Labaik Learning Program ', '(L2P)', ''),
+(12, 17, 'Labaik Berbagi', '\"Galang Dana Serta Penyaluran Bantuan Untuk Korban', '');
 
 -- --------------------------------------------------------
 
@@ -244,6 +263,43 @@ CREATE TABLE `tb_prestasi` (
   `nama_prestasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_prestasi`
+--
+
+INSERT INTO `tb_prestasi` (`id_prestasi`, `id_ukm`, `nama_prestasi`) VALUES
+(1, 12, 'Semifinalists Of Speech - PEC 2019 - Dwi Nur Aini'),
+(2, 12, 'Semifinalists Of Story Telling - PEC 2019 - Arif H'),
+(3, 12, 'Semifinalists Of Newscasting - PEC 2019 - Riza Uma'),
+(4, 12, 'Semifinalists Of Debate - PEC 2019 -  Muhammad Gus'),
+(5, 14, 'Juara 2 Hj. Hendy Cup - Tim futsal Putra Polije'),
+(6, 14, 'Peserta Kejuaraan Tenis Meja Pada Universitas Braw'),
+(7, 14, 'Mendali Perak Kategori Catur Kilat - POMNAS XVI Ja'),
+(8, 14, 'Mendali Perunggu Kategori Catur Standar - POMNAS X'),
+(9, 14, 'Mendali Emas - Turnamen Pencak Silat Internasional'),
+(10, 14, 'Mendali Emas - Turnamen Pencak Silat Internasional'),
+(11, 14, 'Mendali Emas - Turnamen Pencak Silat Internasional'),
+(12, 14, 'Mendali Perak - Turnamen Pencak Silat Internasiona'),
+(13, 14, 'Mendali Perunggu - Turnamen Pencak Silat Internasi'),
+(14, 15, 'Gerakan Pramuka Juara Umum di 13th Malaysian Scout'),
+(15, 17, 'Juara 1 Hifdzil Qur\'an - MTQ Internal 2019 - Nur L'),
+(16, 17, 'Juara 3 Hifdzil Qur\'an - MTQ Internal 2019 - Frana'),
+(17, 17, 'Juara 1 Tartil Qur\'an - MTQ Internal 2019 - Nur La'),
+(18, 17, 'Juara 2 Tilawatil Qur\'an - MTQ Internal 2019 - Har'),
+(19, 27, 'Juara 1 Lintas Medan - Jalaka Paragri IV 2019 kate'),
+(20, 27, 'Juara 1 LMMP Nasional 2018 - Satmenwa 832 Universi'),
+(21, 27, 'Juara 3 Menembak Jalaka Paragri 2017 - Satmewa 807'),
+(22, 27, 'Juara Terbaik Suskabintalnas 2018 - Satmenwa 811 U'),
+(23, 24, 'Juara 5 Muatan Balon Atmosfer - Tim Agro Ballon'),
+(24, 24, 'Juara 1 KRTMI -  KRI 2019'),
+(25, 24, 'Juara 1 dan Best Strategi - Tim Tanoker_IR64 - Div'),
+(26, 24, 'KRPAI Team IROTANI\' 64 - Urutan ke 7'),
+(27, 24, 'KRSBI Team - In The Quarter Finalis'),
+(28, 24, 'Rynner Up 2ND - KRAI Robotics Team Papuma_IR64 - 2'),
+(29, 23, 'Mendali Perak Cabang Wall Climbing - Speed Klasik '),
+(30, 23, 'Mendali Perunggu Cabang Wall Climbing - Lead Klasi'),
+(31, 23, 'Juara 2 Lead Mapala Putra - Tursina Nasional Wall ');
+
 -- --------------------------------------------------------
 
 --
@@ -301,6 +357,27 @@ CREATE TABLE `tb_sosmed` (
   `youtube` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_sosmed`
+--
+
+INSERT INTO `tb_sosmed` (`id_sosmed`, `id_ukm`, `instagram`, `youtube`) VALUES
+(1, 12, '@e_clubpolije', 'English Club'),
+(2, 13, '@ukmlumut', 'Lumutertainment'),
+(3, 14, '@ukmolahraga', 'ukm olahraga'),
+(4, 15, '@ukmpramuka_polije', 'Pramuka Polije'),
+(6, 17, '@ukmlabaik', 'UKM LABAIK Official'),
+(7, 18, '@ukmpmkpolije', 'UKM PMK Polije'),
+(8, 19, '@teater_kotak', 'UKM Kotak Polije'),
+(9, 20, '@ukpmexplant', 'Explant Channel'),
+(10, 21, '@psm_polije', 'PSM POLIJE'),
+(11, 22, '@ksrpmipolije', 'KSR PMI POLIJE'),
+(12, 23, '@himapalabekisar', 'Himapala Bekisar Polije'),
+(13, 24, '@ir64_polije', 'ir64 Polije'),
+(14, 25, '@ukm_barabasdc', 'UKM Barabasdc Polije'),
+(15, 26, '@ukm_skimpolije', 'UKM SKIM POLIJE'),
+(16, 27, '@BATALYON_877', 'UKM BATALYON 877 POLIJE');
+
 -- --------------------------------------------------------
 
 --
@@ -338,21 +415,21 @@ CREATE TABLE `tb_ukm` (
 --
 
 INSERT INTO `tb_ukm` (`id_ukm`, `id_user`, `nama_ukm`, `deskripsi_ukm`, `visi_ukm`, `misi_ukm`, `logo_ukm`) VALUES
-(12, 42, 'E-CLUB', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember yang bertujuan untuk mengembangkan minat dan bakat mahasiswa terutama dalam penguasaan Bahasa Inggris.', '', '', ''),
-(13, 43, 'UKM LUMUT', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember yang bergerak dibidang seni yaitu UKM LUMUT (Lukis, Musik, Tari).', '', '', ''),
+(12, 42, 'E-CLUB', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember yang bertujuan untuk mengembangkan minat dan bakat mahasiswa terutama dalam penguasaan Bahasa Inggris.', '\"As an active media to develop knowledge, skills, and achievements in many aspects of English Language\"', '1. Socialize the importance of English in our lives to further increase the students awareness and motivation in learning English.\r\n2. Devise creative and innovative programs to help enhance the student\'s ability in the basic skills of English taught at campus\r\n3. Promote active English speaking in the campus to encourage the students to practice their English more frequently and increase their fluency', ''),
+(13, 43, 'UKM LUMUT', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember yang bergerak dibidang seni yaitu UKM LUMUT (Lukis, Musik, Tari).', '\"Menjadi Mahasiswa yang Kreatif dan Inofatif dalam Karya Seni Nyata\"', '1. Membangun mahasiswa/i yang kreatif dalam hal seni Lukis, Musik, dan Tari\r\n2. Melatih dan Mendidik anggota agar memiliki semangat usaha yang tinggi, disiplin, serta bertanggung jawab\r\n3. Mengembangkan kesenian sebagai upaya untuk meningkatkan kesejahteraan pelaku seni Lukis, Musik dan Tari', ''),
 (14, 44, 'UKM-O', 'Merupakan Unit Kegiatan Mahasiswa yang lahir dari kemauan yang kuat dan berdasarkan pada persamaan persepsi, tanggung jawab, dan rasa memiliki dibidang Keolahragaan Politeknik Negeri Jember. Tujuanya, membina dan mengembangkan potensi Mahasiswa Politeknik Negeri Jember dalam bidang olahraga.', '\"Menuju Bakat Berkualitas dan Mencapai Prestasi Asean Tahun 2021\"', '1. Mempunyai Atlet yang berkualitas pada setiap divisi olahraga\r\n2. Menjunjung Tinggi Sportifitas \r\n3. Membentuk Komunitas yang baik didalam mengembangkan jaringan\r\n4. Mengembangkan Objek dalam berprestasi penguatan UKM Olahraga', ''),
-(15, 45, 'UKM PRAMUKA', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri jember yang fokus pada pembelajaran dan pengembangan mahasiswa pada kegiatan Kepramukaan.', '', '', ''),
+(15, 45, 'UKM PRAMUKA', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri jember yang fokus pada pembelajaran dan pengembangan mahasiswa pada kegiatan Kepramukaan.', '\"Menjadikan Lulusan Pramuka Politeknik Negeri Jember yang Mmpun Membaktikan Diri pada Masyarakat Mengacu pada Tridarma Politeknik Negeri Jember berlandaskan Trisatya dan Dharma Paamuka melalui Pembinaan yang Berkualitas\"', '1. Melakukan kegiatan keagamaan bersama guna meningkatkan rasa taqwa dan syukur kepada Tuhan YME.\r\n2. Melakukan pembinaan emosional anggota guna menumbuhkembangkan perasaan dan pengungkapan perasaan secara wajar, tepat dan seimbang.\r\n3. Mengoptimalkan pola mekanisme pembelajaran dan pembinaan pramuka Politeknik Negeri Jember.', ''),
 (17, 47, 'UKM LABAIK', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember yang fokus pada pengembangan Lembaga Aktifis Islam Kampus. UKM Labaik lahir atas sebuah keinginan yang mulia. Sebuah niat membentuk aktualisasi keislaman.', '\"Menjadi UKM LABAIK sebagai sumber pusat kegiatan kerohanian islam yang terstruktur dan kolaboratif untuk mewujudkan POLIJE madani\" ', '1. Menjalankan program kerja untuk menciptakan pemberdayaan anggota secara optimal\r\n2. Menjalin dan memperluas jaringan internal dan eksternal\r\n3. sebagai sarana penguatan karakter  dan kepribadian ', ''),
 (18, 48, 'UKM-PMK', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember sebagai wadah kegiatan pembinaan kerohanian sebagai koordinasi ajaran Agama Kristen.', '\"Terwujudnya Mahasiswa yang Aktif, Tanggap, Bertolerasi, Kreatif, dan Mandiri dalam Pondasi Nilai-Nilai Kasih untuk Kepentingan sesama sebagai Pelopor tolerasi Umat Beragama\"', '1. Peningkatan kualitas persekutuan yang terprogram dalam penguatan keimanan\r\n2. Pengembangan integrasi mahasiswa Kristen dan Katolik menuju mahasiswa teladan\r\n3. Pengembangan tolerani umat beragama melalui aksi sosial\r\n4. Penguatan organisasi PMK menuju UKM sehat', ''),
 (19, 49, 'UKM KOTAK', 'Merupakan Unit Kegiatan Mahasiswa yang bergerak dibidang seni pertunjukkan, sandiwara, drama yang mengungkapkan pikiran atau perasaan dengan menggunakan gerak dan suara sebagai wadah atau tempat inspirasi  mahasiswa.', '\"Kesenian Adalah Salah Satu Bentuk Kebudayaan yang Harus Dilestarikan\"\r\n\"Teater sebagai Salah Satu Bentuk Kesenian Sangatlah Dekat Dengan Kita\"', '1. Menjadi tempat bermaung para Mahasiswa yang ingin menyalurkan bakat di bidangng kesenian\r\n2. Menjadikan sebuah kampus yang harmoni/ seimbang dalam kehidupan sosial.', ''),
-(20, 50, 'UKM EXPLANT', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember, Lembaga Pers Mahasiswa yang bergerak dibidang penyediaan informasi berbasis jurnalistik.', '', '', ''),
+(20, 50, 'UKPM EXPLANT', 'Merupakan Unit Kegiatan Mahasiswa Politeknik Negeri Jember, Lembaga Pers Mahasiswa yang bergerak dibidang penyediaan informasi berbasis jurnalistik.', '\" UKM Sebagai Kontrol Sosial Untuk Seluruh Elemen di Politeknik negeri Jember\"', '1. Menegakkan Piral Ke 4 Demokrasi Di Politeknik negeri Jember\r\n2. Menghimpun Pers Mhasiswa Di Indonesia dalam Mengawal Isu Nasional\r\n', ''),
 (21, 51, 'UKM PSM', 'Merupakan Unit Kegiatan Mahasiswa dalam ruang lingkup untuk mengembangkan Teknik Bernyanyi dan Bermusik yang memberikan pengaruh besar dalam rutinitas mahasiswadan kegiatan kelembagaan.', '\"Bersatu Padu Mengintrepretasikan Seni Tarik Suara dalam Kebudayaan Nasional dan Berbakti kepada Tuhan dan Kelembagaan\"', '1. Menyanyikan lagu-lagu dan berkarya\r\n2. Berkarya dan menjunjung tinggi semangat kebudayaan dan kegembiraan dalam tugas pelayanan terhadap lembaga dan sesama', ''),
 (22, 52, 'UKM-KSR', 'merupakan Unit Kegiatan dalam himpunan PMI yang beranggotakan himpunan PMI yang menyatakan diri menjadikan KSR PMI, sudah memperoleh latihan khusus KSR.', '\"Menjadikan UKM KSR (PMI) Unit Kegiatan Politeknik Negeri Jember sebagai Panutan Relawan Kepalangmerahan yang Berkarakter, Berkualitas dan Profesional', '1. Meningkatkan kualitas kompetisi dan karakter kepalangmerahan UKM PMI Unit Kegiatan Politeknik Negeri Jember\r\n2. Melaksanakan pemberdayaan dan pengapdian kepada masyarakat\r\n3. Menjalin kerjasama dengan antar relawan dan masyarakat\r\n4. Meningkatkan kapasitas dan kapabilitas UKM KSR (PMI) Unit Kegiatan Politeknik Negeri Jember ', ''),
-(23, 53, 'UKM HIMAPALA', 'Merupakan organisasi pecinta alam yang menyediakan wadah bagi mahasiswa Politeknik Negeri Jember yang mempunyai minat dan bakat untuk kegiatan di alam bebas.', '', '', ''),
+(23, 53, 'UKM HIMAPALA', 'Merupakan organisasi pecinta alam yang menyediakan wadah bagi mahasiswa Politeknik Negeri Jember yang mempunyai minat dan bakat untuk kegiatan di alam bebas.', '', '\"', ''),
 (24, 54, 'UKM ROBOTIKA IR-64', 'Merupakan Unit Kegiatan Mahasiswa yang dikelola mahasiswa  untuk mengembangkan gagasan bahwa koperasi sebagai soko guru perekonomian bangsa indonesia serta untuk menumbuhkan jiwa koperasi Politeknik Negeri Jember.', '\"Menjadi UKM yang Unggul dalam Pengembangan pada bidang Robotika Revolusi Industri 4.0\"', '1. Meningkatkan kualitas kompetensi robotika bagi anggota\r\n2. Meningkatkan kualitas karakter bertanggung jawab bagi setiap anggota\r\n3. Meningkatkan kepedulian kepada masyarakat di bidang robotika\r\n4. Mengembangkan robot agro sebagai penciri kualitas mahasiswa', ''),
-(25, 55, 'UKM Barabas Drum Corps', 'Merupakan Unitk Kegiatan Mahasiswa Politeknik Negeri Jember yang disahkan pada tanggal 12 Okbober 2009, yang disahkan saat Kongres Tahun 2019.', '', '', ''),
+(25, 55, 'UKM Barabas Drum Corps', 'Merupakan Unitk Kegiatan Mahasiswa Politeknik Negeri Jember yang disahkan pada tanggal 12 Okbober 2009, yang disahkan saat Kongres Tahun 2019.', '\"Menciptakan Generasi yang Kreatif, Disiplin dan Ceria Menuju Prestasi Nangemilang\"', '1. Tertciptanya kreatifitas para Mahasiswa dalam mengembangankan minat dan bakatnya\r\n2. Terciptanya mentalitas tim yang disiplin, taat dan patuh pada peraturan yang ada\r\n3. Terciptanya sikap anggota tim yang sopan, ceria dan gembira dalam penampilan\r\n4. Terwujudnya tim drumband yang solid, unggul dan memperoleh prestasi yang gemilang', ''),
 (26, 56, 'UKM-SKIM', 'Merupakan Unit Kegiatan Mahasiswa Studi Karya Ilmiah Mahasiswa, mahasiswa yang dilatih berpolafikir krisis, analitis, inovatif dan kreatif dalam menyelesaikan permasalahan secara ilmiah.', '\"Menjadikan UKM SKIM sebagai Pelopor Budaya Ilmiah Mahasiswa dan Berprestasi di PIMNAS Tahun 2021\"', '1. Peningkatan kualitas dan kuantitas organisasi UKM SKIM\r\n2. Pengembangan daya nallar angggota UKM SKIM\r\n3. Meningkatkan prestasi UKM SKIM dibidang ilmiah\r\n4. Peningkatan kerja sama UKM SKIM sdengan oganisasi lain', ''),
-(27, 57, 'UKM Satmenwa 877', 'Merupakan Unit Kegiatan Mahasiswa satuan kekuatan yang membentuk sebagai wadah dan sarana pengembangan diri mahasiswa ke arah perluasan wawasan serta meningkatkan keikutsertaan dalam upaya Bela Negara, Pertahanan dan Keamanan Negara.', '', '', '');
+(27, 57, 'UKM Satmenwa 877', 'Merupakan Unit Kegiatan Mahasiswa satuan kekuatan yang membentuk sebagai wadah dan sarana pengembangan diri mahasiswa ke arah perluasan wawasan serta meningkatkan keikutsertaan dalam upaya Bela Negara, Pertahanan dan Keamanan Negara.', 'Menjadi laboratorium pendidikan kepemimpinan untuk generasi muda pada umumnya dan mahasiswa pada khususnya yang menekankan diri dan berkomitmen untuk mengembangkan dan memberdayakan sumber daya generasi muda yang berbasis pada jiwa patriotisme, disiplin, kepemimpinan, pembentukan fisik dan mental yang berkualitas, serta pelestarian nilai-nilai jiwa dan semangat kejuangan.', '1. Meningkatkan Kesadaran Bela Negara pada Generasi Muda\r\n2. Meningkatkan pengetahuan dan ketrampilan kepemimpinan dan menejemen melalui kegiatan da pelatihan diorgan\r\n3. Pengabdian masyarakat dan kontibusi aktif dalam pembangunan, khususnya pembangunan sumber daya manusia Indonesia seutuhnya.', '');
 
 -- --------------------------------------------------------
 
@@ -500,7 +577,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_divisi`
 --
 ALTER TABLE `tb_divisi`
-  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `tb_jabatan`
@@ -530,7 +607,7 @@ ALTER TABLE `tb_pendaftaran`
 -- AUTO_INCREMENT for table `tb_prestasi`
 --
 ALTER TABLE `tb_prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tb_prodi`
@@ -542,7 +619,7 @@ ALTER TABLE `tb_prodi`
 -- AUTO_INCREMENT for table `tb_sosmed`
 --
 ALTER TABLE `tb_sosmed`
-  MODIFY `id_sosmed` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sosmed` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_struktur`
