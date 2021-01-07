@@ -48,7 +48,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <button type="submit" class="btn btn-success" style="margin-bottom: 15px; ">Cetak Laporan</button>
+                  <a href="../proses/cetak-laporan.php" target="_blank" class="btn btn-success" style="margin-bottom: 15px;">Cetak Laporan</a>
                 </div>
                 <form method="post">
                   <div class="row">
@@ -58,7 +58,7 @@
                            include '../../koneksi.php';
                            $data2 = mysqli_query($db, "SELECT * FROM tb_ukm");
                            while($key=mysqli_fetch_assoc($data2)) { 
-                           echo"<option value='".$key['id_ukm']."'>".$key['deskripsi_ukm']."</option>";
+                           echo"<option value='".$key['id_ukm']."'>".$key['nama_ukm']."</option>";
                            }
                         ?>
                       </select>
@@ -169,6 +169,7 @@
                 <script type="text/javascript">
                   function show(e){
                     $('#detail').modal();
+                    $('#tgl_pendaftaran').val($(e).data('tgl'));
                     $('#nim_mhs').val($(e).data('nim'));
                     $('#nama_mhs').val($(e).data('nama'));
                     $('#jk').val($(e).data('jk'));

@@ -58,9 +58,6 @@
                   $jumlah_ukm = mysqli_num_rows($data_ukm);
                    ?>
                    <?php echo $jumlah_ukm; ?>
-
-
-
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -148,82 +145,78 @@
 
                     <div class="chart">
                       <!-- ukm Chart Canvas -->
-                     <!--  <canvas id="ukmChart" height="180" style="height: 180px;"></canvas>
+                      <canvas id="ukmChart" style="height: 180px;"></canvas>
                       <style type="text/css">
                       	table {
                       		margin: 0px auto;
                       	}
                       </style>
                   	</div>
-                  	<table border="1">
+                  	<!-- <table border="1">
                   		<thead>
                   			<tr>
-				<th>No</th>
-				<th>Nama UKM</th>
-				<th>Deskripsi UKM</th>
-				<th>Ketua UKM</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php 
-			$no = 1;
-			$data = mysqli_query($db,"select * from tb_ukm");
-			while($d=mysqli_fetch_array($data)){
-				?>
-				<tr>
-					<td><?php echo $no++; ?></td>
-					<td><?php echo $d['nama_ukm']; ?></td>
-					<td><?php echo $d['deskripsi_ukm']; ?></td>
-					<td><?php echo $d['ketua_ukm']; ?></td>
-				</tr>
-				<?php 
-			}
-			?>
-		</tbody>
-                  	</table>
- -->
+                  				<th>No</th>
+                  				<th>Nama UKM</th>
+                  				<th>Deskripsi UKM</th>
+                  				<th>Ketua UKM</th>
+                  			</tr>
+                  		</thead>
+                  		<tbody>
+                  			<?php 
+                  			$no = 1;
+                  			$data = mysqli_query($db,"select * from tb_ukm");
+                  			while($d=mysqli_fetch_array($data)){
+                  				?>
+                  				<tr>
+                  					<td><?php echo $no++; ?></td>
+                  					<td><?php echo $d['nama_ukm']; ?></td>
+                  					<td><?php echo $d['deskripsi_ukm']; ?></td>
+                  					<td><?php echo $d['ketua_ukm']; ?></td>
+                  				</tr>
+                  				<?php 
+                  			}
+                  			?>
+                  		</tbody>
+                    </table> -->
 
-             <?php
-
-$grafik = mysqli_query($db,"select * from tb_ukm");
-while($row = mysqli_fetch_array($grafik)){
-	$nama_grafik[] = $row['nama_ukm'];
-	
-	$query = mysqli_query($db,"select sum(id_ukm) as id_ukm from tb_pendaftaran where id_ukm='".$row['id_ukm']."'");
-	$row = $query->fetch_array();
-	$jumlah_pendaftar[] = $row['id_ukm'];
-}
-?>
-	<div style="width: 800px;height: 800px">
-		<canvas id="myChart"></canvas>
-	</div>
- 
- 
-	<script>
-		var ctx = document.getElementById("myChart").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: <?php echo json_encode($nama_ukm); ?>,
-				datasets: [{
-					label: 'Grafik Penjualan',
-					data: <?php echo json_encode($jumlah_pendaftar); ?>,
-					backgroundColor: 'rgba(255, 99, 132, 0.2)',
-					borderColor: 'rgba(255,99,132,1)',
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
-	</script>
+                   <?php
+                    $grafik = mysqli_query($db,"select * from tb_ukm");
+                    while($row = mysqli_fetch_array($grafik)){
+                    	$nama_grafik[] = $row['nama_ukm'];
+                    	
+                    	$query = mysqli_query($db,"select sum(id_ukm) as id_ukm from tb_pendaftaran where id_ukm='".$row['id_ukm']."'");
+                    	$row = $query->fetch_array();
+                    	$jumlah_pendaftar[] = $row['id_ukm'];
+                    }
+                    ?>
+                    	
+                     
+                     
+                    	<script>
+                    		var ctx = document.getElementById("myChart").getContext('2d');
+                    		var myChart = new Chart(ctx, {
+                    			type: 'bar',
+                    			data: {
+                    				labels: <?php echo json_encode($nama_ukm); ?>,
+                    				datasets: [{
+                    					label: 'Grafik Penjualan',
+                    					data: <?php echo json_encode($jumlah_pendaftar); ?>,
+                    					backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    					borderColor: 'rgba(255,99,132,1)',
+                    					borderWidth: 1
+                    				}]
+                    			},
+                    			options: {
+                    				scales: {
+                    					yAxes: [{
+                    						ticks: {
+                    							beginAtZero:true
+                    						}
+                    					}]
+                    				}
+                    			}
+                    		});
+                    	</script>
                     </div>
                     <!-- /.chart-responsive -->
                   </div>

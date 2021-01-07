@@ -6,13 +6,13 @@
 	$keterangan = $_POST['keterangan'];
 
 	$rand = rand();
-	$ekstensi =  array('png','jpg','jpeg','gif');
+	$ekstensi =  array('png','jpg','jpeg');
 	$filename = $_FILES['foto']['name'];
 	$ukuran = $_FILES['foto']['size'];
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
 	 
 	if(!in_array($ext,$ekstensi) ) {
-		echo "<script>alert('Ekstensi Tidak Diperbolehkan!'); location:'../pecah/profile-ukm.php#kegiatan';</script>";
+		echo "<script>alert('Ekstensi Tidak Diperbolehkan!'); location='../pecah/profile-ukm.php#kegiatan';</script>";
 	}else{
 		if($ukuran < 1044070){		
 			$foto_kegiatan = $rand.'_'.$filename;
@@ -20,7 +20,7 @@
 			mysqli_query($db, "INSERT INTO tb_kegiatan VALUES('','$id_ukm','$nama_kegiatan','$keterangan','$foto_kegiatan')");
 			header("location:../pecah/profile-ukm.php#kegiatan");
 		}else{
-			echo "<script>alert('Ukuran Foto Terlalu Besar!'); location:'../pecah/profile-ukm.php';</script>";
+			echo "<script>alert('Ukuran Foto Terlalu Besar!'); location='../pecah/profile-ukm.php';</script>";
 		}
 	}
 

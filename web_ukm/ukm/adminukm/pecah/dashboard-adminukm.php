@@ -99,11 +99,25 @@
                       <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
                     </p>
 
-                    <div class="chart">
-                      <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                    <!-- BAR CHART -->
+                    <div class="card card-success">
+                      <div class="card-header">
+                        <h3 class="card-title">Bar Chart</h3>
+
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="chart">
+                          <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                      </div>
+                      <!-- /.card-body -->
                     </div>
-                    <!-- /.chart-responsive -->
+                    <!-- /.card -->
                   </div>
                 </div>
                 <!-- /.row -->
@@ -155,5 +169,69 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="../../../dist/js/pages/dashboard2.js"></script>
+<script>
+  $(function () {
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = jQuery.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    var barChart = new Chart(barChartCanvas, {
+      type: 'bar', 
+      data: {
+        labels: [
+          <?php 
+          $data = mysqli_query($db, "SELECT nama_ukm FROM tb_ukm");
+          $nama = mysqli_fetch_array($data);
+          echo $nama;
+          ?>
+        ],
+        datasets: [{
+          label: '',
+          data: [
+          <?php 
+          $jml = mysqli_query($db,"select * from tb_pendaftaran where id_ukm='12'");
+          echo mysqli_num_rows($jml);
+          ?>, 
+          <?php 
+          $jumlah_ekonomi = mysqli_query($db,"select * from mahasiswa where fakultas='ekonomi'");
+          echo mysqli_num_rows($jumlah_ekonomi);
+          ?>, 
+          <?php 
+          $jumlah_fisip = mysqli_query($db,"select * from mahasiswa where fakultas='fisip'");
+          echo mysqli_num_rows($jumlah_fisip);
+          ?>, 
+          <?php 
+          $jumlah_pertanian = mysqli_query($db,"select * from mahasiswa where fakultas='pertanian'");
+          echo mysqli_num_rows($jumlah_pertanian);
+          ?>
+          ],
+          backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)'
+          ],
+          borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1
+        }]
+      }
+      options: barChartOptions
+    })
+  }
+</script>
 </body>
 </html>

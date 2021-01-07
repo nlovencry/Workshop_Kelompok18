@@ -47,7 +47,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <button type="submit" class="btn btn-success" style="margin-bottom: 15px; ">Cetak Laporan</button>
+                <a href="../proses/cetak-laporan.php" target="_blank" class="btn btn-success" style="margin-bottom: 15px;">Cetak Laporan</a>
                 <table id="example1" class="table table-bordered table-hover">
                   <thead>
                   <tr>
@@ -144,6 +144,7 @@
                 <script type="text/javascript">
                   function show(e){
                     $('#detail').modal();
+                    $('#tgl_pendaftaran').val($(e).data('tgl'));
                     $('#nim_mhs').val($(e).data('nim'));
                     $('#nama_mhs').val($(e).data('nama'));
                     $('#jk').val($(e).data('jk'));
