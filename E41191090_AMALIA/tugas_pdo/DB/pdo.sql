@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2020 at 05:09 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Jan 01, 2021 at 02:07 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,16 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `mahasiswa` (
   `id_mhs` int(11) NOT NULL,
   `nama_mhs` varchar(20) NOT NULL,
-  `email_mhs` varchar(30) NOT NULL
+  `jurusan` varchar(30) NOT NULL,
+  `prodi` varchar(20) NOT NULL,
+  `golongan` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`id_mhs`, `nama_mhs`, `email_mhs`) VALUES
-(1, 'Athfal', 'athfal@gmail.com'),
-(2, 'Aqin', 'aqin@gmail.com');
+INSERT INTO `mahasiswa` (`id_mhs`, `nama_mhs`, `jurusan`, `prodi`, `golongan`) VALUES
+(12, 'Amalia', 'Teknologi Informasi', 'Teknik Inf', 'B'),
+(14, 'Diana Silviani', 'Sain Teknologi', 'Biologi', 'A'),
+(15, 'Luthfi Maulidah', 'Perternakan', 'Teknologi Perternaka', 'A');
 
 --
 -- Indexes for dumped tables
@@ -60,7 +62,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
