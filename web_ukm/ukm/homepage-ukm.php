@@ -45,7 +45,6 @@
           <li><a href="homepage.php">Home</a></li>
           <li class="active"><a href="#ukm">UKM</a></li>
           <li><a href="form-pendaftaran.php">Pendaftaran</a></li>
-          <li><a href="#">Tentang Kami</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
@@ -209,7 +208,7 @@
           ?>
           <div class="col-lg-6" style="margin-bottom: 25px;">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic rounded"><img align="center" width="150" height="200" src="gambar/struktur/<?php echo $a['foto']; ?>" class="profile-user-img img-fluid img-circle"></div>
+              <div class="pic rounded"><img align="center" width="150" height="300" src="gambar/struktur/<?php echo $a['foto']; ?>" class="profile-user-img img-fluid img-circle"></div>
               <div class="member-info">
                 <h4><?php echo $a['nama_mhs']; ?></h4>
                 <span><?php echo $a['nama_jabatan']." ".$a['nama_ukm']; ?></span>

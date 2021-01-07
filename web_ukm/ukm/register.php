@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nim_mhs" placeholder="NIM" required="">
+          <input type="text" class="form-control" name="nim_mhs" maxlength="9" minlength="9" placeholder="NIM" required="">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -48,10 +48,10 @@
           <input type="radio" name="jk" value="Perempuan" required=""> Perempuan
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="no_wa" placeholder="Nomor WA" required="">
+          <input type="text" class="form-control" name="no_wa" maxlength="12" placeholder="Nomor WA" required="">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-phone"></span>
             </div>
           </div>
         </div>
@@ -75,12 +75,12 @@
           </select>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-list"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="angkatan" placeholder="Angkatan" required="">
+          <input type="text" class="form-control" name="angkatan" maxlength="4" placeholder="Angkatan" required="">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
