@@ -61,7 +61,7 @@
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li class="active"><a href="../profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li class="active"><a href="profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
             <li><a href="../logout.php">Logout</a></li>
             <?php
             }
@@ -97,7 +97,7 @@
           <div class="row" style="margin-bottom: 15px;">
             <div class="col-sm-5">
               <a href="edit-profile.php?nim_mhs=<?php echo $_SESSION['nim_mhs']; ?>" class="btn btn-primary">Edit Profile</a>
-              <a href="profile-mhs.php?nim_mhs=<?php echo $_SESSION['nim_mhs']; ?>" class="btn btn-secondary">Kembali</a>
+              <a href="../form-pendaftaran.php" class="btn btn-secondary">Kembali</a>
             </div>
           </div>
           <div class="alert alert-primary">
