@@ -4,10 +4,17 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="homepage-ukm/style.css">
+  <script src="../jquery/jquery-3.4.1.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
   <title>Sistem Informasi Pendaftaran Unit Kegiatan Mahasiswa</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+
+  <!-- Favicons -->
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -35,25 +42,25 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
+  <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
 
       <h1 class="logo mr-auto"><img src="gambar/logo-gabung.png"></h1>
      
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="../../assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="homepage.php">Home</a></li>
-          <li><a href="#ukm">UKM</a></li>
+          <li><a href="homepage.php">Home</a></li>
+          <li><a href="homepage.php#ukm">UKM</a></li>
           <li><a href="form-pendaftaran.php">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li><a href="mahasiswa/profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li class="active"><a href="profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
             <li><a href="logout.php">Logout</a></li>
             <?php
             }
@@ -69,52 +76,48 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>SISTEM INFORMASI PENDAFTARAN<br>UNIT KEGIATAN MAHASISWA</h1>
-          <h2>POLITEKNIK NEGERI JEMBER</h2>
-          <div class="d-lg-flex">
-            <a href="panduan-daftar.php" class="btn-get-started scrollto">Panduan Daftar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
-
   <main id="main">
 
-    <!-- ======= UKM Section ======= -->
-    <section id="ukm" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Unit Kegiatan Mahasiswa</h2>
-          <p>Unit Kegiatan Mahasiswa (disingkat UKM) adalah wadah aktivitas kemahasiswaan luar kelas untuk mengembangkan minat, bakat dan keahlian tertentu. Lembaga ini merupakan partner organisasi kemahasiswaan intra kampus lainnya seperti senat mahasiswa dan badan eksekutif mahasiswa, baik yang berada di tingkat program studi, jurusan, maupun universitas. Lembaga ini bersifat otonom, dan bukan sebagai cabang dari badan eksekutif maupun senat mahasiswa.</p>
-        </div>
-        <div class="row">
-        <?php
-          include 'koneksi.php';
-          $data = mysqli_query($db, "SELECT * FROM tb_ukm");
-          while ($a = mysqli_fetch_array($data)) {
-            $id_ukm = $a['id_ukm'];
-        ?>
-          <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
-            <div class="icon-box">
-              <div class="icon"><img src="gambar/logo/<?php echo $a['logo_ukm']; ?>" width="50" height="50"></i></div>
-              <h4><a href="homepage-ukm.php?id_ukm=<?php echo $id_ukm; ?>"><?php echo $a['nama_ukm']; ?></a></h4>
-              <p><?php echo $a['deskripsi_ukm']; ?></p>
-            </div>
-          </div>
-        <?php
-        }
-        ?>
-        </div>
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="homepage.php">Home</a></li>
+          <li>Panduan Daftar</li>
+        </ol>
+        <h2>Panduan Daftar</h2>
+
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container" data-aos="fade-up">
+        <h5>
+          <ol>
+            <li>Klik Login pada navbar</li>
+            <li>Jika Belum Mempunyai Akun, Silahkan Klik <a href="#">Daftar Disini</a></li>
+            <li>Masukkan Data dengan Benar,  Perhatikan Hal-Hal Berikut</li>
+              <ul>
+                <li>NIM yang dimasukkan harus benar karena tidak dapat diubah</li>
+                <li>Username dan Password digunakan hanya untuk Login ke dalam website</li>
+                <li>Data yang diisi akan digunakan untuk mendaftar UKM</li>
+              </ul>
+            <li>Jika sudah mendaftar, Login menggunakan Username dan Password yang telah didaftarkan</li>
+            <li>Setelah Login, Klik menu Pendaftaran pada navbar</li>
+            <li>Setiap Mahasiswa maksimal dapat mendaftar 2 Unit Kegiatan Mahasiswa</li>
+            <li>Data yang terkirim adalah identitas mahasiswa yang telah didaftarkan serta pilihan UKM</li>
+            <li>Tunggu Konfirmasi dari pihak UKM melalui WhatsApp</li>
+          </ol>
+        </h5>
+      </div>
+    </section>
+
+    <!-- data ukm -->
+    <section class="service section-bg">
+      <div class="container" data-aos="fade-up">
+      </div>
+    </section>
 
   </main><!-- End #main -->
 

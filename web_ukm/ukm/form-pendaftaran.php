@@ -86,7 +86,7 @@
           <h1>SISTEM INFORMASI PENDAFTARAN<br>UNIT KEGIATAN MAHASISWA</h1>
           <h2>POLITEKNIK NEGERI JEMBER</h2>
           <div class="d-lg-flex">
-            <a href="#" class="btn-get-started scrollto">Panduan Daftar</a>
+            <a href="panduan-daftar.php" class="btn-get-started scrollto">Panduan Daftar</a>
           </div>
         </div>
         <!-- <div class="col-lg- order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">

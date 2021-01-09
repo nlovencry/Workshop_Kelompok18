@@ -80,7 +80,7 @@
           <h1><?php echo $a['nama_ukm']?></h1>
           <h2><?php echo $a['deskripsi_ukm']; ?></h2>
           <div class="d-lg-flex">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="panduan-daftar.php" class="btn-get-started scrollto">Panduan Daftar</a>
             <a href="https://www.youtube.com/watch?v=7WVkGCBOhic" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
         </div>
