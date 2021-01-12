@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2021 at 06:36 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: Jan 12, 2021 at 02:08 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -220,14 +221,12 @@ INSERT INTO `tb_kegiatan` (`id_kegiatan`, `id_ukm`, `nama_kegiatan`, `keterangan
 (30, 22, 'DIKLATSAR XXXI', 'Kegiatan Dilaksanakan di Lereng Gunung Selatan Arg', ''),
 (31, 22, 'PRADIKLAT 2', '19-20 Oktober 2019 -Penyampaian Materi, Aplikasi P', ''),
 (32, 22, 'Salam Lestari', 'Temu Angkatan 2018 MAPALA Se- Jember di Lapangan G', ''),
-(33, 23, 'KRI 2020', '\"Once You Stop Learning You Stop Dying\"', ''),
-(34, 23, 'Pengapdian Masyarakat', 'Robot Semprot Disinfektan dari Polije - 20 April 2', ''),
-(35, 23, 'Kumpulan Rutin', 'Evaluasi dan Rancangan Robotika IR64', ''),
-(36, 23, 'Riset Harian', 'Riset Seluruh Divisi Anggota UKM Robotika IR-64', ''),
 (37, 24, 'Latihan Rutin', 'UKM Barabasdc', ''),
 (38, 24, 'PKBDC', 'Satu Rasa, Satu Jiwa, Satu Swara', ''),
 (39, 25, 'Bakti Literasi', 'SLB Branjangan, Desa Bintoro, Partang', ''),
-(40, 26, 'Rapat Anggota Tahunan UKM SKIM 2019/2020', '21-22 November 2020, 19.00WIB - Selesai', '');
+(40, 26, 'Rapat Anggota Tahunan UKM SKIM 2019/2020', '21-22 November 2020, 19.00WIB - Selesai', ''),
+(41, 23, 'Riset Harian', 'Uji coba robot untuk perlombaan', '16154_4.jpg'),
+(42, 23, 'Pengabdian Masyarakat', 'Robot Semprot Disinfektan dari Polije - 20 April 2', '31307_5 (1).jpg');
 
 -- --------------------------------------------------------
 
@@ -275,7 +274,7 @@ INSERT INTO `tb_mahasiswa` (`nim_mhs`, `id_prodi`, `nama_mhs`, `jk`, `no_wa`, `e
 ('E41191206', 1, 'Fitroh Fathur Rohman', 'Laki-laki', '+62 878-6470', 'fathur@gmail.com', '2019', 'Banyuwangi', 77),
 ('E41191224', 1, 'Ferry Septian Ferdiyanto', 'Laki-laki', '+62 857-3747', 'ferry@gmail.com', '2019', 'Kediri', 74),
 ('E41191244', 1, 'Dwi Prasetiyo Utomo', 'Laki-laki', '+62 857-0603', 'pras@gmail.com', '2019', 'Gresik', 79),
-('E41191322', 1, 'Bunga Prasetya Dwi Ulul Azmi', 'Perempuan', '+62 831-1169', 'bunga@gmail.com', '2019', 'Jember', 68),
+('E41191322', 1, 'Bunga Prasetya Dwi Ulul Azmi', 'Perempuan', '+62 831-1169', 'bunga@gmail.com', '2019', 'Jember Jatim', 68),
 ('E41191351', 1, 'Thufeil Wartono Putra', 'Laki-laki', '+62 822-3423', 'thufeil@gmail.com', '2019', 'Madura', 61),
 ('E41191382', 1, 'Muhammad Nuzul Ridoi', 'Laki-laki', '+62 819-1813', 'nuzul@gmail.com', '2019', 'Madura', 72);
 
@@ -293,6 +292,18 @@ CREATE TABLE `tb_pendaftaran` (
   `alasan` text NOT NULL,
   `sim_online` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_pendaftaran`
+--
+
+INSERT INTO `tb_pendaftaran` (`id_pendaftaran`, `tgl_pendaftaran`, `nim_mhs`, `id_ukm`, `alasan`, `sim_online`) VALUES
+(3, '2021-01-07', 'E41191322', 23, 'Ingin belajar dan menambah wawasan di bidang robotika', '7208_Screenshot (325).png'),
+(4, '2021-01-07', 'E41191322', 12, 'Ingin belajar dan mengasah skill berbicara bahasa inggris', '27806_Screenshot (325).png'),
+(5, '2021-01-07', 'E41191206', 16, 'Pengen tobat', '4991_Screenshot (326).png'),
+(6, '2021-01-07', 'E41191206', 23, 'ingin jadi robot', '23873_Screenshot (326).png'),
+(7, '2021-01-07', 'E41190925', 23, 'cari mas crush', '28711_Screenshot (324).png'),
+(8, '2021-01-07', 'E41191133', 23, 'apa aja deh yang penting seneng', '26779_Screenshot (323).png');
 
 -- --------------------------------------------------------
 
@@ -513,7 +524,7 @@ INSERT INTO `tb_ukm` (`id_ukm`, `id_user`, `nama_ukm`, `deskripsi_ukm`, `visi_uk
 (20, 50, 'UKM PSM', 'Merupakan Unit Kegiatan Mahasiswa dalam ruang lingkup untuk mengembangkan Teknik Bernyanyi dan Bermusik yang memberikan pengaruh besar dalam rutinitas mahasiswadan kegiatan kelembagaan.', '\"Bersatu Padu Mengintrepretasikan Seni Tarik Suara dalam Kebudayaan Nasional dan Berbakti kepada Tuhan dan Kelembagaan\"', '1. Menyanyikan lagu-lagu dan berkarya\r\n2. Berkarya dan menjunjung tinggi semangat kebudayaan dan kegembiraan dalam tugas pelayanan terhadap lembaga dan sesama', ''),
 (21, 51, 'UKM-KSR', 'merupakan Unit Kegiatan dalam himpunan PMI yang beranggotakan himpunan PMI yang menyatakan diri menjadikan KSR PMI, sudah memperoleh latihan khusus KSR.', '\"Menjadikan UKM KSR (PMI) Unit Kegiatan Politeknik Negeri Jember sebagai Panutan Relawan Kepalangmerahan yang Berkarakter, Berkualitas dan Profesional', '1. Meningkatkan kualitas kompetisi dan karakter kepalangmerahan UKM PMI Unit Kegiatan Politeknik Negeri Jember\r\n2. Melaksanakan pemberdayaan dan pengapdian kepada masyarakat\r\n3. Menjalin kerjasama dengan antar relawan dan masyarakat\r\n4. Meningkatkan kapasitas dan kapabilitas UKM KSR (PMI) Unit Kegiatan Politeknik Negeri Jember ', ''),
 (22, 52, 'UKM HIMAPALA', 'Merupakan organisasi pecinta alam yang menyediakan wadah bagi mahasiswa Politeknik Negeri Jember yang mempunyai minat dan bakat untuk kegiatan di alam bebas.', '', '\"', ''),
-(23, 53, 'UKM ROBOTIKA IR-64', 'Merupakan Unit Kegiatan Mahasiswa yang dikelola mahasiswa  untuk mengembangkan gagasan bahwa koperasi sebagai soko guru perekonomian bangsa indonesia serta untuk menumbuhkan jiwa koperasi Politeknik Negeri Jember.', '\"Menjadi UKM yang Unggul dalam Pengembangan pada bidang Robotika Revolusi Industri 4.0\"', '1. Meningkatkan kualitas kompetensi robotika bagi anggota\r\n2. Meningkatkan kualitas karakter bertanggung jawab bagi setiap anggota\r\n3. Meningkatkan kepedulian kepada masyarakat di bidang robotika\r\n4. Mengembangkan robot agro sebagai penciri kualitas mahasiswa', ''),
+(23, 53, 'UKM ROBOTIKA IR-64', 'Merupakan Unit Kegiatan Mahasiswa yang dikelola mahasiswa  untuk mengembangkan gagasan bahwa koperasi sebagai soko guru perekonomian bangsa indonesia serta untuk menumbuhkan jiwa koperasi Politeknik Negeri Jember.', '\"Menjadi UKM yang Unggul dalam Pengembangan pada bidang Robotika Revolusi Industri 4.0\"', '<p>1. Meningkatkan kualitas kompetensi robotika bagi anggota</p>\r\n\r\n<p>2. Meningkatkan kualitas karakter bertanggung jawab bagi setiap anggota</p>\r\n\r\n<p>3. Meningkatkan kepedulian kepada masyarakat di bidang robotika</p>\r\n\r\n<p>4. Mengembangkan robot agro sebagai penciri kualitas mahasiswa</p>\r\n', '14396_4. robotika (2).png'),
 (24, 54, 'UKM Barabas Drum Corps', 'Merupakan Unitk Kegiatan Mahasiswa Politeknik Negeri Jember yang disahkan pada tanggal 12 Okbober 2009, yang disahkan saat Kongres Tahun 2019.', '\"Menciptakan Generasi yang Kreatif, Disiplin dan Ceria Menuju Prestasi Nangemilang\"', '1. Tertciptanya kreatifitas para Mahasiswa dalam mengembangankan minat dan bakatnya\r\n2. Terciptanya mentalitas tim yang disiplin, taat dan patuh pada peraturan yang ada\r\n3. Terciptanya sikap anggota tim yang sopan, ceria dan gembira dalam penampilan\r\n4. Terwujudnya tim drumband yang solid, unggul dan memperoleh prestasi yang gemilang', ''),
 (25, 55, 'UKM-SKIM', 'Merupakan Unit Kegiatan Mahasiswa Studi Karya Ilmiah Mahasiswa, mahasiswa yang dilatih berpolafikir krisis, analitis, inovatif dan kreatif dalam menyelesaikan permasalahan secara ilmiah.', '\"Menjadikan UKM SKIM sebagai Pelopor Budaya Ilmiah Mahasiswa dan Berprestasi di PIMNAS Tahun 2021\"', '1. Peningkatan kualitas dan kuantitas organisasi UKM SKIM\r\n2. Pengembangan daya nallar angggota UKM SKIM\r\n3. Meningkatkan prestasi UKM SKIM dibidang ilmiah\r\n4. Peningkatan kerja sama UKM SKIM sdengan oganisasi lain', ''),
 (26, 56, 'UKM Satmenwa 877', 'Merupakan Unit Kegiatan Mahasiswa satuan kekuatan yang membentuk sebagai wadah dan sarana pengembangan diri mahasiswa ke arah perluasan wawasan serta meningkatkan keikutsertaan dalam upaya Bela Negara, Pertahanan dan Keamanan Negara.', 'Menjadi laboratorium pendidikan kepemimpinan untuk generasi muda pada umumnya dan mahasiswa pada khususnya yang menekankan diri dan berkomitmen untuk mengembangkan dan memberdayakan sumber daya generasi muda yang berbasis pada jiwa patriotisme, disiplin, kepemimpinan, pembentukan fisik dan mental yang berkualitas, serta pelestarian nilai-nilai jiwa dan semangat kejuangan.', '1. Meningkatkan Kesadaran Bela Negara pada Generasi Muda\r\n2. Meningkatkan pengetahuan dan ketrampilan kepemimpinan dan menejemen melalui kegiatan da pelatihan diorgan\r\n3. Pengabdian masyarakat dan kontibusi aktif dalam pembangunan, khususnya pembangunan sumber daya manusia Indonesia seutuhnya.', '');
@@ -681,13 +692,13 @@ ALTER TABLE `tb_jurusan`
 -- AUTO_INCREMENT for table `tb_kegiatan`
 --
 ALTER TABLE `tb_kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tb_pendaftaran`
 --
 ALTER TABLE `tb_pendaftaran`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_prestasi`
@@ -705,7 +716,7 @@ ALTER TABLE `tb_prodi`
 -- AUTO_INCREMENT for table `tb_sosmed`
 --
 ALTER TABLE `tb_sosmed`
-  MODIFY `id_sosmed` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_sosmed` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_struktur`
@@ -717,7 +728,7 @@ ALTER TABLE `tb_struktur`
 -- AUTO_INCREMENT for table `tb_ukm`
 --
 ALTER TABLE `tb_ukm`
-  MODIFY `id_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
