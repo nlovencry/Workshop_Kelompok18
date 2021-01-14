@@ -53,7 +53,7 @@
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li><a href="ukm/mahasiswa/profile-mhs">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="ukm/mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
             <li><a href="ukm/logout">Logout</a></li>
             <?php
             }

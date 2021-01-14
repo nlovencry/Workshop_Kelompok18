@@ -10,18 +10,15 @@
 	$email = htmlspecialchars($_POST['email'], ENT_QUOTES);
 	$angkatan = $_POST["angkatan"];
 	$alamat = htmlspecialchars($_POST["alamat"], ENT_QUOTES);
-	$username = htmlspecialchars($_POST["username"], ENT_QUOTES);
+	// $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
 	$password = md5($_POST["password"]);
 
-	$cekuser = mysqli_query($db, "SELECT username FROM tb_user WHERE username='$username'");
 	$ceknim  = mysqli_query($db, "SELECT nim_mhs FROM tb_mahasiswa WHERE nim_mhs='$nim'");
-	$cek  = mysqli_num_rows($cekuser);
 	$cek2 = mysqli_num_rows($ceknim);
 
-	if ($cek == 0) {
-		if ($cek2 == 0) {
-			$insert = "INSERT INTO tb_user VALUES('','$username','$password',3)";
-			$query = $db->query($insert);
+	if ($cek2 == 0) {
+		$insert = "INSERT INTO tb_user VALUES('','$nim','$password',3)";
+		$query = $db->query($insert);
 			if ($query == true) {
 				$get_last_id = mysqli_fetch_array($db->query('SELECT max(id_user) as last_id FROM tb_user'))['last_id'];
 				mysqli_query($db, "INSERT INTO tb_mahasiswa VALUES ('$nim', '$prodi', '$nama_lengkap', '$jk', '$no_wa', '$email', '$angkatan', '$alamat', '$get_last_id')");
@@ -32,8 +29,5 @@
 		}else{
 			echo "<script>alert('NIM Sudah Terdaftar!'); location='register';</script>";
 		}
-	}else{
-		echo "<script>alert('Username Sudah Terdaftar!'); location='register';</script>";
-	}
 	
 ?>
