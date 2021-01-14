@@ -42,21 +42,21 @@
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="homepage.php">Home</a></li>
-          <li class="active"><a href="#ukm">UKM</a></li>
-          <li><a href="form-pendaftaran.php">Pendaftaran</a></li>
+          <li><a href="../index">Home</a></li>
+          <li class="active"><a href="../index#ukm">UKM</a></li>
+          <li><a href="form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li><a href="mahasiswa/profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="mahasiswa/profile-mhs">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="logout">Logout</a></li>
             <?php
             }
           }else{
           ?>
-          <li><a href="login.php">Login</a></li>
+          <li><a href="login">Login</a></li>
           <?php
           }
           ?>
@@ -80,8 +80,8 @@
           <h1><?php echo $a['nama_ukm']?></h1>
           <h2><?php echo $a['deskripsi_ukm']; ?></h2>
           <div class="d-lg-flex">
-            <a href="panduan-daftar.php" class="btn-get-started scrollto">Panduan Daftar</a>
-            <a href="https://www.youtube.com/watch?v=7WVkGCBOhic" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+            <a href="panduan-daftar" class="btn-get-started scrollto">Panduan Daftar</a>
+            <a href="<?php echo $a['link_ytb']; ?>" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
         </div>
         <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
@@ -251,7 +251,7 @@
     </div>
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Kelompok 4</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Kelompok 18</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->

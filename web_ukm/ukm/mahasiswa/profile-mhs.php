@@ -53,21 +53,21 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="../homepage.php">Home</a></li>
-          <li><a href="../homepage.php#ukm">UKM</a></li>
-          <li><a href="../form-pendaftaran.php">Pendaftaran</a></li>
+          <li><a href="../../index">Home</a></li>
+          <li><a href="../../index#ukm">UKM</a></li>
+          <li><a href="../form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li class="active"><a href="profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
-            <li><a href="../logout.php">Logout</a></li>
+            <li class="active"><a href="profile-mhs">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="../logout">Logout</a></li>
             <?php
             }
           }else{
           ?>
-          <li><a href="../login.php">Login</a></li>
+          <li><a href="../login">Login</a></li>
           <?php
           }
           ?>
@@ -84,7 +84,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="../homepage.php">Home</a></li>
+          <li><a href="../homepage">Home</a></li>
           <li>Profile Mahasiswa</li>
         </ol>
         <h2>Profile Mahasiswa</h2>
@@ -96,8 +96,8 @@
       <div class="container" data-aos="fade-up">
           <div class="row" style="margin-bottom: 15px;">
             <div class="col-sm-5">
-              <a href="edit-profile.php?nim_mhs=<?php echo $_SESSION['nim_mhs']; ?>" class="btn btn-primary">Edit Profile</a>
-              <a href="../form-pendaftaran.php" class="btn btn-secondary">Kembali</a>
+              <a href="edit-profile?nim_mhs=<?php echo $_SESSION['nim_mhs']; ?>" class="btn btn-primary">Edit Profile</a>
+              <a href="../form-pendaftaran" class="btn btn-secondary">Kembali</a>
             </div>
           </div>
           <div class="alert alert-primary">
@@ -137,7 +137,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Nomor Whatsapp</label>
-                <input type="text" name="no_wa" class="form-control" value="<?php echo $a['no_wa']; ?>" readonly>
+                <input type="number" name="no_wa" class="form-control" value="<?php echo $a['no_wa']; ?>" readonly>
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Angkatan</label>
-                <input type="text" name="angkatan" class="form-control" value="<?php echo $a['angkatan']; ?>" readonly>
+                <input type="number" name="angkatan" class="form-control" value="<?php echo $a['angkatan']; ?>" readonly>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Alamat (Tempat Tinggal di Jember)</label>
-                <textarea class="form-control" name="alasan" rows="3" readonly=""><?php echo $a['alamat']; ?></textarea>
+                <textarea class="form-control" name="alamat" rows="3" readonly=""><?php echo $a['alamat']; ?></textarea>
               </div>
             </div>
           </div>
@@ -194,14 +194,20 @@
           <strong>Daftar Unit Kegiatan Mahasiswa yang diikuti <?php echo $_SESSION['nama_mhs']; ?></strong>
         </div>
         <?php
-        $data = mysqli_query($db, "SELECT tb_pendaftaran.nim_mhs, tb_mahasiswa.nama_mhs, tb_ukm.nama_ukm FROM tb_pendaftaran INNER JOIN tb_mahasiswa ON tb_pendaftaran.nim_mhs = tb_mahasiswa.nim_mhs INNER JOIN tb_ukm ON tb_pendaftaran.id_ukm = tb_ukm.id_ukm WHERE tb_pendaftaran.nim_mhs='$nim_mhs'");
+        $data = mysqli_query($db, "SELECT tb_pendaftaran.nim_mhs, tb_mahasiswa.nama_mhs, tb_ukm.id_ukm, tb_ukm.nama_ukm FROM tb_pendaftaran INNER JOIN tb_mahasiswa ON tb_pendaftaran.nim_mhs = tb_mahasiswa.nim_mhs INNER JOIN tb_ukm ON tb_pendaftaran.id_ukm = tb_ukm.id_ukm WHERE tb_pendaftaran.nim_mhs='$nim_mhs'");
         while ($a = mysqli_fetch_array($data)) {
         ?>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-11">
             <div class="form-group">
-             <label>Unit Kegiatan Mahasiswa</label>
+              <label>Unit Kegiatan Mahasiswa</label>
               <input type="text" name="nama_ukm" class="form-control" value="<?php echo $a['nama_ukm']; ?>" readonly>
+            </div>
+          </div>
+          <div class="col-sm-1">
+            <div class="form-group">
+              <label>Aksi</label>
+              <a href="keluar-ukm?id_ukm=<?php echo $a['id_ukm']; ?>" class="btn btn-danger">Keluar</a>
             </div>
           </div>
         </div>
@@ -237,7 +243,7 @@
     </div>
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Kelompok 4</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Kelompok 18</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->

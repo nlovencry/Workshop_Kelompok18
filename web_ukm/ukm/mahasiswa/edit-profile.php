@@ -53,21 +53,21 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="../homepage.php">Home</a></li>
-          <li><a href="../homepage.php#ukm">UKM</a></li>
-          <li><a href="../form-pendaftaran.php">Pendaftaran</a></li>
+          <li><a href="../../index">Home</a></li>
+          <li><a href="../../index#ukm">UKM</a></li>
+          <li><a href="../form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li class="active"><a href="profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
-            <li><a href="../logout.php">Logout</a></li>
+            <li class="active"><a href="profile-mhs">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="../logout">Logout</a></li>
             <?php
             }
           }else{
           ?>
-          <li><a href="../login.php">Login</a></li>
+          <li><a href="../login">Login</a></li>
           <?php
           }
           ?>
@@ -84,7 +84,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="../homepage.php">Home</a></li>
+          <li><a href="../homepage">Home</a></li>
           <li>Profile Mahasiswa</li>
         </ol>
         <h2>Profile Mahasiswa</h2>
@@ -94,14 +94,14 @@
 
     <section class="inner-page">
       <div class="container" data-aos="fade-up">
-        <form action="update-profile.php" method="POST">
+        <form action="update-profile" method="POST">
           <div class="alert alert-primary">
             <strong>Data Diri Mahasiswa</strong>
           </div>
           <?php
           include '../koneksi.php';
           $nim_mhs = $_GET['nim_mhs'];
-          $data = mysqli_query($db, "SELECT tb_mahasiswa.nim_mhs, tb_mahasiswa.nama_mhs, tb_mahasiswa.jk, tb_mahasiswa.no_wa, tb_mahasiswa.email, tb_mahasiswa.angkatan, tb_mahasiswa.alamat, tb_jurusan.nama_jurusan, tb_prodi.nama_prodi FROM tb_mahasiswa INNER JOIN tb_prodi ON tb_mahasiswa.id_prodi = tb_prodi.id_prodi INNER JOIN tb_jurusan ON tb_prodi.id_jurusan = tb_jurusan.id_jurusan WHERE tb_mahasiswa.nim_mhs='$nim_mhs'");
+          $data = mysqli_query($db, "SELECT tb_mahasiswa.nim_mhs, tb_mahasiswa.nama_mhs, tb_mahasiswa.jk, tb_mahasiswa.no_wa, tb_mahasiswa.email, tb_mahasiswa.angkatan, tb_mahasiswa.alamat, tb_jurusan.nama_jurusan, tb_prodi.nama_prodi, tb_user.password FROM tb_mahasiswa INNER JOIN tb_prodi ON tb_mahasiswa.id_prodi = tb_prodi.id_prodi INNER JOIN tb_jurusan ON tb_prodi.id_jurusan = tb_jurusan.id_jurusan INNER JOIN tb_user ON tb_user.id_user=tb_mahasiswa.id_user WHERE tb_mahasiswa.nim_mhs='$nim_mhs'");
           $a = mysqli_fetch_array($data);
           ?>
           <div class="row">
@@ -132,7 +132,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Nomor Whatsapp</label>
-                <input type="text" name="no_wa" class="form-control" value="<?php echo $a['no_wa']; ?>">
+                <input type="number" name="no_wa" class="form-control" value="<?php echo $a['no_wa']; ?>">
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Angkatan</label>
-                <input type="text" name="angkatan" class="form-control" value="<?php echo $a['angkatan']; ?>">
+                <input type="number" name="angkatan" class="form-control" value="<?php echo $a['angkatan']; ?>">
               </div>
             </div>
           </div>
@@ -190,10 +190,18 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Ubah Password</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $a['password']; ?>">
+              </div>
+            </div>
+          </div>
           <div class="row" style="margin-bottom: 15px;">
             <div class="col-sm-5">
               <button class="btn btn-primary" type="submit">Update Profile</button>
-              <a href="profile-mhs.php" class="btn btn-secondary">Kembali</a>
+              <a href="profile-mhs" class="btn btn-secondary">Kembali</a>
             </div>
           </div>
         </form>
@@ -226,7 +234,7 @@
     </div>
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Kelompok 4</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Kelompok 18</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->

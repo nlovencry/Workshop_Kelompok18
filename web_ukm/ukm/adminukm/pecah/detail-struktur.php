@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -46,8 +46,8 @@
             <!-- general form elements -->
             <div class="card">
               <div class="card-header">
-                <a href="tambah-struktur.php" class="btn btn-primary">+ Tambah Data</a>
-                <a href="profile-ukm.php" class="btn btn-secondary">Kembali</a>
+                <a href="tambah-struktur" class="btn btn-primary">+ Tambah Data</a>
+                <a href="profile-ukm" class="btn btn-secondary">Kembali</a>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -80,8 +80,8 @@
                       <td><?php echo $a['angkatan']; ?></td>
                       <td><img src="../../gambar/struktur/<?php echo $a['foto']; ?>" width="50" height="70"></td>
                       <td>
-                        <a href="edit-struktur.php?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-primary">Edit</a>
-                        <a href="hapus-struktur.php?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-danger">Hapus</a>
+                        <a href="edit-struktur?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-primary">Edit</a>
+                        <a href="../proses/hapus-struktur?id_struktur=<?php echo $a['id_struktur']; ?>" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                     <?php

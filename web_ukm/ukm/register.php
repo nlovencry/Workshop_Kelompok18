@@ -26,7 +26,7 @@
     <a href="#"><b>Register</b>Page</a>
   </div>
 
-      <form action="cek-register.php" method="post">
+      <form action="cek-register" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="nama_mhs" placeholder="Nama Lengkap" required="">
           <div class="input-group-append">
@@ -136,7 +136,7 @@
         </div>
       </form>
 
-      <center>Sudah Memiliki Akun? <a href="login.php" >Login Disini</a></center>
+      <center>Sudah Memiliki Akun? <a href="login" >Login Disini</a></center>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

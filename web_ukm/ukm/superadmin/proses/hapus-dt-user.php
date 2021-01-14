@@ -7,7 +7,7 @@
 
 	if ($q == true) {
 		mysqli_query($db, "UPDATE tb_ukm SET id_user='0'");
-		header("location:../pecah/dt-user.php");
+		header("location:../pecah/dt-user");
 	}
 	
 ?>

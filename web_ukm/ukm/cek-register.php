@@ -2,15 +2,15 @@
 	
 	include 'koneksi.php';
 
-	$nim = $_POST["nim_mhs"];
+	$nim = htmlspecialchars($_POST["nim_mhs"], ENT_QUOTES);
 	$prodi = $_POST["id_prodi"];
-	$nama_lengkap = $_POST["nama_mhs"];
+	$nama_lengkap = htmlspecialchars($_POST["nama_mhs"], ENT_QUOTES);
 	$jk = $_POST["jk"];
 	$no_wa = $_POST["no_wa"];
-	$email = $_POST['email'];
+	$email = htmlspecialchars($_POST['email'], ENT_QUOTES);
 	$angkatan = $_POST["angkatan"];
-	$alamat = $_POST["alamat"];
-	$username = $_POST["username"];
+	$alamat = htmlspecialchars($_POST["alamat"], ENT_QUOTES);
+	$username = htmlspecialchars($_POST["username"], ENT_QUOTES);
 	$password = md5($_POST["password"]);
 
 	$cekuser = mysqli_query($db, "SELECT username FROM tb_user WHERE username='$username'");
@@ -25,15 +25,15 @@
 			if ($query == true) {
 				$get_last_id = mysqli_fetch_array($db->query('SELECT max(id_user) as last_id FROM tb_user'))['last_id'];
 				mysqli_query($db, "INSERT INTO tb_mahasiswa VALUES ('$nim', '$prodi', '$nama_lengkap', '$jk', '$no_wa', '$email', '$angkatan', '$alamat', '$get_last_id')");
-				echo "<script>alert('Berhasil Membuat Akun! Silahkan Login'); location='login.php';</script>";
+				echo "<script>alert('Berhasil Membuat Akun! Silahkan Login'); location='login';</script>";
 			}else{
-				echo("<script>alert('Gagal Membuat Akun!'); location='register.php';</script>");
+				echo("<script>alert('Gagal Membuat Akun!'); location='register';</script>");
 			}
 		}else{
-			echo "<script>alert('NIM Sudah Terdaftar!'); location='register.php';</script>";
+			echo "<script>alert('NIM Sudah Terdaftar!'); location='register';</script>";
 		}
 	}else{
-		echo "<script>alert('Username Sudah Terdaftar!'); location='register.php';</script>";
+		echo "<script>alert('Username Sudah Terdaftar!'); location='register';</script>";
 	}
 	
 ?>

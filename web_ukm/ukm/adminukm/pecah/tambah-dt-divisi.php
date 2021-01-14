@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -50,7 +50,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/tambah-aksi-dt-divisi.php" method="POST" role="form">
+              <form action="../proses/tambah-aksi-dt-divisi" method="POST" role="form">
                 <div class="card-body">
                   <div class="form-group">
                     <?php 
@@ -70,7 +70,7 @@
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
                   <button type="reset" class="btn btn-danger">Reset</button>
-                  <a href="dt-divisi.php" class="btn btn-secondary">Kembali</a>
+                  <a href="dt-divisi" class="btn btn-secondary">Kembali</a>
                 </div>
               </form>
             </div>

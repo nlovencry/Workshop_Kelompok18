@@ -53,21 +53,21 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="homepage.php">Home</a></li>
-          <li><a href="homepage.php#ukm">UKM</a></li>
-          <li class="active"><a href="form-pendaftaran.php">Pendaftaran</a></li>
+          <li><a href="../index">Home</a></li>
+          <li><a href="../index#ukm">UKM</a></li>
+          <li class="active"><a href="form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
             ?>
-            <li><a href="mahasiswa/profile-mhs.php">Halo <?php echo $_SESSION['username']; ?></a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="mahasiswa/profile-mhs">Halo <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="logout">Logout</a></li>
             <?php
             }
           }else{
           ?>
-          <li><a href="login.php">Login</a></li>
+          <li><a href="login">Login</a></li>
           <?php
           }
           ?>
@@ -86,7 +86,7 @@
           <h1>SISTEM INFORMASI PENDAFTARAN<br>UNIT KEGIATAN MAHASISWA</h1>
           <h2>POLITEKNIK NEGERI JEMBER</h2>
           <div class="d-lg-flex">
-            <a href="panduan-daftar.php" class="btn-get-started scrollto">Panduan Daftar</a>
+            <a href="panduan-daftar" class="btn-get-started scrollto">Panduan Daftar</a>
           </div>
         </div>
         <!-- <div class="col-lg- order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
@@ -105,14 +105,14 @@
         <div class="section-title">
           <h2>Form Pendaftaran Anggota Baru</h2>
         </div>
-          <form id="form" method="post" action="proses-pendaftaran.php" enctype="multipart/form-data">
+          <form id="form" method="post" action="proses-pendaftaran" enctype="multipart/form-data">
             <!-- data ukm -->
             <?php
               if (isset($_SESSION['status'])){
                 if ($_SESSION['status'] == 'Login') {
             ?>
             <div class="form-group">
-              <a href="mahasiswa/profile-mhs.php" class="btn btn-info">Lihat Profile</a>
+              <a href="mahasiswa/profile-mhs" class="btn btn-info">Lihat Profile</a>
             </div>
             <?php } } ?>
             <div class="alert alert-primary">
@@ -195,7 +195,7 @@
                 <div class="form-group">
                   <label>SIM Online :</label>
                   <input type="file" name="sim" required="required">
-                  <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg</p>
+                  <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | Ukuran max 10mb</p>
                 </div>
               </div>
             </div>
@@ -235,7 +235,7 @@
     </div>
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Kelompok 4</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Kelompok 18</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->

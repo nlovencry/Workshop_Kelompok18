@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -27,8 +27,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="dashboard-superadmin">Home</a></li>
               <li class="breadcrumb-item active">Data UKM</li>
-              <li class="breadcrumb-item"><a href="dashboard-superadmin.php">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -43,7 +43,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <a type="submit" href="tambah-dt-ukm.php" class="btn btn-primary">+ Tambah Data UKM</a>
+                <a type="submit" href="tambah-dt-ukm" class="btn btn-primary">+ Tambah Data UKM</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -68,8 +68,8 @@
                     <td width="200"><?php echo $data['nama_ukm']; ?></td>
                     <td><?php echo $data['deskripsi_ukm']; ?></td>
                     <td width="200">
-                        <a href="../pecah/detail-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
-                        <a href="../proses/hapus-dt-ukm.php?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
+                        <a href="../pecah/detail-ukm?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-info">Detail</a>
+                        <a href="../proses/hapus-dt-ukm?id_ukm=<?php echo $data['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
                     </td>
                     </tr>
                   <?php } ?>

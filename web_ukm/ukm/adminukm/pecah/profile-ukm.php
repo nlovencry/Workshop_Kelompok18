@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -69,33 +69,10 @@
                     <?php echo $a['misi_ukm']; ?>
                   </li>
                 </ul>
-                <a href="edit-profile.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                <a href="edit-profile" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
               </div>
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-
-            <!-- About Me Box -->
-            <!-- <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Sosial Media</h3>
-              </div>
-              <div class="card-body">
-                <?php 
-                $data = mysqli_query($db, "SELECT * FROM tb_sosmed WHERE id_ukm='$id_ukm'");
-                while ($a = mysqli_fetch_array($data)) {
-                ?>
-                <strong></i>Instagram</strong>
-                <p class="text-muted">
-                  <?php echo $a['instagram']; ?>
-                </p>
-                <hr>
-                <?php
-                }
-                ?>
-                <a href="detail-struktur.php" class="btn btn-primary btn-block"><b>Detail Susunan Organisasi</b></a>
-              </div>
-            </div> -->
             <!-- /.card -->
             <?php
             }
@@ -114,7 +91,7 @@
               <div class="card-body">
                 <div class="tab-content">
                   <div class="active tab-pane" id="pengurus">
-                    <form class="form-horizontal" action="../proses/tambah-prestasi.php" method="POST">
+                    <form class="form-horizontal" action="../proses/tambah-prestasi" method="POST">
                       <?php
                       $data = mysqli_query($db, "SELECT tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE tb_struktur.id_ukm = '$id_ukm'");
                       while ($a = mysqli_fetch_array($data)) {
@@ -130,14 +107,14 @@
                     <div>
                       <div class="form-group row">
                         <div class="col-sm-12" align="right">
-                          <a href="detail-struktur.php" class="btn btn-primary btn-block"><b>Detail Pengurus</b></a>
+                          <a href="detail-struktur" class="btn btn-primary btn-block"><b>Detail Pengurus</b></a>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="prestasi">
-                    <form class="form-horizontal" action="../proses/tambah-prestasi.php" method="POST">
+                    <form class="form-horizontal" action="../proses/tambah-prestasi" method="POST">
                       <div class="form-group">
                         <input type="hidden" name="id_ukm" class="form-control" id="inputName" value="<?php echo $id_ukm; ?>">
                         <label for="inputName" class="col-form-label">Nama Prestasi</label>
@@ -160,7 +137,6 @@
                         </thead>
                         <tbody>
                           <?php
-                            include '../../koneksi.php';
                             $no = 1;
                             $data = mysqli_query($db, "SELECT * FROM tb_prestasi WHERE id_ukm='$id_ukm'");
                             while ($a = mysqli_fetch_array($data)) {
@@ -169,7 +145,7 @@
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $a['nama_prestasi']; ?></td>
                             <td>
-                              <a href="../proses/hapus-prestasi.php?id_prestasi=<?php echo $a['id_prestasi']; ?>" class="btn btn-danger">Hapus</a>
+                              <a href="../proses/hapus-prestasi?id_prestasi=<?php echo $a['id_prestasi']; ?>" class="btn btn-danger">Hapus</a>
                             </td>
                           </tr>
                           <?php
@@ -181,7 +157,7 @@
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="kegiatan">
-                    <form class="form-horizontal" action="../proses/tambah-kegiatan.php" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="../proses/tambah-kegiatan" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
                         <input type="hidden" name="id_ukm" class="form-control" id="inputName" value="<?php echo $id_ukm; ?>">
                         <label for="inputName" class="col-form-label">Nama Kegiatan</label>
@@ -190,7 +166,7 @@
                       <div class="form-group">
                         <label>Foto :</label>
                         <input type="file" name="foto" required="required">
-                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg </p>
+                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | Ukuran Max 10mb</p>
                       </div>  
                       <div class="form-group">
                         <label for="inputExperience" class="col-form-label">Keterangan</label>
@@ -215,7 +191,6 @@
                         </thead>
                         <tbody>
                           <?php
-                            include '../../koneksi.php';
                             $no = 1;
                             $data = mysqli_query($db, "SELECT * FROM tb_kegiatan WHERE id_ukm='$id_ukm'");
                             while ($a = mysqli_fetch_array($data)) {
@@ -226,7 +201,7 @@
                             <td><img src="../../gambar/kegiatan/<?php echo $a['foto_kegiatan']; ?>" width="50" height="70"></td>
                             <td><?php echo $a['keterangan']; ?></td>
                             <td>
-                              <a href="../proses/hapus-kegiatan.php?id_kegiatan=<?php echo $a['id_kegiatan']; ?>" class="btn btn-danger">Hapus</a>
+                              <a href="../proses/hapus-kegiatan?id_kegiatan=<?php echo $a['id_kegiatan']; ?>" class="btn btn-danger">Hapus</a>
                             </td>
                           </tr>
                           <?php

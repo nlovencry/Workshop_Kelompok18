@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -44,7 +44,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <a href="tambah-dt-divisi.php" class="btn btn-primary">+ Tambah Data</a>
+                <a href="tambah-dt-divisi" class="btn btn-primary">+ Tambah Data</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -69,8 +69,8 @@
                       <td><?php echo $a['nama_divisi']; ?></td>
                       <td><?php echo $a['nama_co']; ?></td>
                       <td>
-                        <a href="edit-dt-divisi.php?id_divisi=<?php echo $a['id_divisi']; ?>" class="btn btn-primary">Edit</a>
-                        <a href="../proses/hapus-dt-divisi.php?id_divisi=<?php echo $a['id_divisi']; ?>" class="btn btn-danger">Hapus</a>
+                        <a href="edit-dt-divisi?id_divisi=<?php echo $a['id_divisi']; ?>" class="btn btn-primary">Edit</a>
+                        <a href="../proses/hapus-dt-divisi?id_divisi=<?php echo $a['id_divisi']; ?>" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                     <?php

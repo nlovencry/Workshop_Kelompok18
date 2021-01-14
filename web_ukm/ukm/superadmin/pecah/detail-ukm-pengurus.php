@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -50,7 +50,7 @@
                 include '../../koneksi.php';
                 $id_ukm = $_GET['id_ukm'];
                 ?>
-                <a href="detail-ukm.php?id_ukm=<?php echo $id_ukm; ?>" class="btn btn-secondary">Kembali</a>
+                <a href="detail-ukm?id_ukm=<?php echo $id_ukm; ?>" class="btn btn-secondary">Kembali</a>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -68,7 +68,6 @@
                   </thead>
                   <tbody>
                     <?php
-                      include '../../koneksi.php';
                       $no = 1;
                       $data = mysqli_query($db, "SELECT tb_struktur.id_struktur, tb_struktur.nama_mhs, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi WHERE id_ukm='$id_ukm'");
                       while ($a = mysqli_fetch_array($data)) {

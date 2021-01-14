@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -50,7 +50,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/tambah-aksi-struktur.php" method="POST" enctype="multipart/form-data">
+              <form action="../proses/tambah-aksi-struktur" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <input type="hidden" class="form-control" name="id_ukm" value="<?php echo $id_ukm = $_SESSION['id_ukm']; ?>">
@@ -73,7 +73,6 @@
                     <label>Program Studi</label >
                     <select name="id_prodi" class="form-control" required="">
                       <?php
-                        include '../../koneksi.php';
                         $data = mysqli_query($db, "SELECT * FROM tb_prodi");
                         while($key=mysqli_fetch_assoc($data)) { 
                           echo"<option value='".$key['id_prodi']."'>".$key['nama_prodi']."</option>";
@@ -88,14 +87,14 @@
                   <div class="form-group">
                     <label>Foto</label>
                     <input type="file" name="foto" required="required">
-                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg </p>
+                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | Ukuran Max 10mb</p>
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
                   <button type="reset" class="btn btn-danger">Reset</button>
-                  <a href="profile-ukm.php" class="btn btn-secondary">Kembali</a>
+                  <a href="profile-ukm" class="btn btn-secondary">Kembali</a>
                 </div>
               </form>
             </div>

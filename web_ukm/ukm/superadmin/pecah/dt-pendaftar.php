@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -48,7 +48,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <a href="../proses/cetak-laporan.php" target="_blank" class="btn btn-success" style="margin-bottom: 15px;">Cetak Laporan</a>
+                  <a href="../proses/cetak-laporan" target="_blank" class="btn btn-success" style="margin-bottom: 15px;">Cetak Laporan</a>
                 </div>
                 <form method="post">
                   <div class="row">

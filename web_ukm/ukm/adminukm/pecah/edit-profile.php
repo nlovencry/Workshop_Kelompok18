@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -50,7 +50,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/update-profile-ukm.php" method="POST" enctype="multipart/form-data">
+              <form action="../proses/update-profile-ukm" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <?php 
                     include '../../koneksi.php';
@@ -76,9 +76,13 @@
                     <textarea class="ckeditor" id="ckeditor" name="misi_ukm"><?php echo $a['misi_ukm']; ?></textarea>
                   </div>
                   <div class="form-group">
+                    <label>Link Youtube Video Promosi (Optional)</label>
+                    <input type="text" class="form-control" name="link_ytb" value="<?php echo $a['link_ytb']; ?>">
+                  </div>
+                  <div class="form-group">
                     <label>Logo</label>
-                    <input type="file" name="logo"><img width="60" height="60" src="../../gambar/logo/<?php echo $a['logo_ukm']; ?>">
-                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg</p>
+                    <input type="file" name="logo" value="<?php echo $a['logo_ukm']; ?>"><img width="60" height="60" src="../../gambar/logo/<?php echo $a['logo_ukm']; ?>">
+                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | Ukuran Max 10mb</p>
                   </div>
                   <?php
                   }
@@ -87,7 +91,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
-                  <a href="profile-ukm.php" class="btn btn-secondary">Kembali</a>
+                  <a href="profile-ukm" class="btn btn-secondary">Kembali</a>
                 </div>
               </form>
             </div>

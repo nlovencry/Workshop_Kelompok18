@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -27,7 +27,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboad-superadmin.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="dashboad-superadmin">Home</a></li>
               <li class="breadcrumb-item active">Form Tambah Data UKM</li>
             </ol>
           </div><!-- /.col -->
@@ -49,7 +49,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/tambah-aksi-dt-ukm.php" method="POST">
+              <form action="../proses/tambah-aksi-dt-ukm" method="POST">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Nama Unit Kegiatan Mahasiswa</label>
@@ -62,7 +62,7 @@
                   <div class="form-group">
                     <button input type="submit" class="btn btn-primary">Simpan</button>
                     <button input type="reset" class="btn btn-danger">Reset</button>
-                    <a href="../pecah/dt-ukm.php" class="btn btn-secondary">Kembali</a>
+                    <a href="../pecah/dt-ukm" class="btn btn-secondary">Kembali</a>
                   </div>
                 </div>
                 <!-- /.card-body -->

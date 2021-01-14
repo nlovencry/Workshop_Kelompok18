@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -50,7 +50,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../proses/update-struktur.php" method="POST" enctype="multipart/form-data">
+              <form action="../proses/update-struktur" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <?php 
                     include '../../koneksi.php';
@@ -94,13 +94,13 @@
                   <div class="form-group">
                     <label>Foto</label>
                     <input type="file" name="foto" required="required"><img width="60" height="80" src="../../gambar/struktur/<?php echo $a['foto']; ?>">
-                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg</p>
+                    <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | Ukuran Max 10mb</p>
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
-                  <a href="profile-ukm.php" class="btn btn-secondary">Kembali</a>
+                  <a href="profile-ukm" class="btn btn-secondary">Kembali</a>
                 </div>
               </form>
             </div>

@@ -16,7 +16,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="dashboard-superadmin.php" class="nav-link">
+            <a href="dashboard-superadmin" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -34,13 +34,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="dt-ukm.php" class="nav-link">
+                <a href="dt-ukm" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data UKM</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="dt-user.php" class="nav-link">
+                <a href="dt-user" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data User</p>
                 </a>
@@ -48,7 +48,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="dt-pendaftar.php" class="nav-link">
+            <a href="dt-pendaftar" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Data Pendaftar

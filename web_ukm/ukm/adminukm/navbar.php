@@ -9,7 +9,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <a href="../../logout.php" class="btn btn-danger">Logout</a>
+      <a href="../../logout" class="btn btn-danger">Logout</a>
     </ul>
   </nav>
   <!-- /.navbar -->

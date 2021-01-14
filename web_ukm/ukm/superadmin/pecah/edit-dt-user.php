@@ -8,7 +8,7 @@
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
     if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
     }
   ?>
 <div class="wrapper">
@@ -50,7 +50,7 @@
               </div>
               <!-- /.card-header -->
                 <!-- form start -->
-                <form action="../proses/update-dt-user.php" method="POST">
+                <form action="../proses/update-dt-user" method="POST">
                 <div class="card-body">
                   <?php
                     include '../../koneksi.php';
@@ -81,7 +81,7 @@
                   <div class="form-group">
                     <button input type="submit" class="btn btn-primary">Simpan</button>
                     <button input type="reset" class="btn btn-danger">Reset</button>
-                    <a href="../pecah/dt-user.php" class="btn btn-secondary">Kembali</a>
+                    <a href="../pecah/dt-user" class="btn btn-secondary">Kembali</a>
                   </div> 
                   <?php
                   }
