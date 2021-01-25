@@ -53,20 +53,33 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="../../index">Home</a></li>
+          <li class="active"><a href="../../index">Home</a></li>
           <li><a href="../../index#ukm">UKM</a></li>
-          <li><a href="../form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
-            ?>
-            <li class="active"><a href="profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
-            <li><a href="../logout">Logout</a></li>
-            <?php
+              if($_SESSION['level'] == '3'){
+              ?>
+              <li><a href="../form-pendaftaran">Pendaftaran</a></li>
+              <li><a href="../mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
+              <li><a href="../logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '2'){
+              ?>
+              <li><a href="../adminukm/pecah/dashboard-adminukm">Halo <?php echo $_SESSION['nama_ukm']; ?></a></li>
+              <li><a href="../logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '1'){
+              ?>
+              <li><a href="../superadmin/pecah/dashboard-superadmin">Halo <?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="../logout">Logout</a></li>
+              <?php
+              }
             }
           }else{
           ?>
+          <li><a href="../form-pendaftaran">Pendaftaran</a></li>
           <li><a href="../login">Login</a></li>
           <?php
           }
@@ -84,7 +97,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="../homepage">Home</a></li>
+          <li><a href="../index">Home</a></li>
           <li>Profile Mahasiswa</li>
         </ol>
         <h2>Profile Mahasiswa</h2>
@@ -100,7 +113,7 @@
           </div>
           <?php
           include '../koneksi.php';
-          $nim_mhs = $_GET['nim_mhs'];
+          $nim_mhs = $_SESSION['nim_mhs'];
           $data = mysqli_query($db, "SELECT tb_mahasiswa.nim_mhs, tb_mahasiswa.nama_mhs, tb_mahasiswa.jk, tb_mahasiswa.no_wa, tb_mahasiswa.email, tb_mahasiswa.angkatan, tb_mahasiswa.alamat, tb_jurusan.nama_jurusan, tb_prodi.nama_prodi, tb_user.password FROM tb_mahasiswa INNER JOIN tb_prodi ON tb_mahasiswa.id_prodi = tb_prodi.id_prodi INNER JOIN tb_jurusan ON tb_prodi.id_jurusan = tb_jurusan.id_jurusan INNER JOIN tb_user ON tb_user.id_user=tb_mahasiswa.id_user WHERE tb_mahasiswa.nim_mhs='$nim_mhs'");
           $a = mysqli_fetch_array($data);
           ?>
@@ -164,11 +177,12 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Jurusan</label>
-                <select name="id_jurusan" class="form-control">
+                <select name="id_jurusan" class="form-control" id="jurusan">
                   <?php
                   $data = mysqli_query($db, "SELECT * FROM tb_jurusan");
-                  while($key=mysqli_fetch_assoc($data)) { 
-                    echo"<option value='".$key['id_jurusan']."' ".($key['id_jurusan']==$a['id_jurusan'] ? 'selected' : ' ')." >".$key['nama_jurusan']."</option>";
+                  echo "<option>Pilih Jurusan</option>";
+                  while($key=mysqli_fetch_assoc($data)) {  
+                    echo "<option value='".$key['id_jurusan']."' ".($key['id_jurusan']==$a['id_jurusan'] ? 'selected' : ' ')." >".$key['nama_jurusan']."</option>";
                   }
                   ?>
                 </select>
@@ -179,22 +193,28 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Program Studi</label>
-                <select name="id_prodi" class="form-control">
+                <select name="id_prodi" class="form-control" id="prodi">
                   <?php
                   $data = mysqli_query($db, "SELECT * FROM tb_prodi");
                   while($key=mysqli_fetch_assoc($data)) { 
-                    echo"<option value='".$key['id_prodi']."' ".($key['id_prodi']==$a['id_prodi'] ? 'selected' : ' ')." >".$key['nama_prodi']."</option>";
+                    echo "<option class='".$key['id_jurusan']." item' value='".$key['id_prodi']."' ".($key['id_prodi']==$a['id_prodi'] ? 'selected' : ' ')." >".$key['nama_prodi']."</option>";
                   }
                   ?>
                 </select>
               </div>
             </div>
           </div>
+          <script type="text/javascript">
+            $('#jurusan').on('change', function(){
+              $('#prodi').children('.item').hide()
+              $('#prodi').children('.'+$(this).val()).show()
+            })
+          </script>
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
                 <label>Ubah Password</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $a['password']; ?>">
+                <input type="password" name="password" class="form-control" placeholder="Masukkan Password Baru">
               </div>
             </div>
           </div>

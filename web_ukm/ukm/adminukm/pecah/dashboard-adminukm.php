@@ -7,9 +7,15 @@
   <?php 
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
-    if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
-    }
+      if ($_SESSION['status'] == 'Login') {
+        if($_SESSION['level'] == '3'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }elseif($_SESSION['level'] == '1'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }
+      }else{
+        echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../../login'; </script>";
+      }
   ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
@@ -187,18 +193,19 @@
     var barChart = new Chart(barChartCanvas, {
       type: 'bar', 
       data: {
-        labels: [
-          <?php 
+        <?php 
           $data = mysqli_query($db, "SELECT nama_ukm FROM tb_ukm");
-          $nama = mysqli_fetch_array($data);
-          echo $nama;
+          while ($a = mysqli_fetch_array($data)) {
           ?>
+        labels: [
+          <?php echo $a['nama_ukm']; ?>
         ],
+      <?php } ?>
         datasets: [{
           label: '',
           data: [
           <?php 
-          $jml = mysqli_query($db,"select * from tb_pendaftaran where id_ukm='12'");
+          $jml = mysqli_query($db,"select * from tb_pendaftaran");
           echo mysqli_num_rows($jml);
           ?>, 
           <?php 

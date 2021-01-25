@@ -7,9 +7,15 @@
   <?php 
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
-    if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
-    }
+      if ($_SESSION['status'] == 'Login') {
+        if($_SESSION['level'] == '3'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }elseif($_SESSION['level'] == '2'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }
+      }else{
+        echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../../login'; </script>";
+      }
   ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
@@ -27,7 +33,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../../index">Home</a></li>
               <li class="breadcrumb-item active">Data Pendaftar</li>
             </ol>
           </div><!-- /.col -->
@@ -97,7 +103,7 @@
                     <td><?php echo $a['no_wa']; ?></td>
                     <td><?php echo $a['nama_ukm']; ?></td>
                     <td>
-                      <button type="button" class="btn btn-info" onclick="show(this)" data-tgl="<?=$a['tgl_pendaftaran']?>" data-nim="<?=$a['nim_mhs']?>" data-nama="<?=$a['nama_mhs']?>" data-jk="<?=$a['jk']?>" data-no="<?=$a['no_wa']?>" data-email="<?=$a['email']?>" data-prodi="<?=$a['nama_prodi']?>" data-angkatan="<?=$a['angkatan']?>" data-alamat="<?=$a['alamat']?>" data-alasan="<?=$a['alasan']?>">Detail</button>
+                      <button type="button" class="btn btn-info" onclick="show(this)" data-tgl="<?=$a['tgl_pendaftaran']?>" data-nim="<?=$a['nim_mhs']?>" data-nama="<?=$a['nama_mhs']?>" data-jk="<?=$a['jk']?>" data-no="<?=$a['no_wa']?>" data-email="<?=$a['email']?>" data-prodi="<?=$a['nama_prodi']?>" data-angkatan="<?=$a['angkatan']?>" data-alamat="<?=$a['alamat']?>" data-alasan="<?=$a['alasan']?>" data-gambar="<?=$a['sim_online']?>">Detail</button>
                     </td>
                   </tr>
                   <?php
@@ -156,6 +162,10 @@
                           <label>Alasan</label>
                           <textarea id="alasan" class="form-control" disabled=""></textarea>
                         </div>
+                        <div class="form-group">
+                          <label>SIM Online</label><br>
+                          <img id="gambar" width="50%" height="50%">
+                        </div>
                       </div>
                       <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -179,6 +189,7 @@
                     $('#angkatan').val($(e).data('angkatan'));
                     $('#alamat').val($(e).data('alamat'));
                     $('#alasan').val($(e).data('alasan'));
+                    $('#gambar').attr('src', '../../gambar/sim/'+$(e).data('gambar'));
                   }
                 </script>
               </div>

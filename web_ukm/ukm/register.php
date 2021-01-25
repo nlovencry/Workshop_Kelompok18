@@ -15,6 +15,13 @@
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition register-page">
+  <?php 
+  session_start();
+    // cek apakah yang mengakses halaman ini sudah login
+      if ($_SESSION['status'] == 'Login') {
+          echo "<script>alert('Anda Sudah Login!'); location='../index'; </script>";
+      }
+  ?>
 <div class="register-box">
   <!-- <div class="register-logo">
     <a href="#"><b>Register</b>Page</a>

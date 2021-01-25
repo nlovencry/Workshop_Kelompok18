@@ -42,20 +42,33 @@
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="../index">Home</a></li>
-          <li class="active"><a href="../index#ukm">UKM</a></li>
-          <li><a href="form-pendaftaran">Pendaftaran</a></li>
+          <li class="active"><a href="../index">Home</a></li>
+          <li><a href="../index#ukm">UKM</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
-            ?>
-            <li><a href="mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
-            <li><a href="logout">Logout</a></li>
-            <?php
+              if($_SESSION['level'] == '3'){
+              ?>
+              <li><a href="form-pendaftaran">Pendaftaran</a></li>
+              <li><a href="mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
+              <li><a href="logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '2'){
+              ?>
+              <li><a href="adminukm/pecah/dashboard-adminukm">Halo <?php echo $_SESSION['nama_ukm']; ?></a></li>
+              <li><a href="logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '1'){
+              ?>
+              <li><a href="superadmin/pecah/dashboard-superadmin">Halo <?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="logout">Logout</a></li>
+              <?php
+              }
             }
           }else{
           ?>
+          <li><a href="form-pendaftaran">Pendaftaran</a></li>
           <li><a href="login">Login</a></li>
           <?php
           }
@@ -70,8 +83,8 @@
   <section id="hero" class="d-flex align-items-center">
     <?php 
     include 'koneksi.php';
-    $id_ukm = $_GET['id_ukm'];
-    $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
+    $ukm = $_GET['ukm'];
+    $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE slug='$ukm'");
     while ($a = mysqli_fetch_array($data)) {
     ?>
     <div class="container">
@@ -85,7 +98,18 @@
           </div>
         </div>
         <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="gambar/logo/<?php echo $a['logo_ukm']; ?>" class="img-fluid animated" alt="" width="300" height="300">
+          <?php
+            $img = $a['logo_ukm'];
+            if ($img == NULL) {
+            ?>
+              <img src="gambar/logo/blank.png" class="img-fluid animated" alt="" width="300" height="300">
+            <?php
+            }else{
+            ?>
+             <img src="gambar/logo/<?php echo $a['logo_ukm']; ?>" class="img-fluid animated" alt="" width="300" height="300">
+            <?php 
+            }
+          ?>
         </div>
       </div>
     </div>
@@ -104,7 +128,7 @@
         </div>
         <div class="row content">
           <?php 
-          $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE id_ukm='$id_ukm'");
+          $data = mysqli_query($db, "SELECT * FROM tb_ukm WHERE slug='$ukm'");
           while ($a = mysqli_fetch_array($data)) {
           ?>
           <div class="col-lg-6">
@@ -134,7 +158,7 @@
               <ul>
                 <?php 
                   $no = 1;
-                  $data = mysqli_query($db, "SELECT * FROM tb_prestasi WHERE id_ukm='$id_ukm'");
+                  $data = mysqli_query($db, "SELECT tb_ukm.slug, tb_prestasi.nama_prestasi FROM tb_prestasi INNER JOIN tb_ukm ON tb_prestasi.id_ukm=tb_ukm.id_ukm WHERE slug='$ukm'");
                   while ($a = mysqli_fetch_array($data)) {
                   ?>
                     <li>
@@ -153,7 +177,7 @@
             <div class="accordion-list">
               <?php 
               $no = 1;
-              $data = mysqli_query($db, "SELECT * FROM tb_divisi WHERE id_ukm='$id_ukm'");
+              $data = mysqli_query($db, "SELECT tb_ukm.slug, tb_divisi.nama_divisi FROM tb_divisi INNER JOIN tb_ukm ON tb_divisi.id_ukm=tb_ukm.id_ukm WHERE slug='$ukm'");
               while ($a = mysqli_fetch_array($data)) {
               ?>
               <ul>
@@ -178,7 +202,7 @@
         </div>      
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           <?php
-          $data = mysqli_query($db, "SELECT * FROM tb_kegiatan WHERE id_ukm='$id_ukm'");
+          $data = mysqli_query($db, "SELECT tb_ukm.slug, tb_kegiatan.nama_kegiatan, tb_kegiatan.keterangan FROM tb_kegiatan INNER JOIN tb_ukm ON tb_kegiatan.id_ukm=tb_ukm.id_ukm WHERE slug='$ukm'");
           while ($a = mysqli_fetch_array($data)) {
           ?>
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
@@ -203,12 +227,23 @@
         </div>
         <div class="row">
           <?php 
-          $data = mysqli_query($db, "SELECT tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_struktur.nama_mhs, tb_jabatan.id_jabatan, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_ukm ON tb_struktur.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi INNER JOIN  tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan WHERE tb_ukm.id_ukm='$id_ukm'");
+          $data = mysqli_query($db, "SELECT tb_ukm.id_ukm, tb_ukm.nama_ukm, tb_struktur.nama_mhs, tb_jabatan.id_jabatan, tb_jabatan.nama_jabatan, tb_prodi.nama_prodi, tb_struktur.angkatan, tb_struktur.foto FROM tb_struktur INNER JOIN tb_ukm ON tb_struktur.id_ukm = tb_ukm.id_ukm INNER JOIN tb_prodi ON tb_struktur.id_prodi = tb_prodi.id_prodi INNER JOIN  tb_jabatan ON tb_struktur.id_jabatan = tb_jabatan.id_jabatan WHERE tb_ukm.slug='$ukm'");
           while ($a = mysqli_fetch_array($data)) {
           ?>
           <div class="col-lg-6" style="margin-bottom: 25px;">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic rounded"><img align="center" width="150" height="300" src="gambar/struktur/<?php echo $a['foto']; ?>" class="profile-user-img img-fluid img-circle"></div>
+              <?php
+                $img = $a['foto'];
+                if ($img == NULL) {
+              ?>
+                <div class="pic rounded"><img align="center" width="150" height="300" src="gambar/struktur/user.png" class="profile-user-img img-fluid img-circle"></div>
+                <?php
+                }else{
+                ?>
+                  <div class="pic rounded"><img align="center" width="150" height="300" src="gambar/struktur/<?php echo $a['foto']; ?>" class="profile-user-img img-fluid img-circle"></div>
+                <?php 
+                }
+                ?>
               <div class="member-info">
                 <h4><?php echo $a['nama_mhs']; ?></h4>
                 <span><?php echo $a['nama_jabatan']." ".$a['nama_ukm']; ?></span>

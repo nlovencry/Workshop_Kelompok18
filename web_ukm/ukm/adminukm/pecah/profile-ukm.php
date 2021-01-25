@@ -7,9 +7,15 @@
   <?php 
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
-    if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
-    }
+      if ($_SESSION['status'] == 'Login') {
+        if($_SESSION['level'] == '3'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }elseif($_SESSION['level'] == '1'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }
+      }else{
+        echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../../login'; </script>";
+      }
   ?>
 <div class="wrapper">
   <?php include '../navbar.php'; ?>
@@ -51,9 +57,22 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
+                  <?php
+                    $img = $a['logo_ukm'];
+                    if ($img == NULL) {
+                    ?>
+                      <img class="profile-user-img img-fluid img-circle"
+                       src="../../gambar/logo/blank.png"
+                       alt="User profile picture">
+                    <?php
+                    }else{
+                    ?>
+                     <img class="profile-user-img img-fluid img-circle"
                        src="../../gambar/logo/<?php echo $a['logo_ukm']; ?>"
                        alt="User profile picture">
+                    <?php 
+                    }
+                  ?>
                 </div>
                 <h3 class="profile-username text-center"><?php echo $a['nama_ukm']; ?></h3>
                 <p class="text-muted text-center"><?php echo $a['deskripsi_ukm']; ?></p>

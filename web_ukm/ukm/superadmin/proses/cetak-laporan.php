@@ -4,9 +4,15 @@
   <?php 
   session_start();
     // cek apakah yang mengakses halaman ini sudah login
-    if($_SESSION['level']==""){
-      echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../login';</script>";
-    }
+      if ($_SESSION['status'] == 'Login') {
+        if($_SESSION['level'] == '3'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }elseif($_SESSION['level'] == '2'){
+          echo "<script>alert('Anda tidak dapat mengakses halaman ini!'); location='../../../index'; </script>";
+        }
+      }else{
+        echo "<script>alert('Silahkan login terlebih dahulu!'); location='../../../login'; </script>";
+      }
   ?>
 
 <div class="wrapper">

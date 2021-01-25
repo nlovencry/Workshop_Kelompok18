@@ -52,20 +52,33 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="../index">Home</a></li>
+          <li class="active"><a href="../index">Home</a></li>
           <li><a href="../index#ukm">UKM</a></li>
-          <li><a href="form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
-            ?>
-            <li class="active"><a href="profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
-            <li><a href="logout">Logout</a></li>
-            <?php
+              if($_SESSION['level'] == '3'){
+              ?>
+              <li><a href="form-pendaftaran">Pendaftaran</a></li>
+              <li><a href="mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
+              <li><a href="logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '2'){
+              ?>
+              <li><a href="adminukm/pecah/dashboard-adminukm">Halo <?php echo $_SESSION['nama_ukm']; ?></a></li>
+              <li><a href="logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '1'){
+              ?>
+              <li><a href="superadmin/pecah/dashboard-superadmin">Halo <?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="logout">Logout</a></li>
+              <?php
+              }
             }
           }else{
           ?>
+          <li><a href="form-pendaftaran">Pendaftaran</a></li>
           <li><a href="login">Login</a></li>
           <?php
           }

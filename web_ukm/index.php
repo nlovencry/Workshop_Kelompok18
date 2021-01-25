@@ -47,18 +47,31 @@
         <ul>
           <li class="active"><a href="index">Home</a></li>
           <li><a href="#ukm">UKM</a></li>
-          <li><a href="ukm/form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
-            ?>
-            <li><a href="ukm/mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
-            <li><a href="ukm/logout">Logout</a></li>
-            <?php
+              if($_SESSION['level'] == '3'){
+              ?>
+              <li><a href="ukm/form-pendaftaran">Pendaftaran</a></li>
+              <li><a href="ukm/mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
+              <li><a href="ukm/logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '2'){
+              ?>
+              <li><a href="ukm/adminukm/pecah/dashboard-adminukm">Halo <?php echo $_SESSION['nama_ukm']; ?></a></li>
+              <li><a href="ukm/logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '1'){
+              ?>
+              <li><a href="ukm/superadmin/pecah/dashboard-superadmin">Halo <?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="ukm/logout">Logout</a></li>
+              <?php
+              }
             }
           }else{
           ?>
+          <li><a href="ukm/form-pendaftaran">Pendaftaran</a></li>
           <li><a href="ukm/login">Login</a></li>
           <?php
           }
@@ -100,12 +113,22 @@
           include 'ukm/koneksi.php';
           $data = mysqli_query($db, "SELECT * FROM tb_ukm");
           while ($a = mysqli_fetch_array($data)) {
-            $id_ukm = $a['id_ukm'];
         ?>
           <div class="col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
             <div class="icon-box">
-              <div class="icon"><img src="ukm/gambar/logo/<?php echo $a['logo_ukm']; ?>" width="50" height="50"></i></div>
-              <h4><a href="ukm/homepage-ukm?id_ukm=<?php echo $id_ukm; ?>"><?php echo $a['nama_ukm']; ?></a></h4>
+              <?php
+                $img = $a['logo_ukm'];
+                if ($img == NULL) {
+              ?>
+                <div class="icon"><img src="ukm/gambar/logo/blank.png" width="50" height="50"></i></div>
+                <?php
+                }else{
+                ?>
+                  <div class="icon"><img src="ukm/gambar/logo/<?php echo $a['logo_ukm']; ?>" width="50" height="50"></i></div>
+                <?php 
+                }
+                ?>
+              <h4><a href="ukm/homepage-ukm?ukm=<?php echo $a['slug']; ?>"><?php echo $a['nama_ukm']; ?></a></h4>
               <p><?php echo $a['deskripsi_ukm']; ?></p>
             </div>
           </div>

@@ -51,23 +51,36 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="../../assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav class="nav-menu d-none d-lg-block">
+      <<nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="../../index">Home</a></li>
+          <li class="active"><a href="../../index">Home</a></li>
           <li><a href="../../index#ukm">UKM</a></li>
-          <li><a href="../form-pendaftaran">Pendaftaran</a></li>
           <?php
           session_start();
           if (isset($_SESSION['status'])){
             if ($_SESSION['status'] == 'Login') {
-            ?>
-            <li class="active"><a href="profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
-            <li><a href="../logout">Logout</a></li>
-            <?php
+              if($_SESSION['level'] == '3'){
+              ?>
+              <li><a href="../form-pendaftaran">Pendaftaran</a></li>
+              <li><a href="../mahasiswa/profile-mhs">Halo <?php echo $_SESSION['nama_mhs']; ?></a></li>
+              <li><a href="../logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '2'){
+              ?>
+              <li><a href="../adminukm/pecah/dashboard-adminukm">Halo <?php echo $_SESSION['nama_ukm']; ?></a></li>
+              <li><a href="../logout">Logout</a></li>
+              <?php
+              }elseif($_SESSION['level'] == '1'){
+              ?>
+              <li><a href="../superadmin/pecah/dashboard-superadmin">Halo <?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="../logout">Logout</a></li>
+              <?php
+              }
             }
           }else{
           ?>
-          <li><a href="../login">Login</a></li>
+          <li><a href="ukm/form-pendaftaran">Pendaftaran</a></li>
+          <li><a href="ukm/login">Login</a></li>
           <?php
           }
           ?>
@@ -84,7 +97,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="../homepage">Home</a></li>
+          <li><a href="../index">Home</a></li>
           <li>Profile Mahasiswa</li>
         </ol>
         <h2>Profile Mahasiswa</h2>
@@ -207,7 +220,7 @@
           <div class="col-sm-1">
             <div class="form-group">
               <label>Aksi</label>
-              <a href="keluar-ukm?id_ukm=<?php echo $a['id_ukm']; ?>" class="btn btn-danger">Keluar</a>
+              <a href="keluar-ukm?id_ukm=<?php echo $a['id_ukm']; ?>" onclick="return confirm('Apakah anda yakin akan keluar dari UKM ini?')" class="btn btn-danger">Keluar</a>
             </div>
           </div>
         </div>
